@@ -7,7 +7,12 @@ public final class BitriseConfiguration extends Configuration {
 
     public enum Parameter implements IParameter {
 
-        BITRISE_ACCESS_KEY_TOKEN("bitrise_access_token");
+        BITRISE_ACCESS_KEY_TOKEN("bitrise_access_token") {
+            @Override
+            public boolean hidden() {
+                return true;
+            }
+        };
 
         private final String name;
 
