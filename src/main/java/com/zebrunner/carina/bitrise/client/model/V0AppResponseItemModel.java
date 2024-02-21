@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class V0AppResponseItemModel {
   @SerializedName("avatar_url")
-  private NullsString avatarUrl = null;
+  private String avatarUrl = null;
 
   @SerializedName("is_disabled")
   private Boolean isDisabled = null;
@@ -40,19 +40,19 @@ public class V0AppResponseItemModel {
   private V0OwnerAccountResponseModel owner = null;
 
   @SerializedName("project_type")
-  private NullsString projectType = null;
+  private String projectType = null;
 
   @SerializedName("provider")
-  private NullsString provider = null;
+  private String provider = null;
 
   @SerializedName("repo_owner")
-  private NullsString repoOwner = null;
+  private String repoOwner = null;
 
   @SerializedName("repo_slug")
-  private NullsString repoSlug = null;
+  private String repoSlug = null;
 
   @SerializedName("repo_url")
-  private NullsString repoUrl = null;
+  private String repoUrl = null;
 
   @SerializedName("slug")
   private String slug = null;
@@ -63,7 +63,7 @@ public class V0AppResponseItemModel {
   @SerializedName("title")
   private String title = null;
 
-  public V0AppResponseItemModel avatarUrl(NullsString avatarUrl) {
+  public V0AppResponseItemModel avatarUrl(String avatarUrl) {
     this.avatarUrl = avatarUrl;
     return this;
   }
@@ -73,11 +73,11 @@ public class V0AppResponseItemModel {
    * @return avatarUrl
   **/
   
-  public NullsString getAvatarUrl() {
+  public String getAvatarUrl() {
     return avatarUrl;
   }
 
-  public void setAvatarUrl(NullsString avatarUrl) {
+  public void setAvatarUrl(String avatarUrl) {
     this.avatarUrl = avatarUrl;
   }
 
@@ -153,7 +153,7 @@ public class V0AppResponseItemModel {
     this.owner = owner;
   }
 
-  public V0AppResponseItemModel projectType(NullsString projectType) {
+  public V0AppResponseItemModel projectType(String projectType) {
     this.projectType = projectType;
     return this;
   }
@@ -163,15 +163,15 @@ public class V0AppResponseItemModel {
    * @return projectType
   **/
   
-  public NullsString getProjectType() {
+  public String getProjectType() {
     return projectType;
   }
 
-  public void setProjectType(NullsString projectType) {
+  public void setProjectType(String projectType) {
     this.projectType = projectType;
   }
 
-  public V0AppResponseItemModel provider(NullsString provider) {
+  public V0AppResponseItemModel provider(String provider) {
     this.provider = provider;
     return this;
   }
@@ -181,15 +181,15 @@ public class V0AppResponseItemModel {
    * @return provider
   **/
   
-  public NullsString getProvider() {
+  public String getProvider() {
     return provider;
   }
 
-  public void setProvider(NullsString provider) {
+  public void setProvider(String provider) {
     this.provider = provider;
   }
 
-  public V0AppResponseItemModel repoOwner(NullsString repoOwner) {
+  public V0AppResponseItemModel repoOwner(String repoOwner) {
     this.repoOwner = repoOwner;
     return this;
   }
@@ -199,15 +199,15 @@ public class V0AppResponseItemModel {
    * @return repoOwner
   **/
   
-  public NullsString getRepoOwner() {
+  public String getRepoOwner() {
     return repoOwner;
   }
 
-  public void setRepoOwner(NullsString repoOwner) {
+  public void setRepoOwner(String repoOwner) {
     this.repoOwner = repoOwner;
   }
 
-  public V0AppResponseItemModel repoSlug(NullsString repoSlug) {
+  public V0AppResponseItemModel repoSlug(String repoSlug) {
     this.repoSlug = repoSlug;
     return this;
   }
@@ -217,15 +217,15 @@ public class V0AppResponseItemModel {
    * @return repoSlug
   **/
   
-  public NullsString getRepoSlug() {
+  public String getRepoSlug() {
     return repoSlug;
   }
 
-  public void setRepoSlug(NullsString repoSlug) {
+  public void setRepoSlug(String repoSlug) {
     this.repoSlug = repoSlug;
   }
 
-  public V0AppResponseItemModel repoUrl(NullsString repoUrl) {
+  public V0AppResponseItemModel repoUrl(String repoUrl) {
     this.repoUrl = repoUrl;
     return this;
   }
@@ -235,11 +235,11 @@ public class V0AppResponseItemModel {
    * @return repoUrl
   **/
   
-  public NullsString getRepoUrl() {
+  public String getRepoUrl() {
     return repoUrl;
   }
 
-  public void setRepoUrl(NullsString repoUrl) {
+  public void setRepoUrl(String repoUrl) {
     this.repoUrl = repoUrl;
   }
 

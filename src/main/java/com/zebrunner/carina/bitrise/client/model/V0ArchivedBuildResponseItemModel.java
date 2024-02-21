@@ -52,7 +52,7 @@ public class V0ArchivedBuildResponseItemModel {
   private String machineTypeId = null;
 
   @SerializedName("original_build_params")
-  private List<Integer> originalBuildParams = null;
+  private Object originalBuildParams = null;
 
   @SerializedName("pipeline_workflow_id")
   private String pipelineWorkflowId = null;
@@ -260,16 +260,16 @@ public class V0ArchivedBuildResponseItemModel {
     this.machineTypeId = machineTypeId;
   }
 
-  public V0ArchivedBuildResponseItemModel originalBuildParams(List<Integer> originalBuildParams) {
+  public V0ArchivedBuildResponseItemModel originalBuildParams(Object originalBuildParams) {
     this.originalBuildParams = originalBuildParams;
     return this;
   }
 
-  public V0ArchivedBuildResponseItemModel addOriginalBuildParamsItem(Integer originalBuildParamsItem) {
+  public V0ArchivedBuildResponseItemModel addOriginalBuildParamsItem(Object originalBuildParamsItem) {
     if (this.originalBuildParams == null) {
-      this.originalBuildParams = new ArrayList<Integer>();
+      this.originalBuildParams = new ArrayList<Object>();
     }
-    this.originalBuildParams.add(originalBuildParamsItem);
+    this.originalBuildParams = originalBuildParamsItem;
     return this;
   }
 
@@ -278,11 +278,11 @@ public class V0ArchivedBuildResponseItemModel {
    * @return originalBuildParams
   **/
   
-  public List<Integer> getOriginalBuildParams() {
+  public Object getOriginalBuildParams() {
     return originalBuildParams;
   }
 
-  public void setOriginalBuildParams(List<Integer> originalBuildParams) {
+  public void setOriginalBuildParams(Object originalBuildParams) {
     this.originalBuildParams = originalBuildParams;
   }
 

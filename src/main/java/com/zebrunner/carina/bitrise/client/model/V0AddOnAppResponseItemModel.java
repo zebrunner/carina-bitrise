@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class V0AddOnAppResponseItemModel {
   @SerializedName("icon")
-  private NullsString icon = null;
+  private String icon = null;
 
   @SerializedName("plan")
   private AddonsPlan plan = null;
@@ -39,7 +39,7 @@ public class V0AddOnAppResponseItemModel {
   @SerializedName("title")
   private String title = null;
 
-  public V0AddOnAppResponseItemModel icon(NullsString icon) {
+  public V0AddOnAppResponseItemModel icon(String icon) {
     this.icon = icon;
     return this;
   }
@@ -49,11 +49,11 @@ public class V0AddOnAppResponseItemModel {
    * @return icon
   **/
   
-  public NullsString getIcon() {
+  public String getIcon() {
     return icon;
   }
 
-  public void setIcon(NullsString icon) {
+  public void setIcon(String icon) {
     this.icon = icon;
   }
 

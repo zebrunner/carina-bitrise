@@ -37,7 +37,7 @@ public class V0PlanDataModel {
   private String name = null;
 
   @SerializedName("price")
-  private NullsInt64 price = null;
+  private Integer price = null;
 
   public V0PlanDataModel containerCount(Integer containerCount) {
     this.containerCount = containerCount;
@@ -111,7 +111,7 @@ public class V0PlanDataModel {
     this.name = name;
   }
 
-  public V0PlanDataModel price(NullsInt64 price) {
+  public V0PlanDataModel price(Integer price) {
     this.price = price;
     return this;
   }
@@ -121,11 +121,11 @@ public class V0PlanDataModel {
    * @return price
   **/
 
-  public NullsInt64 getPrice() {
+  public Integer getPrice() {
     return price;
   }
 
-  public void setPrice(NullsInt64 price) {
+  public void setPrice(Integer price) {
     this.price = price;
   }
 

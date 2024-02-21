@@ -25,10 +25,10 @@ import java.util.Objects;
 
 public class V0ArtifactListElementResponseModel {
   @SerializedName("artifact_meta")
-  private List<Integer> artifactMeta = null;
+  private Object artifactMeta = null;
 
   @SerializedName("artifact_type")
-  private NullsString artifactType = null;
+  private String artifactType = null;
 
   @SerializedName("file_size_bytes")
   private Integer fileSizeBytes = null;
@@ -43,18 +43,18 @@ public class V0ArtifactListElementResponseModel {
   private String slug = null;
 
   @SerializedName("title")
-  private NullsString title = null;
+  private String title = null;
 
-  public V0ArtifactListElementResponseModel artifactMeta(List<Integer> artifactMeta) {
+  public V0ArtifactListElementResponseModel artifactMeta(Object artifactMeta) {
     this.artifactMeta = artifactMeta;
     return this;
   }
 
-  public V0ArtifactListElementResponseModel addArtifactMetaItem(Integer artifactMetaItem) {
+  public V0ArtifactListElementResponseModel addArtifactMetaItem(Object artifactMetaItem) {
     if (this.artifactMeta == null) {
-      this.artifactMeta = new ArrayList<Integer>();
+      this.artifactMeta = new Object();
     }
-    this.artifactMeta.add(artifactMetaItem);
+    this.artifactMeta = artifactMetaItem;
     return this;
   }
 
@@ -63,15 +63,15 @@ public class V0ArtifactListElementResponseModel {
    * @return artifactMeta
   **/
 
-  public List<Integer> getArtifactMeta() {
+  public Object getArtifactMeta() {
     return artifactMeta;
   }
 
-  public void setArtifactMeta(List<Integer> artifactMeta) {
+  public void setArtifactMeta(Object artifactMeta) {
     this.artifactMeta = artifactMeta;
   }
 
-  public V0ArtifactListElementResponseModel artifactType(NullsString artifactType) {
+  public V0ArtifactListElementResponseModel artifactType(String artifactType) {
     this.artifactType = artifactType;
     return this;
   }
@@ -81,11 +81,11 @@ public class V0ArtifactListElementResponseModel {
    * @return artifactType
   **/
 
-  public NullsString getArtifactType() {
+  public String getArtifactType() {
     return artifactType;
   }
 
-  public void setArtifactType(NullsString artifactType) {
+  public void setArtifactType(String artifactType) {
     this.artifactType = artifactType;
   }
 
@@ -169,7 +169,7 @@ public class V0ArtifactListElementResponseModel {
     this.slug = slug;
   }
 
-  public V0ArtifactListElementResponseModel title(NullsString title) {
+  public V0ArtifactListElementResponseModel title(String title) {
     this.title = title;
     return this;
   }
@@ -179,11 +179,11 @@ public class V0ArtifactListElementResponseModel {
    * @return title
   **/
 
-  public NullsString getTitle() {
+  public String getTitle() {
     return title;
   }
 
-  public void setTitle(NullsString title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 

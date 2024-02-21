@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class V0ArchivedBuildArtifact {
   @SerializedName("artifact_meta")
-  private Map<String, Object> artifactMeta = null;
+  private Object artifactMeta = null;
 
   @SerializedName("artifact_type")
   private String artifactType = null;
@@ -48,16 +48,16 @@ public class V0ArchivedBuildArtifact {
   @SerializedName("title")
   private String title = null;
 
-  public V0ArchivedBuildArtifact artifactMeta(Map<String, Object> artifactMeta) {
-    this.artifactMeta = artifactMeta;
+  public V0ArchivedBuildArtifact artifactMeta(Object o) {
+    this.artifactMeta = o;
     return this;
   }
 
-  public V0ArchivedBuildArtifact putArtifactMetaItem(String key, Object artifactMetaItem) {
+  public V0ArchivedBuildArtifact putArtifactMetaItem(Object o) {
     if (this.artifactMeta == null) {
-      this.artifactMeta = new HashMap<String, Object>();
+      this.artifactMeta = new Object();
     }
-    this.artifactMeta.put(key, artifactMetaItem);
+    this.artifactMeta = o;
     return this;
   }
 
@@ -66,11 +66,11 @@ public class V0ArchivedBuildArtifact {
    * @return artifactMeta
   **/
   
-  public Map<String, Object> getArtifactMeta() {
+  public Object getArtifactMeta() {
     return artifactMeta;
   }
 
-  public void setArtifactMeta(Map<String, Object> artifactMeta) {
+  public void setArtifactMeta(Object artifactMeta) {
     this.artifactMeta = artifactMeta;
   }
 

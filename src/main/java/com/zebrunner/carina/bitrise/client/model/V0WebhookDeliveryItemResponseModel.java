@@ -37,16 +37,16 @@ public class V0WebhookDeliveryItemResponseModel {
   private String requestUrl = null;
 
   @SerializedName("response_body")
-  private NullsString responseBody = null;
+  private String responseBody = null;
 
   @SerializedName("response_headers")
-  private NullsString responseHeaders = null;
+  private String responseHeaders = null;
 
   @SerializedName("response_http_status")
-  private NullsInt64 responseHttpStatus = null;
+  private Integer responseHttpStatus = null;
 
   @SerializedName("response_seconds")
-  private NullsInt64 responseSeconds = null;
+  private Integer responseSeconds = null;
 
   @SerializedName("slug")
   private String slug = null;
@@ -126,7 +126,7 @@ public class V0WebhookDeliveryItemResponseModel {
     this.requestUrl = requestUrl;
   }
 
-  public V0WebhookDeliveryItemResponseModel responseBody(NullsString responseBody) {
+  public V0WebhookDeliveryItemResponseModel responseBody(String responseBody) {
     this.responseBody = responseBody;
     return this;
   }
@@ -136,15 +136,15 @@ public class V0WebhookDeliveryItemResponseModel {
    * @return responseBody
   **/
   
-  public NullsString getResponseBody() {
+  public String getResponseBody() {
     return responseBody;
   }
 
-  public void setResponseBody(NullsString responseBody) {
+  public void setResponseBody(String responseBody) {
     this.responseBody = responseBody;
   }
 
-  public V0WebhookDeliveryItemResponseModel responseHeaders(NullsString responseHeaders) {
+  public V0WebhookDeliveryItemResponseModel responseHeaders(String responseHeaders) {
     this.responseHeaders = responseHeaders;
     return this;
   }
@@ -154,15 +154,15 @@ public class V0WebhookDeliveryItemResponseModel {
    * @return responseHeaders
   **/
   
-  public NullsString getResponseHeaders() {
+  public String getResponseHeaders() {
     return responseHeaders;
   }
 
-  public void setResponseHeaders(NullsString responseHeaders) {
+  public void setResponseHeaders(String responseHeaders) {
     this.responseHeaders = responseHeaders;
   }
 
-  public V0WebhookDeliveryItemResponseModel responseHttpStatus(NullsInt64 responseHttpStatus) {
+  public V0WebhookDeliveryItemResponseModel responseHttpStatus(Integer responseHttpStatus) {
     this.responseHttpStatus = responseHttpStatus;
     return this;
   }
@@ -172,15 +172,15 @@ public class V0WebhookDeliveryItemResponseModel {
    * @return responseHttpStatus
   **/
   
-  public NullsInt64 getResponseHttpStatus() {
+  public Integer getResponseHttpStatus() {
     return responseHttpStatus;
   }
 
-  public void setResponseHttpStatus(NullsInt64 responseHttpStatus) {
+  public void setResponseHttpStatus(Integer responseHttpStatus) {
     this.responseHttpStatus = responseHttpStatus;
   }
 
-  public V0WebhookDeliveryItemResponseModel responseSeconds(NullsInt64 responseSeconds) {
+  public V0WebhookDeliveryItemResponseModel responseSeconds(Integer responseSeconds) {
     this.responseSeconds = responseSeconds;
     return this;
   }
@@ -190,11 +190,11 @@ public class V0WebhookDeliveryItemResponseModel {
    * @return responseSeconds
   **/
   
-  public NullsInt64 getResponseSeconds() {
+  public Integer getResponseSeconds() {
     return responseSeconds;
   }
 
-  public void setResponseSeconds(NullsInt64 responseSeconds) {
+  public void setResponseSeconds(Integer responseSeconds) {
     this.responseSeconds = responseSeconds;
   }
 

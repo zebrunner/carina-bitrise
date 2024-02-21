@@ -25,25 +25,25 @@ import java.util.Objects;
 
 public class V0BuildListAllResponseItemModel {
   @SerializedName("abort_reason")
-  private NullsString abortReason = null;
+  private String abortReason = null;
 
   @SerializedName("branch")
-  private NullsString branch = null;
+  private String branch = null;
 
   @SerializedName("build_number")
   private Integer buildNumber = null;
 
   @SerializedName("commit_hash")
-  private NullsString commitHash = null;
+  private String commitHash = null;
 
   @SerializedName("commit_message")
-  private NullsString commitMessage = null;
+  private String commitMessage = null;
 
   @SerializedName("commit_view_url")
-  private NullsString commitViewUrl = null;
+  private String commitViewUrl = null;
 
   @SerializedName("credit_cost")
-  private NullsInt64 creditCost = null;
+  private Integer creditCost = null;
 
   @SerializedName("environment_prepare_finished_at")
   private String environmentPrepareFinishedAt = null;
@@ -58,19 +58,19 @@ public class V0BuildListAllResponseItemModel {
   private Boolean isProcessed = null;
 
   @SerializedName("machine_type_id")
-  private NullsString machineTypeId = null;
+  private String machineTypeId = null;
 
   @SerializedName("original_build_params")
-  private List<Integer> originalBuildParams = null;
+  private Object originalBuildParams = null;
 
   @SerializedName("pull_request_id")
   private Integer pullRequestId = null;
 
   @SerializedName("pull_request_target_branch")
-  private NullsString pullRequestTargetBranch = null;
+  private String pullRequestTargetBranch = null;
 
   @SerializedName("pull_request_view_url")
-  private NullsString pullRequestViewUrl = null;
+  private String pullRequestViewUrl = null;
 
   @SerializedName("repository")
   private V0AppResponseItemModel repository = null;
@@ -79,7 +79,7 @@ public class V0BuildListAllResponseItemModel {
   private String slug = null;
 
   @SerializedName("stack_identifier")
-  private NullsString stackIdentifier = null;
+  private String stackIdentifier = null;
 
   @SerializedName("started_on_worker_at")
   private String startedOnWorkerAt = null;
@@ -91,18 +91,18 @@ public class V0BuildListAllResponseItemModel {
   private String statusText = null;
 
   @SerializedName("tag")
-  private NullsString tag = null;
+  private String tag = null;
 
   @SerializedName("triggered_at")
   private String triggeredAt = null;
 
   @SerializedName("triggered_by")
-  private NullsString triggeredBy = null;
+  private String triggeredBy = null;
 
   @SerializedName("triggered_workflow")
   private String triggeredWorkflow = null;
 
-  public V0BuildListAllResponseItemModel abortReason(NullsString abortReason) {
+  public V0BuildListAllResponseItemModel abortReason(String abortReason) {
     this.abortReason = abortReason;
     return this;
   }
@@ -112,15 +112,15 @@ public class V0BuildListAllResponseItemModel {
    * @return abortReason
   **/
   
-  public NullsString getAbortReason() {
+  public String getAbortReason() {
     return abortReason;
   }
 
-  public void setAbortReason(NullsString abortReason) {
+  public void setAbortReason(String abortReason) {
     this.abortReason = abortReason;
   }
 
-  public V0BuildListAllResponseItemModel branch(NullsString branch) {
+  public V0BuildListAllResponseItemModel branch(String branch) {
     this.branch = branch;
     return this;
   }
@@ -130,11 +130,11 @@ public class V0BuildListAllResponseItemModel {
    * @return branch
   **/
   
-  public NullsString getBranch() {
+  public String getBranch() {
     return branch;
   }
 
-  public void setBranch(NullsString branch) {
+  public void setBranch(String branch) {
     this.branch = branch;
   }
 
@@ -156,7 +156,7 @@ public class V0BuildListAllResponseItemModel {
     this.buildNumber = buildNumber;
   }
 
-  public V0BuildListAllResponseItemModel commitHash(NullsString commitHash) {
+  public V0BuildListAllResponseItemModel commitHash(String commitHash) {
     this.commitHash = commitHash;
     return this;
   }
@@ -166,15 +166,15 @@ public class V0BuildListAllResponseItemModel {
    * @return commitHash
   **/
   
-  public NullsString getCommitHash() {
+  public String getCommitHash() {
     return commitHash;
   }
 
-  public void setCommitHash(NullsString commitHash) {
+  public void setCommitHash(String commitHash) {
     this.commitHash = commitHash;
   }
 
-  public V0BuildListAllResponseItemModel commitMessage(NullsString commitMessage) {
+  public V0BuildListAllResponseItemModel commitMessage(String commitMessage) {
     this.commitMessage = commitMessage;
     return this;
   }
@@ -184,15 +184,15 @@ public class V0BuildListAllResponseItemModel {
    * @return commitMessage
   **/
   
-  public NullsString getCommitMessage() {
+  public String getCommitMessage() {
     return commitMessage;
   }
 
-  public void setCommitMessage(NullsString commitMessage) {
+  public void setCommitMessage(String commitMessage) {
     this.commitMessage = commitMessage;
   }
 
-  public V0BuildListAllResponseItemModel commitViewUrl(NullsString commitViewUrl) {
+  public V0BuildListAllResponseItemModel commitViewUrl(String commitViewUrl) {
     this.commitViewUrl = commitViewUrl;
     return this;
   }
@@ -202,15 +202,15 @@ public class V0BuildListAllResponseItemModel {
    * @return commitViewUrl
   **/
   
-  public NullsString getCommitViewUrl() {
+  public String getCommitViewUrl() {
     return commitViewUrl;
   }
 
-  public void setCommitViewUrl(NullsString commitViewUrl) {
+  public void setCommitViewUrl(String commitViewUrl) {
     this.commitViewUrl = commitViewUrl;
   }
 
-  public V0BuildListAllResponseItemModel creditCost(NullsInt64 creditCost) {
+  public V0BuildListAllResponseItemModel creditCost(Integer creditCost) {
     this.creditCost = creditCost;
     return this;
   }
@@ -220,11 +220,11 @@ public class V0BuildListAllResponseItemModel {
    * @return creditCost
   **/
   
-  public NullsInt64 getCreditCost() {
+  public Integer getCreditCost() {
     return creditCost;
   }
 
-  public void setCreditCost(NullsInt64 creditCost) {
+  public void setCreditCost(Integer creditCost) {
     this.creditCost = creditCost;
   }
 
@@ -300,7 +300,7 @@ public class V0BuildListAllResponseItemModel {
     this.isProcessed = isProcessed;
   }
 
-  public V0BuildListAllResponseItemModel machineTypeId(NullsString machineTypeId) {
+  public V0BuildListAllResponseItemModel machineTypeId(String machineTypeId) {
     this.machineTypeId = machineTypeId;
     return this;
   }
@@ -310,24 +310,24 @@ public class V0BuildListAllResponseItemModel {
    * @return machineTypeId
   **/
   
-  public NullsString getMachineTypeId() {
+  public String getMachineTypeId() {
     return machineTypeId;
   }
 
-  public void setMachineTypeId(NullsString machineTypeId) {
+  public void setMachineTypeId(String machineTypeId) {
     this.machineTypeId = machineTypeId;
   }
 
-  public V0BuildListAllResponseItemModel originalBuildParams(List<Integer> originalBuildParams) {
+  public V0BuildListAllResponseItemModel originalBuildParams(Object originalBuildParams) {
     this.originalBuildParams = originalBuildParams;
     return this;
   }
 
-  public V0BuildListAllResponseItemModel addOriginalBuildParamsItem(Integer originalBuildParamsItem) {
+  public V0BuildListAllResponseItemModel addOriginalBuildParamsItem(Object originalBuildParamsItem) {
     if (this.originalBuildParams == null) {
-      this.originalBuildParams = new ArrayList<Integer>();
+      this.originalBuildParams = new ArrayList<Object>();
     }
-    this.originalBuildParams.add(originalBuildParamsItem);
+    this.originalBuildParams = originalBuildParamsItem;
     return this;
   }
 
@@ -336,11 +336,11 @@ public class V0BuildListAllResponseItemModel {
    * @return originalBuildParams
   **/
   
-  public List<Integer> getOriginalBuildParams() {
+  public Object getOriginalBuildParams() {
     return originalBuildParams;
   }
 
-  public void setOriginalBuildParams(List<Integer> originalBuildParams) {
+  public void setOriginalBuildParams(Object originalBuildParams) {
     this.originalBuildParams = originalBuildParams;
   }
 
@@ -362,7 +362,7 @@ public class V0BuildListAllResponseItemModel {
     this.pullRequestId = pullRequestId;
   }
 
-  public V0BuildListAllResponseItemModel pullRequestTargetBranch(NullsString pullRequestTargetBranch) {
+  public V0BuildListAllResponseItemModel pullRequestTargetBranch(String pullRequestTargetBranch) {
     this.pullRequestTargetBranch = pullRequestTargetBranch;
     return this;
   }
@@ -372,15 +372,15 @@ public class V0BuildListAllResponseItemModel {
    * @return pullRequestTargetBranch
   **/
   
-  public NullsString getPullRequestTargetBranch() {
+  public String getPullRequestTargetBranch() {
     return pullRequestTargetBranch;
   }
 
-  public void setPullRequestTargetBranch(NullsString pullRequestTargetBranch) {
+  public void setPullRequestTargetBranch(String pullRequestTargetBranch) {
     this.pullRequestTargetBranch = pullRequestTargetBranch;
   }
 
-  public V0BuildListAllResponseItemModel pullRequestViewUrl(NullsString pullRequestViewUrl) {
+  public V0BuildListAllResponseItemModel pullRequestViewUrl(String pullRequestViewUrl) {
     this.pullRequestViewUrl = pullRequestViewUrl;
     return this;
   }
@@ -390,11 +390,11 @@ public class V0BuildListAllResponseItemModel {
    * @return pullRequestViewUrl
   **/
   
-  public NullsString getPullRequestViewUrl() {
+  public String getPullRequestViewUrl() {
     return pullRequestViewUrl;
   }
 
-  public void setPullRequestViewUrl(NullsString pullRequestViewUrl) {
+  public void setPullRequestViewUrl(String pullRequestViewUrl) {
     this.pullRequestViewUrl = pullRequestViewUrl;
   }
 
@@ -434,7 +434,7 @@ public class V0BuildListAllResponseItemModel {
     this.slug = slug;
   }
 
-  public V0BuildListAllResponseItemModel stackIdentifier(NullsString stackIdentifier) {
+  public V0BuildListAllResponseItemModel stackIdentifier(String stackIdentifier) {
     this.stackIdentifier = stackIdentifier;
     return this;
   }
@@ -444,11 +444,11 @@ public class V0BuildListAllResponseItemModel {
    * @return stackIdentifier
   **/
   
-  public NullsString getStackIdentifier() {
+  public String getStackIdentifier() {
     return stackIdentifier;
   }
 
-  public void setStackIdentifier(NullsString stackIdentifier) {
+  public void setStackIdentifier(String stackIdentifier) {
     this.stackIdentifier = stackIdentifier;
   }
 
@@ -506,7 +506,7 @@ public class V0BuildListAllResponseItemModel {
     this.statusText = statusText;
   }
 
-  public V0BuildListAllResponseItemModel tag(NullsString tag) {
+  public V0BuildListAllResponseItemModel tag(String tag) {
     this.tag = tag;
     return this;
   }
@@ -516,11 +516,11 @@ public class V0BuildListAllResponseItemModel {
    * @return tag
   **/
   
-  public NullsString getTag() {
+  public String getTag() {
     return tag;
   }
 
-  public void setTag(NullsString tag) {
+  public void setTag(String tag) {
     this.tag = tag;
   }
 
@@ -542,7 +542,7 @@ public class V0BuildListAllResponseItemModel {
     this.triggeredAt = triggeredAt;
   }
 
-  public V0BuildListAllResponseItemModel triggeredBy(NullsString triggeredBy) {
+  public V0BuildListAllResponseItemModel triggeredBy(String triggeredBy) {
     this.triggeredBy = triggeredBy;
     return this;
   }
@@ -552,11 +552,11 @@ public class V0BuildListAllResponseItemModel {
    * @return triggeredBy
   **/
   
-  public NullsString getTriggeredBy() {
+  public String getTriggeredBy() {
     return triggeredBy;
   }
 
-  public void setTriggeredBy(NullsString triggeredBy) {
+  public void setTriggeredBy(String triggeredBy) {
     this.triggeredBy = triggeredBy;
   }
 

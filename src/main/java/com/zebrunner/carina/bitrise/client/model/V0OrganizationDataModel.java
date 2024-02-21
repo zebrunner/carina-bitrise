@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class V0OrganizationDataModel {
   @SerializedName("avatar_icon_url")
-  private NullsString avatarIconUrl = null;
+  private String avatarIconUrl = null;
 
   @SerializedName("concurrency_count")
   private Integer concurrencyCount = null;
@@ -39,7 +39,7 @@ public class V0OrganizationDataModel {
   @SerializedName("slug")
   private String slug = null;
 
-  public V0OrganizationDataModel avatarIconUrl(NullsString avatarIconUrl) {
+  public V0OrganizationDataModel avatarIconUrl(String avatarIconUrl) {
     this.avatarIconUrl = avatarIconUrl;
     return this;
   }
@@ -49,11 +49,11 @@ public class V0OrganizationDataModel {
    * @return avatarIconUrl
   **/
   
-  public NullsString getAvatarIconUrl() {
+  public String getAvatarIconUrl() {
     return avatarIconUrl;
   }
 
-  public void setAvatarIconUrl(NullsString avatarIconUrl) {
+  public void setAvatarIconUrl(String avatarIconUrl) {
     this.avatarIconUrl = avatarIconUrl;
   }
 

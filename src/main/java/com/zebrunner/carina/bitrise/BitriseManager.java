@@ -6,7 +6,6 @@ import com.zebrunner.carina.bitrise.client.ApiResponse;
 import com.zebrunner.carina.bitrise.client.api.ApplicationApi;
 import com.zebrunner.carina.bitrise.client.api.BuildArtifactApi;
 import com.zebrunner.carina.bitrise.client.api.BuildsApi;
-import com.zebrunner.carina.bitrise.client.model.NullsString;
 import com.zebrunner.carina.bitrise.client.model.V0ArtifactListElementResponseModel;
 import com.zebrunner.carina.bitrise.client.model.V0ArtifactListResponseModel;
 import com.zebrunner.carina.bitrise.client.model.V0ArtifactShowResponseModel;
@@ -203,17 +202,16 @@ public class BitriseManager implements IArtifactManager {
                 List<V0ArtifactListElementResponseModel> artifacts = artifactListResponse.getData().getData();
 
                 V0ArtifactListElementResponseModel artifact = artifacts.stream()
-                        .filter(a -> artifactNamePattern.matcher(a.getTitle().getString()).find())
+                        .filter(a -> artifactNamePattern.matcher(a.getTitle()).find())
                         .findAny()
                         .orElseThrow(() -> new BitriseException(
                                 String.format("Could not find artifact in build '%s' which title matches '%s' pattern. Available artifacts: %s",
                                         buildNumber, artifactNamePatternString,
                                         artifacts.stream()
                                                 .map(V0ArtifactListElementResponseModel::getTitle)
-                                                .map(NullsString::getString)
                                                 .collect(Collectors.toList()))));
 
-                ApiResponse<V0ArtifactShowResponseModel> artifactResponse = buildArtifactApi.artifactShowWithHttpInfo(appId, buildNumber,
+                ApiResponse<V0ArtifactShowResponseModel> artifactResponse = buildArtifactApi.artifactShowWithHttpInfo(appId, build.getSlug(),
                         artifact.getSlug(), null);
                 if (artifactResponse.getStatusCode() != 200) {
                     throw new BitriseException(

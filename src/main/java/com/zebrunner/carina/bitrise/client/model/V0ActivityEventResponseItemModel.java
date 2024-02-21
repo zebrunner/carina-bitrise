@@ -28,13 +28,13 @@ public class V0ActivityEventResponseItemModel {
   private String createdAt = null;
 
   @SerializedName("description")
-  private NullsString description = null;
+  private String description = null;
 
   @SerializedName("event_icon")
-  private NullsString eventIcon = null;
+  private String eventIcon = null;
 
   @SerializedName("event_stype")
-  private NullsString eventStype = null;
+  private String eventStype = null;
 
   @SerializedName("repository_avatar_icon_url")
   private String repositoryAvatarIconUrl = null;
@@ -46,10 +46,10 @@ public class V0ActivityEventResponseItemModel {
   private String slug = null;
 
   @SerializedName("target_path_string")
-  private NullsString targetPathString = null;
+  private String targetPathString = null;
 
   @SerializedName("title")
-  private NullsString title = null;
+  private String title = null;
 
   public V0ActivityEventResponseItemModel createdAt(String createdAt) {
     this.createdAt = createdAt;
@@ -69,7 +69,7 @@ public class V0ActivityEventResponseItemModel {
     this.createdAt = createdAt;
   }
 
-  public V0ActivityEventResponseItemModel description(NullsString description) {
+  public V0ActivityEventResponseItemModel description(String description) {
     this.description = description;
     return this;
   }
@@ -79,15 +79,15 @@ public class V0ActivityEventResponseItemModel {
    * @return description
   **/
 
-  public NullsString getDescription() {
+  public String getDescription() {
     return description;
   }
 
-  public void setDescription(NullsString description) {
+  public void setDescription(String description) {
     this.description = description;
   }
 
-  public V0ActivityEventResponseItemModel eventIcon(NullsString eventIcon) {
+  public V0ActivityEventResponseItemModel eventIcon(String eventIcon) {
     this.eventIcon = eventIcon;
     return this;
   }
@@ -97,15 +97,15 @@ public class V0ActivityEventResponseItemModel {
    * @return eventIcon
   **/
 
-  public NullsString getEventIcon() {
+  public String getEventIcon() {
     return eventIcon;
   }
 
-  public void setEventIcon(NullsString eventIcon) {
+  public void setEventIcon(String eventIcon) {
     this.eventIcon = eventIcon;
   }
 
-  public V0ActivityEventResponseItemModel eventStype(NullsString eventStype) {
+  public V0ActivityEventResponseItemModel eventStype(String eventStype) {
     this.eventStype = eventStype;
     return this;
   }
@@ -115,11 +115,11 @@ public class V0ActivityEventResponseItemModel {
    * @return eventStype
   **/
 
-  public NullsString getEventStype() {
+  public String getEventStype() {
     return eventStype;
   }
 
-  public void setEventStype(NullsString eventStype) {
+  public void setEventStype(String eventStype) {
     this.eventStype = eventStype;
   }
 
@@ -177,7 +177,7 @@ public class V0ActivityEventResponseItemModel {
     this.slug = slug;
   }
 
-  public V0ActivityEventResponseItemModel targetPathString(NullsString targetPathString) {
+  public V0ActivityEventResponseItemModel targetPathString(String targetPathString) {
     this.targetPathString = targetPathString;
     return this;
   }
@@ -187,15 +187,15 @@ public class V0ActivityEventResponseItemModel {
    * @return targetPathString
   **/
 
-  public NullsString getTargetPathString() {
+  public String getTargetPathString() {
     return targetPathString;
   }
 
-  public void setTargetPathString(NullsString targetPathString) {
+  public void setTargetPathString(String targetPathString) {
     this.targetPathString = targetPathString;
   }
 
-  public V0ActivityEventResponseItemModel title(NullsString title) {
+  public V0ActivityEventResponseItemModel title(String title) {
     this.title = title;
     return this;
   }
@@ -205,11 +205,11 @@ public class V0ActivityEventResponseItemModel {
    * @return title
   **/
 
-  public NullsString getTitle() {
+  public String getTitle() {
     return title;
   }
 
-  public void setTitle(NullsString title) {
+  public void setTitle(String title) {
     this.title = title;
   }
 

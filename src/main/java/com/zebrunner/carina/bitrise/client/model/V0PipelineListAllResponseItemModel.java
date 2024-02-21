@@ -25,19 +25,19 @@ import java.util.Objects;
 
 public class V0PipelineListAllResponseItemModel {
   @SerializedName("branch")
-  private NullsString branch = null;
+  private String branch = null;
 
   @SerializedName("build_number")
   private Integer buildNumber = null;
 
   @SerializedName("commit_hash")
-  private NullsString commitHash = null;
+  private String commitHash = null;
 
   @SerializedName("commit_message")
-  private NullsString commitMessage = null;
+  private String commitMessage = null;
 
   @SerializedName("credit_cost")
-  private NullsInt64 creditCost = null;
+  private Integer creditCost = null;
 
   @SerializedName("finished_at")
   private String finishedAt = null;
@@ -55,7 +55,7 @@ public class V0PipelineListAllResponseItemModel {
   private Integer pullRequestId = null;
 
   @SerializedName("pull_request_target_branch")
-  private NullsString pullRequestTargetBranch = null;
+  private String pullRequestTargetBranch = null;
 
   @SerializedName("repository")
   private V0AppResponseItemModel repository = null;
@@ -70,18 +70,18 @@ public class V0PipelineListAllResponseItemModel {
   private Integer status = null;
 
   @SerializedName("tag")
-  private NullsString tag = null;
+  private String tag = null;
 
   @SerializedName("triggered_at")
   private String triggeredAt = null;
 
   @SerializedName("triggered_by")
-  private NullsString triggeredBy = null;
+  private String triggeredBy = null;
 
   @SerializedName("triggered_workflow")
   private String triggeredWorkflow = null;
 
-  public V0PipelineListAllResponseItemModel branch(NullsString branch) {
+  public V0PipelineListAllResponseItemModel branch(String branch) {
     this.branch = branch;
     return this;
   }
@@ -91,11 +91,11 @@ public class V0PipelineListAllResponseItemModel {
    * @return branch
   **/
   
-  public NullsString getBranch() {
+  public String getBranch() {
     return branch;
   }
 
-  public void setBranch(NullsString branch) {
+  public void setBranch(String branch) {
     this.branch = branch;
   }
 
@@ -117,7 +117,7 @@ public class V0PipelineListAllResponseItemModel {
     this.buildNumber = buildNumber;
   }
 
-  public V0PipelineListAllResponseItemModel commitHash(NullsString commitHash) {
+  public V0PipelineListAllResponseItemModel commitHash(String commitHash) {
     this.commitHash = commitHash;
     return this;
   }
@@ -127,15 +127,15 @@ public class V0PipelineListAllResponseItemModel {
    * @return commitHash
   **/
   
-  public NullsString getCommitHash() {
+  public String getCommitHash() {
     return commitHash;
   }
 
-  public void setCommitHash(NullsString commitHash) {
+  public void setCommitHash(String commitHash) {
     this.commitHash = commitHash;
   }
 
-  public V0PipelineListAllResponseItemModel commitMessage(NullsString commitMessage) {
+  public V0PipelineListAllResponseItemModel commitMessage(String commitMessage) {
     this.commitMessage = commitMessage;
     return this;
   }
@@ -145,15 +145,15 @@ public class V0PipelineListAllResponseItemModel {
    * @return commitMessage
   **/
   
-  public NullsString getCommitMessage() {
+  public String getCommitMessage() {
     return commitMessage;
   }
 
-  public void setCommitMessage(NullsString commitMessage) {
+  public void setCommitMessage(String commitMessage) {
     this.commitMessage = commitMessage;
   }
 
-  public V0PipelineListAllResponseItemModel creditCost(NullsInt64 creditCost) {
+  public V0PipelineListAllResponseItemModel creditCost(Integer creditCost) {
     this.creditCost = creditCost;
     return this;
   }
@@ -163,11 +163,11 @@ public class V0PipelineListAllResponseItemModel {
    * @return creditCost
   **/
   
-  public NullsInt64 getCreditCost() {
+  public Integer getCreditCost() {
     return creditCost;
   }
 
-  public void setCreditCost(NullsInt64 creditCost) {
+  public void setCreditCost(Integer creditCost) {
     this.creditCost = creditCost;
   }
 
@@ -261,7 +261,7 @@ public class V0PipelineListAllResponseItemModel {
     this.pullRequestId = pullRequestId;
   }
 
-  public V0PipelineListAllResponseItemModel pullRequestTargetBranch(NullsString pullRequestTargetBranch) {
+  public V0PipelineListAllResponseItemModel pullRequestTargetBranch(String pullRequestTargetBranch) {
     this.pullRequestTargetBranch = pullRequestTargetBranch;
     return this;
   }
@@ -271,11 +271,11 @@ public class V0PipelineListAllResponseItemModel {
    * @return pullRequestTargetBranch
   **/
   
-  public NullsString getPullRequestTargetBranch() {
+  public String getPullRequestTargetBranch() {
     return pullRequestTargetBranch;
   }
 
-  public void setPullRequestTargetBranch(NullsString pullRequestTargetBranch) {
+  public void setPullRequestTargetBranch(String pullRequestTargetBranch) {
     this.pullRequestTargetBranch = pullRequestTargetBranch;
   }
 
@@ -351,7 +351,7 @@ public class V0PipelineListAllResponseItemModel {
     this.status = status;
   }
 
-  public V0PipelineListAllResponseItemModel tag(NullsString tag) {
+  public V0PipelineListAllResponseItemModel tag(String tag) {
     this.tag = tag;
     return this;
   }
@@ -361,11 +361,11 @@ public class V0PipelineListAllResponseItemModel {
    * @return tag
   **/
   
-  public NullsString getTag() {
+  public String getTag() {
     return tag;
   }
 
-  public void setTag(NullsString tag) {
+  public void setTag(String tag) {
     this.tag = tag;
   }
 
@@ -387,7 +387,7 @@ public class V0PipelineListAllResponseItemModel {
     this.triggeredAt = triggeredAt;
   }
 
-  public V0PipelineListAllResponseItemModel triggeredBy(NullsString triggeredBy) {
+  public V0PipelineListAllResponseItemModel triggeredBy(String triggeredBy) {
     this.triggeredBy = triggeredBy;
     return this;
   }
@@ -397,11 +397,11 @@ public class V0PipelineListAllResponseItemModel {
    * @return triggeredBy
   **/
   
-  public NullsString getTriggeredBy() {
+  public String getTriggeredBy() {
     return triggeredBy;
   }
 
-  public void setTriggeredBy(NullsString triggeredBy) {
+  public void setTriggeredBy(String triggeredBy) {
     this.triggeredBy = triggeredBy;
   }
 
