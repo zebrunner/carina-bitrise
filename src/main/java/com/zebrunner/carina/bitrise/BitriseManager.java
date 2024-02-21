@@ -8,6 +8,7 @@ import com.zebrunner.carina.bitrise.client.api.BuildArtifactApi;
 import com.zebrunner.carina.bitrise.client.api.BuildsApi;
 import com.zebrunner.carina.bitrise.client.model.V0ArtifactListElementResponseModel;
 import com.zebrunner.carina.bitrise.client.model.V0ArtifactListResponseModel;
+import com.zebrunner.carina.bitrise.client.model.V0ArtifactResponseItemModel;
 import com.zebrunner.carina.bitrise.client.model.V0ArtifactShowResponseModel;
 import com.zebrunner.carina.bitrise.client.model.V0BranchListResponseModel;
 import com.zebrunner.carina.bitrise.client.model.V0BuildListResponseModel;
@@ -53,7 +54,7 @@ public class BitriseManager implements IArtifactManager {
                     + "(?<" + BRANCH + ">[a-zA-Z-0-9][^\\/]*)\\/"
                     + "(?<" + BUILD_NUMBER + ">[a-zA-Z-0-9][^\\/]*)\\/"
                     + "(?<" + ARTIFACT_NAME_PATTERN + ">.+)");
-    private static final Map<String, String> LINKS = new ConcurrentHashMap<>();
+    private static final Map<String, BitriseApp> APP_INFO_MAP = new ConcurrentHashMap<>();
     private static final Map<String, Duration> EXCEPTION_TIMEOUTS = new ConcurrentHashMap<>();
 
     private final ApplicationApi applicationApi;
@@ -90,7 +91,11 @@ public class BitriseManager implements IArtifactManager {
 
     @Override
     public String getDirectLink(String u) {
-        return LINKS.compute(u, (url, value) -> {
+        return getAppInfo(u).getDirectLink();
+    }
+
+    public BitriseApp getAppInfo(String u) {
+        return APP_INFO_MAP.compute(u, (url, value) -> {
             Duration currentTime = Duration.ofMillis(System.currentTimeMillis());
             if (EXCEPTION_TIMEOUTS.get(url) != null && EXCEPTION_TIMEOUTS.get(url).compareTo(currentTime) > 0) {
                 return value;
@@ -220,9 +225,13 @@ public class BitriseManager implements IArtifactManager {
                                     appId, buildNumber, artifact.getSlug(), artifactResponse.getStatusCode(), artifactResponse.getData()));
                 }
                 EXCEPTION_TIMEOUTS.put(url, Duration.ofMillis(System.currentTimeMillis()).plus(Duration.ofMinutes(5)));
-                return artifactResponse.getData()
-                        .getData()
-                        .getExpiringDownloadUrl();
+
+                V0ArtifactResponseItemModel artifactInfo  = artifactResponse.getData()
+                        .getData();
+                BitriseApp bitriseApp = new BitriseApp();
+                bitriseApp.setBuild(String.valueOf(build.getBuildNumber()));
+                bitriseApp.setDirectLink(artifactInfo.getExpiringDownloadUrl());
+                return bitriseApp;
             } catch (ApiException e) {
                 LOGGER.error("Could not get bitrise download url. Code: {}, Message: {}", e.getCode(), e.getMessage(), e);
                 return ExceptionUtils.rethrow(e);
