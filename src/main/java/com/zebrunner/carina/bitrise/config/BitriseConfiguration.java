@@ -26,9 +26,4 @@ public final class BitriseConfiguration extends Configuration {
         }
     }
 
-    public static void setFilter() {
-
-    }
-
-
 }
