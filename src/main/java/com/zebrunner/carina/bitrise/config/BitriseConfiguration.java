@@ -1,7 +1,10 @@
 package com.zebrunner.carina.bitrise.config;
 
 import com.zebrunner.carina.utils.config.Configuration;
+import com.zebrunner.carina.utils.config.EncryptorConfiguration;
 import com.zebrunner.carina.utils.config.IParameter;
+
+import java.util.Optional;
 
 public final class BitriseConfiguration extends Configuration {
 
@@ -24,6 +27,13 @@ public final class BitriseConfiguration extends Configuration {
         public String getKey() {
             return name;
         }
+    }
+
+    @Override
+    public String toString() {
+        Optional<String> asString = asString(EncryptorConfiguration.Parameter.values());
+        return asString.map(s -> "\n=========== Bitrise configuration ===========\n" +
+                s).orElse("");
     }
 
 }
