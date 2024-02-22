@@ -141,7 +141,7 @@ public class BitriseManager implements IArtifactManager {
                 if (branchListResponse.getData()
                         .getData()
                         .stream()
-                        .noneMatch(b -> StringUtils.equals(b, branch))) {
+                        .noneMatch(b -> b.equals(branch))) {
                     throw new BitriseException(String.format("Could not find branch '%s' for the '%s' app. Available branches: %s",
                             branch, appId, branchListResponse.getData().getData()));
                 }
