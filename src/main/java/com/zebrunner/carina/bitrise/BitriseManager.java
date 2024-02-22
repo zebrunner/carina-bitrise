@@ -51,7 +51,7 @@ public class BitriseManager implements IArtifactManager {
     static final Pattern BITRISE_ENDPOINT_PATTERN = Pattern.compile(
             "bitrise:\\/\\/(?<" + APP_ID + ">[a-zA-Z-0-9][^\\/]*)\\/"
                     + "(?<" + WORKFLOW + ">[a-zA-Z-0-9][^\\/]*)\\/"
-                    + "(?<" + BRANCH + ">[a-zA-Z-0-9][^\\/]*)\\/"
+                    + "(?<" + BRANCH + ">.+)\\/"
                     + "(?<" + BUILD_NUMBER + ">[a-zA-Z-0-9][^\\/]*)\\/"
                     + "(?<" + ARTIFACT_NAME_PATTERN + ">.+)");
     private static final Map<String, BitriseApp> APP_INFO_MAP = new ConcurrentHashMap<>();
@@ -141,7 +141,7 @@ public class BitriseManager implements IArtifactManager {
                 if (branchListResponse.getData()
                         .getData()
                         .stream()
-                        .noneMatch(b -> b.equals(branch))) {
+                        .noneMatch(b -> StringUtils.equals(b, branch))) {
                     throw new BitriseException(String.format("Could not find branch '%s' for the '%s' app. Available branches: %s",
                             branch, appId, branchListResponse.getData().getData()));
                 }
