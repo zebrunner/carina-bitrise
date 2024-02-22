@@ -96,6 +96,7 @@ public class BitriseManager implements IArtifactManager {
 
     public BitriseApp getAppInfo(String u) {
         return APP_INFO_MAP.compute(u, (url, value) -> {
+            LOGGER.info("Starting generate bitrise url.");
             Duration currentTime = Duration.ofMillis(System.currentTimeMillis());
             if (EXCEPTION_TIMEOUTS.get(url) != null && EXCEPTION_TIMEOUTS.get(url).compareTo(currentTime) > 0) {
                 return value;
@@ -231,6 +232,7 @@ public class BitriseManager implements IArtifactManager {
                 BitriseApp bitriseApp = new BitriseApp();
                 bitriseApp.setBuild(String.valueOf(build.getBuildNumber()));
                 bitriseApp.setDirectLink(artifactInfo.getExpiringDownloadUrl());
+                LOGGER.info("Bitrise URL: {}", artifactInfo.getExpiringDownloadUrl());
                 return bitriseApp;
             } catch (ApiException e) {
                 LOGGER.error("Could not get bitrise download url. Code: {}, Message: {}", e.getCode(), e.getMessage(), e);
