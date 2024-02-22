@@ -66,74 +66,12 @@ public class V0PipelineShowResponseModel {
 
     @SerializedName("started_at")
     private String startedAt = null;
-
-    /**
-     * Gets or Sets status
-     */
-    @JsonAdapter(StatusEnum.Adapter.class)
-    public enum StatusEnum {
-        @SerializedName("aborted")
-        ABORTED("aborted"),
-        @SerializedName("failed")
-        FAILED("failed"),
-        @SerializedName("initializing")
-        INITIALIZING("initializing"),
-        @SerializedName("on_hold")
-        ON_HOLD("on_hold"),
-        @SerializedName("running")
-        RUNNING("running"),
-        @SerializedName("succeeded")
-        SUCCEEDED("succeeded"),
-        @SerializedName("succeeded_with_abort")
-        SUCCEEDED_WITH_ABORT("succeeded_with_abort");
-
-        private final String value;
-
-        StatusEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static StatusEnum fromValue(String input) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(input)) {
-                    return b;
-                }
-            }
-            return null;
-        }
-
-        public static class Adapter extends TypeAdapter<StatusEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-                jsonWriter.value(String.valueOf(enumeration.getValue()));
-            }
-
-            @Override
-            public StatusEnum read(final JsonReader jsonReader) throws IOException {
-                Object value = jsonReader.nextString();
-                return StatusEnum.fromValue((String) (value));
-            }
-        }
-    }
-
     @SerializedName("status")
     private StatusEnum status = null;
-
     @SerializedName("trigger_params")
     private V0PipelineShowTriggerParamsResponseModel triggerParams = null;
-
     @SerializedName("triggered_at")
     private String triggeredAt = null;
-
     @SerializedName("triggered_by")
     private String triggeredBy = null;
 
@@ -544,6 +482,64 @@ public class V0PipelineShowResponseModel {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    /**
+     * Gets or Sets status
+     */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        @SerializedName("aborted")
+        ABORTED("aborted"),
+        @SerializedName("failed")
+        FAILED("failed"),
+        @SerializedName("initializing")
+        INITIALIZING("initializing"),
+        @SerializedName("on_hold")
+        ON_HOLD("on_hold"),
+        @SerializedName("running")
+        RUNNING("running"),
+        @SerializedName("succeeded")
+        SUCCEEDED("succeeded"),
+        @SerializedName("succeeded_with_abort")
+        SUCCEEDED_WITH_ABORT("succeeded_with_abort");
+
+        private final String value;
+
+        StatusEnum(String value) {
+            this.value = value;
+        }
+
+        public static StatusEnum fromValue(String input) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(input)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+                jsonWriter.value(String.valueOf(enumeration.getValue()));
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                Object value = jsonReader.nextString();
+                return StatusEnum.fromValue((String) (value));
+            }
+        }
     }
 
 }

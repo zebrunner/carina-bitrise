@@ -35,12 +35,21 @@ import java.util.Date;
 import java.util.Map;
 
 public class JSON {
-    private Gson gson;
-    private boolean isLenientOnJson = false;
     private final DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
     private final SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
     private final OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
     private final LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
+    private Gson gson;
+    private boolean isLenientOnJson = false;
+
+    public JSON() {
+        gson = createGson()
+                .registerTypeAdapter(Date.class, dateTypeAdapter)
+                .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
+                .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
+                .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
+                .create();
+    }
 
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder();
@@ -62,15 +71,6 @@ public class JSON {
             throw new IllegalArgumentException("cannot determine model class of name: <" + discriminatorValue + ">");
         }
         return clazz;
-    }
-
-    public JSON() {
-        gson = createGson()
-                .registerTypeAdapter(Date.class, dateTypeAdapter)
-                .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
-                .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
-                .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
-                .create();
     }
 
     /**
@@ -137,6 +137,26 @@ public class JSON {
         }
     }
 
+    public JSON setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
+        offsetDateTimeTypeAdapter.setFormat(dateFormat);
+        return this;
+    }
+
+    public JSON setLocalDateFormat(DateTimeFormatter dateFormat) {
+        localDateTypeAdapter.setFormat(dateFormat);
+        return this;
+    }
+
+    public JSON setDateFormat(DateFormat dateFormat) {
+        dateTypeAdapter.setFormat(dateFormat);
+        return this;
+    }
+
+    public JSON setSqlDateFormat(DateFormat dateFormat) {
+        sqlDateTypeAdapter.setFormat(dateFormat);
+        return this;
+    }
+
     /**
      * Gson TypeAdapter for JSR310 OffsetDateTime type
      */
@@ -179,57 +199,6 @@ public class JSON {
                 return OffsetDateTime.parse(date, formatter);
             }
         }
-    }
-
-    /**
-     * Gson TypeAdapter for JSR310 LocalDate type
-     */
-    public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
-
-        private DateTimeFormatter formatter;
-
-        public LocalDateTypeAdapter() {
-            this(DateTimeFormatter.ISO_LOCAL_DATE);
-        }
-
-        public LocalDateTypeAdapter(DateTimeFormatter formatter) {
-            this.formatter = formatter;
-        }
-
-        public void setFormat(DateTimeFormatter dateFormat) {
-            this.formatter = dateFormat;
-        }
-
-        @Override
-        public void write(JsonWriter out, LocalDate date) throws IOException {
-            if (date == null) {
-                out.nullValue();
-            } else {
-                out.value(formatter.format(date));
-            }
-        }
-
-        @Override
-        public LocalDate read(JsonReader in) throws IOException {
-            switch (in.peek()) {
-            case NULL:
-                in.nextNull();
-                return null;
-            default:
-                String date = in.nextString();
-                return LocalDate.parse(date, formatter);
-            }
-        }
-    }
-
-    public JSON setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
-        offsetDateTimeTypeAdapter.setFormat(dateFormat);
-        return this;
-    }
-
-    public JSON setLocalDateFormat(DateTimeFormatter dateFormat) {
-        localDateTypeAdapter.setFormat(dateFormat);
-        return this;
     }
 
     /**
@@ -345,14 +314,45 @@ public class JSON {
         }
     }
 
-    public JSON setDateFormat(DateFormat dateFormat) {
-        dateTypeAdapter.setFormat(dateFormat);
-        return this;
-    }
+    /**
+     * Gson TypeAdapter for JSR310 LocalDate type
+     */
+    public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
 
-    public JSON setSqlDateFormat(DateFormat dateFormat) {
-        sqlDateTypeAdapter.setFormat(dateFormat);
-        return this;
+        private DateTimeFormatter formatter;
+
+        public LocalDateTypeAdapter() {
+            this(DateTimeFormatter.ISO_LOCAL_DATE);
+        }
+
+        public LocalDateTypeAdapter(DateTimeFormatter formatter) {
+            this.formatter = formatter;
+        }
+
+        public void setFormat(DateTimeFormatter dateFormat) {
+            this.formatter = dateFormat;
+        }
+
+        @Override
+        public void write(JsonWriter out, LocalDate date) throws IOException {
+            if (date == null) {
+                out.nullValue();
+            } else {
+                out.value(formatter.format(date));
+            }
+        }
+
+        @Override
+        public LocalDate read(JsonReader in) throws IOException {
+            switch (in.peek()) {
+            case NULL:
+                in.nextNull();
+                return null;
+            default:
+                String date = in.nextString();
+                return LocalDate.parse(date, formatter);
+            }
+        }
     }
 
 }

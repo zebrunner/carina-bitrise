@@ -45,7 +45,6 @@ import javax.net.ssl.X509TrustManager;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -74,9 +73,9 @@ import java.util.regex.Pattern;
 
 public class ApiClient {
 
+    private final Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String basePath = "https://api.bitrise.io/v0.1";
     private boolean debugging = false;
-    private final Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
 
     private Map<String, Authentication> authentications;

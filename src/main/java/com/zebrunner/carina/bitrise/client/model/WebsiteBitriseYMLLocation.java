@@ -36,15 +36,6 @@ public enum WebsiteBitriseYMLLocation {
         this.value = value;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
     public static WebsiteBitriseYMLLocation fromValue(String input) {
         for (WebsiteBitriseYMLLocation b : WebsiteBitriseYMLLocation.values()) {
             if (b.value.equals(input)) {
@@ -52,6 +43,15 @@ public enum WebsiteBitriseYMLLocation {
             }
         }
         return null;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
 
     public static class Adapter extends TypeAdapter<WebsiteBitriseYMLLocation> {
