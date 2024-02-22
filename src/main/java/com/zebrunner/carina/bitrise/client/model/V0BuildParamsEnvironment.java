@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0BuildParamsEnvironment
  */
 
-
-
 public class V0BuildParamsEnvironment {
-  @SerializedName("is_expand")
-  private Boolean isExpand = null;
+    @SerializedName("is_expand")
+    private Boolean isExpand = null;
 
-  @SerializedName("mapped_to")
-  private String mappedTo = null;
+    @SerializedName("mapped_to")
+    private String mappedTo = null;
 
-  @SerializedName("value")
-  private String value = null;
+    @SerializedName("value")
+    private String value = null;
 
-  public V0BuildParamsEnvironment isExpand(Boolean isExpand) {
-    this.isExpand = isExpand;
-    return this;
-  }
-
-   /**
-   * Get isExpand
-   * @return isExpand
-  **/
-  
-  public Boolean isIsExpand() {
-    return isExpand;
-  }
-
-  public void setIsExpand(Boolean isExpand) {
-    this.isExpand = isExpand;
-  }
-
-  public V0BuildParamsEnvironment mappedTo(String mappedTo) {
-    this.mappedTo = mappedTo;
-    return this;
-  }
-
-   /**
-   * Get mappedTo
-   * @return mappedTo
-  **/
-  
-  public String getMappedTo() {
-    return mappedTo;
-  }
-
-  public void setMappedTo(String mappedTo) {
-    this.mappedTo = mappedTo;
-  }
-
-  public V0BuildParamsEnvironment value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0BuildParamsEnvironment isExpand(Boolean isExpand) {
+        this.isExpand = isExpand;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get isExpand
+     *
+     * @return isExpand
+     **/
+
+    public Boolean isIsExpand() {
+        return isExpand;
     }
-    V0BuildParamsEnvironment v0BuildParamsEnvironment = (V0BuildParamsEnvironment) o;
-    return Objects.equals(this.isExpand, v0BuildParamsEnvironment.isExpand) &&
-        Objects.equals(this.mappedTo, v0BuildParamsEnvironment.mappedTo) &&
-        Objects.equals(this.value, v0BuildParamsEnvironment.value);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(isExpand, mappedTo, value);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0BuildParamsEnvironment {\n");
-    
-    sb.append("    isExpand: ").append(toIndentedString(isExpand)).append("\n");
-    sb.append("    mappedTo: ").append(toIndentedString(mappedTo)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setIsExpand(Boolean isExpand) {
+        this.isExpand = isExpand;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0BuildParamsEnvironment mappedTo(String mappedTo) {
+        this.mappedTo = mappedTo;
+        return this;
+    }
+
+    /**
+     * Get mappedTo
+     *
+     * @return mappedTo
+     **/
+
+    public String getMappedTo() {
+        return mappedTo;
+    }
+
+    public void setMappedTo(String mappedTo) {
+        this.mappedTo = mappedTo;
+    }
+
+    public V0BuildParamsEnvironment value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Get value
+     *
+     * @return value
+     **/
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0BuildParamsEnvironment v0BuildParamsEnvironment = (V0BuildParamsEnvironment) o;
+        return Objects.equals(this.isExpand, v0BuildParamsEnvironment.isExpand) &&
+                Objects.equals(this.mappedTo, v0BuildParamsEnvironment.mappedTo) &&
+                Objects.equals(this.value, v0BuildParamsEnvironment.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isExpand, mappedTo, value);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0BuildParamsEnvironment {\n"
+                + "    isExpand: " + toIndentedString(isExpand) + "\n"
+                + "    mappedTo: " + toIndentedString(mappedTo) + "\n"
+                + "    value: " + toIndentedString(value) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

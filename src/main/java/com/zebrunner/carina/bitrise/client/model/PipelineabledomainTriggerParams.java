@@ -17,379 +17,390 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * PipelineabledomainTriggerParams
  */
 
-
-
 public class PipelineabledomainTriggerParams {
-  @SerializedName("branch")
-  private String branch = null;
+    @SerializedName("branch")
+    private String branch = null;
 
-  @SerializedName("branch_dest")
-  private String branchDest = null;
+    @SerializedName("branch_dest")
+    private String branchDest = null;
 
-  @SerializedName("branch_dest_repo_owner")
-  private String branchDestRepoOwner = null;
+    @SerializedName("branch_dest_repo_owner")
+    private String branchDestRepoOwner = null;
 
-  @SerializedName("branch_repo_owner")
-  private String branchRepoOwner = null;
+    @SerializedName("branch_repo_owner")
+    private String branchRepoOwner = null;
 
-  @SerializedName("commit_hash")
-  private String commitHash = null;
+    @SerializedName("commit_hash")
+    private String commitHash = null;
 
-  @SerializedName("commit_message")
-  private String commitMessage = null;
+    @SerializedName("commit_message")
+    private String commitMessage = null;
 
-  @SerializedName("environments")
-  private List<PipelineabledomainEnvironments> environments = null;
+    @SerializedName("environments")
+    private List<PipelineabledomainEnvironments> environments = null;
 
-  @SerializedName("pull_request_author")
-  private String pullRequestAuthor = null;
+    @SerializedName("pull_request_author")
+    private String pullRequestAuthor = null;
 
-  @SerializedName("pull_request_head_branch")
-  private String pullRequestHeadBranch = null;
+    @SerializedName("pull_request_head_branch")
+    private String pullRequestHeadBranch = null;
 
-  @SerializedName("pull_request_id")
-  private Object pullRequestId = null;
+    @SerializedName("pull_request_id")
+    private Object pullRequestId = null;
 
-  @SerializedName("pull_request_merge_branch")
-  private String pullRequestMergeBranch = null;
+    @SerializedName("pull_request_merge_branch")
+    private String pullRequestMergeBranch = null;
 
-  @SerializedName("pull_request_repository_url")
-  private String pullRequestRepositoryUrl = null;
+    @SerializedName("pull_request_repository_url")
+    private String pullRequestRepositoryUrl = null;
 
-  @SerializedName("pull_request_unverified_merge_branch")
-  private String pullRequestUnverifiedMergeBranch = null;
+    @SerializedName("pull_request_unverified_merge_branch")
+    private String pullRequestUnverifiedMergeBranch = null;
 
-  @SerializedName("tag")
-  private Object tag = null;
+    @SerializedName("tag")
+    private Object tag = null;
 
-  public PipelineabledomainTriggerParams branch(String branch) {
-    this.branch = branch;
-    return this;
-  }
-
-   /**
-   * Get branch
-   * @return branch
-  **/
-  
-  public String getBranch() {
-    return branch;
-  }
-
-  public void setBranch(String branch) {
-    this.branch = branch;
-  }
-
-  public PipelineabledomainTriggerParams branchDest(String branchDest) {
-    this.branchDest = branchDest;
-    return this;
-  }
-
-   /**
-   * Get branchDest
-   * @return branchDest
-  **/
-  
-  public String getBranchDest() {
-    return branchDest;
-  }
-
-  public void setBranchDest(String branchDest) {
-    this.branchDest = branchDest;
-  }
-
-  public PipelineabledomainTriggerParams branchDestRepoOwner(String branchDestRepoOwner) {
-    this.branchDestRepoOwner = branchDestRepoOwner;
-    return this;
-  }
-
-   /**
-   * Get branchDestRepoOwner
-   * @return branchDestRepoOwner
-  **/
-  
-  public String getBranchDestRepoOwner() {
-    return branchDestRepoOwner;
-  }
-
-  public void setBranchDestRepoOwner(String branchDestRepoOwner) {
-    this.branchDestRepoOwner = branchDestRepoOwner;
-  }
-
-  public PipelineabledomainTriggerParams branchRepoOwner(String branchRepoOwner) {
-    this.branchRepoOwner = branchRepoOwner;
-    return this;
-  }
-
-   /**
-   * Get branchRepoOwner
-   * @return branchRepoOwner
-  **/
-  
-  public String getBranchRepoOwner() {
-    return branchRepoOwner;
-  }
-
-  public void setBranchRepoOwner(String branchRepoOwner) {
-    this.branchRepoOwner = branchRepoOwner;
-  }
-
-  public PipelineabledomainTriggerParams commitHash(String commitHash) {
-    this.commitHash = commitHash;
-    return this;
-  }
-
-   /**
-   * Get commitHash
-   * @return commitHash
-  **/
-  
-  public String getCommitHash() {
-    return commitHash;
-  }
-
-  public void setCommitHash(String commitHash) {
-    this.commitHash = commitHash;
-  }
-
-  public PipelineabledomainTriggerParams commitMessage(String commitMessage) {
-    this.commitMessage = commitMessage;
-    return this;
-  }
-
-   /**
-   * Get commitMessage
-   * @return commitMessage
-  **/
-  
-  public String getCommitMessage() {
-    return commitMessage;
-  }
-
-  public void setCommitMessage(String commitMessage) {
-    this.commitMessage = commitMessage;
-  }
-
-  public PipelineabledomainTriggerParams environments(List<PipelineabledomainEnvironments> environments) {
-    this.environments = environments;
-    return this;
-  }
-
-  public PipelineabledomainTriggerParams addEnvironmentsItem(PipelineabledomainEnvironments environmentsItem) {
-    if (this.environments == null) {
-      this.environments = new ArrayList<PipelineabledomainEnvironments>();
+    public PipelineabledomainTriggerParams branch(String branch) {
+        this.branch = branch;
+        return this;
     }
-    this.environments.add(environmentsItem);
-    return this;
-  }
 
-   /**
-   * Get environments
-   * @return environments
-  **/
-  
-  public List<PipelineabledomainEnvironments> getEnvironments() {
-    return environments;
-  }
+    /**
+     * Get branch
+     *
+     * @return branch
+     **/
 
-  public void setEnvironments(List<PipelineabledomainEnvironments> environments) {
-    this.environments = environments;
-  }
-
-  public PipelineabledomainTriggerParams pullRequestAuthor(String pullRequestAuthor) {
-    this.pullRequestAuthor = pullRequestAuthor;
-    return this;
-  }
-
-   /**
-   * Get pullRequestAuthor
-   * @return pullRequestAuthor
-  **/
-  
-  public String getPullRequestAuthor() {
-    return pullRequestAuthor;
-  }
-
-  public void setPullRequestAuthor(String pullRequestAuthor) {
-    this.pullRequestAuthor = pullRequestAuthor;
-  }
-
-  public PipelineabledomainTriggerParams pullRequestHeadBranch(String pullRequestHeadBranch) {
-    this.pullRequestHeadBranch = pullRequestHeadBranch;
-    return this;
-  }
-
-   /**
-   * Get pullRequestHeadBranch
-   * @return pullRequestHeadBranch
-  **/
-  
-  public String getPullRequestHeadBranch() {
-    return pullRequestHeadBranch;
-  }
-
-  public void setPullRequestHeadBranch(String pullRequestHeadBranch) {
-    this.pullRequestHeadBranch = pullRequestHeadBranch;
-  }
-
-  public PipelineabledomainTriggerParams pullRequestId(Object pullRequestId) {
-    this.pullRequestId = pullRequestId;
-    return this;
-  }
-
-   /**
-   * Get pullRequestId
-   * @return pullRequestId
-  **/
-  
-  public Object getPullRequestId() {
-    return pullRequestId;
-  }
-
-  public void setPullRequestId(Object pullRequestId) {
-    this.pullRequestId = pullRequestId;
-  }
-
-  public PipelineabledomainTriggerParams pullRequestMergeBranch(String pullRequestMergeBranch) {
-    this.pullRequestMergeBranch = pullRequestMergeBranch;
-    return this;
-  }
-
-   /**
-   * Get pullRequestMergeBranch
-   * @return pullRequestMergeBranch
-  **/
-  
-  public String getPullRequestMergeBranch() {
-    return pullRequestMergeBranch;
-  }
-
-  public void setPullRequestMergeBranch(String pullRequestMergeBranch) {
-    this.pullRequestMergeBranch = pullRequestMergeBranch;
-  }
-
-  public PipelineabledomainTriggerParams pullRequestRepositoryUrl(String pullRequestRepositoryUrl) {
-    this.pullRequestRepositoryUrl = pullRequestRepositoryUrl;
-    return this;
-  }
-
-   /**
-   * Get pullRequestRepositoryUrl
-   * @return pullRequestRepositoryUrl
-  **/
-  
-  public String getPullRequestRepositoryUrl() {
-    return pullRequestRepositoryUrl;
-  }
-
-  public void setPullRequestRepositoryUrl(String pullRequestRepositoryUrl) {
-    this.pullRequestRepositoryUrl = pullRequestRepositoryUrl;
-  }
-
-  public PipelineabledomainTriggerParams pullRequestUnverifiedMergeBranch(String pullRequestUnverifiedMergeBranch) {
-    this.pullRequestUnverifiedMergeBranch = pullRequestUnverifiedMergeBranch;
-    return this;
-  }
-
-   /**
-   * Get pullRequestUnverifiedMergeBranch
-   * @return pullRequestUnverifiedMergeBranch
-  **/
-  
-  public String getPullRequestUnverifiedMergeBranch() {
-    return pullRequestUnverifiedMergeBranch;
-  }
-
-  public void setPullRequestUnverifiedMergeBranch(String pullRequestUnverifiedMergeBranch) {
-    this.pullRequestUnverifiedMergeBranch = pullRequestUnverifiedMergeBranch;
-  }
-
-  public PipelineabledomainTriggerParams tag(Object tag) {
-    this.tag = tag;
-    return this;
-  }
-
-   /**
-   * Get tag
-   * @return tag
-  **/
-  
-  public Object getTag() {
-    return tag;
-  }
-
-  public void setTag(Object tag) {
-    this.tag = tag;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public String getBranch() {
+        return branch;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
-    PipelineabledomainTriggerParams pipelineabledomainTriggerParams = (PipelineabledomainTriggerParams) o;
-    return Objects.equals(this.branch, pipelineabledomainTriggerParams.branch) &&
-        Objects.equals(this.branchDest, pipelineabledomainTriggerParams.branchDest) &&
-        Objects.equals(this.branchDestRepoOwner, pipelineabledomainTriggerParams.branchDestRepoOwner) &&
-        Objects.equals(this.branchRepoOwner, pipelineabledomainTriggerParams.branchRepoOwner) &&
-        Objects.equals(this.commitHash, pipelineabledomainTriggerParams.commitHash) &&
-        Objects.equals(this.commitMessage, pipelineabledomainTriggerParams.commitMessage) &&
-        Objects.equals(this.environments, pipelineabledomainTriggerParams.environments) &&
-        Objects.equals(this.pullRequestAuthor, pipelineabledomainTriggerParams.pullRequestAuthor) &&
-        Objects.equals(this.pullRequestHeadBranch, pipelineabledomainTriggerParams.pullRequestHeadBranch) &&
-        Objects.equals(this.pullRequestId, pipelineabledomainTriggerParams.pullRequestId) &&
-        Objects.equals(this.pullRequestMergeBranch, pipelineabledomainTriggerParams.pullRequestMergeBranch) &&
-        Objects.equals(this.pullRequestRepositoryUrl, pipelineabledomainTriggerParams.pullRequestRepositoryUrl) &&
-        Objects.equals(this.pullRequestUnverifiedMergeBranch, pipelineabledomainTriggerParams.pullRequestUnverifiedMergeBranch) &&
-        Objects.equals(this.tag, pipelineabledomainTriggerParams.tag);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(branch, branchDest, branchDestRepoOwner, branchRepoOwner, commitHash, commitMessage, environments, pullRequestAuthor, pullRequestHeadBranch, pullRequestId, pullRequestMergeBranch, pullRequestRepositoryUrl, pullRequestUnverifiedMergeBranch, tag);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineabledomainTriggerParams {\n");
-    
-    sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
-    sb.append("    branchDest: ").append(toIndentedString(branchDest)).append("\n");
-    sb.append("    branchDestRepoOwner: ").append(toIndentedString(branchDestRepoOwner)).append("\n");
-    sb.append("    branchRepoOwner: ").append(toIndentedString(branchRepoOwner)).append("\n");
-    sb.append("    commitHash: ").append(toIndentedString(commitHash)).append("\n");
-    sb.append("    commitMessage: ").append(toIndentedString(commitMessage)).append("\n");
-    sb.append("    environments: ").append(toIndentedString(environments)).append("\n");
-    sb.append("    pullRequestAuthor: ").append(toIndentedString(pullRequestAuthor)).append("\n");
-    sb.append("    pullRequestHeadBranch: ").append(toIndentedString(pullRequestHeadBranch)).append("\n");
-    sb.append("    pullRequestId: ").append(toIndentedString(pullRequestId)).append("\n");
-    sb.append("    pullRequestMergeBranch: ").append(toIndentedString(pullRequestMergeBranch)).append("\n");
-    sb.append("    pullRequestRepositoryUrl: ").append(toIndentedString(pullRequestRepositoryUrl)).append("\n");
-    sb.append("    pullRequestUnverifiedMergeBranch: ").append(toIndentedString(pullRequestUnverifiedMergeBranch)).append("\n");
-    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public PipelineabledomainTriggerParams branchDest(String branchDest) {
+        this.branchDest = branchDest;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get branchDest
+     *
+     * @return branchDest
+     **/
+
+    public String getBranchDest() {
+        return branchDest;
+    }
+
+    public void setBranchDest(String branchDest) {
+        this.branchDest = branchDest;
+    }
+
+    public PipelineabledomainTriggerParams branchDestRepoOwner(String branchDestRepoOwner) {
+        this.branchDestRepoOwner = branchDestRepoOwner;
+        return this;
+    }
+
+    /**
+     * Get branchDestRepoOwner
+     *
+     * @return branchDestRepoOwner
+     **/
+
+    public String getBranchDestRepoOwner() {
+        return branchDestRepoOwner;
+    }
+
+    public void setBranchDestRepoOwner(String branchDestRepoOwner) {
+        this.branchDestRepoOwner = branchDestRepoOwner;
+    }
+
+    public PipelineabledomainTriggerParams branchRepoOwner(String branchRepoOwner) {
+        this.branchRepoOwner = branchRepoOwner;
+        return this;
+    }
+
+    /**
+     * Get branchRepoOwner
+     *
+     * @return branchRepoOwner
+     **/
+
+    public String getBranchRepoOwner() {
+        return branchRepoOwner;
+    }
+
+    public void setBranchRepoOwner(String branchRepoOwner) {
+        this.branchRepoOwner = branchRepoOwner;
+    }
+
+    public PipelineabledomainTriggerParams commitHash(String commitHash) {
+        this.commitHash = commitHash;
+        return this;
+    }
+
+    /**
+     * Get commitHash
+     *
+     * @return commitHash
+     **/
+
+    public String getCommitHash() {
+        return commitHash;
+    }
+
+    public void setCommitHash(String commitHash) {
+        this.commitHash = commitHash;
+    }
+
+    public PipelineabledomainTriggerParams commitMessage(String commitMessage) {
+        this.commitMessage = commitMessage;
+        return this;
+    }
+
+    /**
+     * Get commitMessage
+     *
+     * @return commitMessage
+     **/
+
+    public String getCommitMessage() {
+        return commitMessage;
+    }
+
+    public void setCommitMessage(String commitMessage) {
+        this.commitMessage = commitMessage;
+    }
+
+    public PipelineabledomainTriggerParams environments(List<PipelineabledomainEnvironments> environments) {
+        this.environments = environments;
+        return this;
+    }
+
+    public PipelineabledomainTriggerParams addEnvironmentsItem(PipelineabledomainEnvironments environmentsItem) {
+        if (this.environments == null) {
+            this.environments = new ArrayList<PipelineabledomainEnvironments>();
+        }
+        this.environments.add(environmentsItem);
+        return this;
+    }
+
+    /**
+     * Get environments
+     *
+     * @return environments
+     **/
+
+    public List<PipelineabledomainEnvironments> getEnvironments() {
+        return environments;
+    }
+
+    public void setEnvironments(List<PipelineabledomainEnvironments> environments) {
+        this.environments = environments;
+    }
+
+    public PipelineabledomainTriggerParams pullRequestAuthor(String pullRequestAuthor) {
+        this.pullRequestAuthor = pullRequestAuthor;
+        return this;
+    }
+
+    /**
+     * Get pullRequestAuthor
+     *
+     * @return pullRequestAuthor
+     **/
+
+    public String getPullRequestAuthor() {
+        return pullRequestAuthor;
+    }
+
+    public void setPullRequestAuthor(String pullRequestAuthor) {
+        this.pullRequestAuthor = pullRequestAuthor;
+    }
+
+    public PipelineabledomainTriggerParams pullRequestHeadBranch(String pullRequestHeadBranch) {
+        this.pullRequestHeadBranch = pullRequestHeadBranch;
+        return this;
+    }
+
+    /**
+     * Get pullRequestHeadBranch
+     *
+     * @return pullRequestHeadBranch
+     **/
+
+    public String getPullRequestHeadBranch() {
+        return pullRequestHeadBranch;
+    }
+
+    public void setPullRequestHeadBranch(String pullRequestHeadBranch) {
+        this.pullRequestHeadBranch = pullRequestHeadBranch;
+    }
+
+    public PipelineabledomainTriggerParams pullRequestId(Object pullRequestId) {
+        this.pullRequestId = pullRequestId;
+        return this;
+    }
+
+    /**
+     * Get pullRequestId
+     *
+     * @return pullRequestId
+     **/
+
+    public Object getPullRequestId() {
+        return pullRequestId;
+    }
+
+    public void setPullRequestId(Object pullRequestId) {
+        this.pullRequestId = pullRequestId;
+    }
+
+    public PipelineabledomainTriggerParams pullRequestMergeBranch(String pullRequestMergeBranch) {
+        this.pullRequestMergeBranch = pullRequestMergeBranch;
+        return this;
+    }
+
+    /**
+     * Get pullRequestMergeBranch
+     *
+     * @return pullRequestMergeBranch
+     **/
+
+    public String getPullRequestMergeBranch() {
+        return pullRequestMergeBranch;
+    }
+
+    public void setPullRequestMergeBranch(String pullRequestMergeBranch) {
+        this.pullRequestMergeBranch = pullRequestMergeBranch;
+    }
+
+    public PipelineabledomainTriggerParams pullRequestRepositoryUrl(String pullRequestRepositoryUrl) {
+        this.pullRequestRepositoryUrl = pullRequestRepositoryUrl;
+        return this;
+    }
+
+    /**
+     * Get pullRequestRepositoryUrl
+     *
+     * @return pullRequestRepositoryUrl
+     **/
+
+    public String getPullRequestRepositoryUrl() {
+        return pullRequestRepositoryUrl;
+    }
+
+    public void setPullRequestRepositoryUrl(String pullRequestRepositoryUrl) {
+        this.pullRequestRepositoryUrl = pullRequestRepositoryUrl;
+    }
+
+    public PipelineabledomainTriggerParams pullRequestUnverifiedMergeBranch(String pullRequestUnverifiedMergeBranch) {
+        this.pullRequestUnverifiedMergeBranch = pullRequestUnverifiedMergeBranch;
+        return this;
+    }
+
+    /**
+     * Get pullRequestUnverifiedMergeBranch
+     *
+     * @return pullRequestUnverifiedMergeBranch
+     **/
+
+    public String getPullRequestUnverifiedMergeBranch() {
+        return pullRequestUnverifiedMergeBranch;
+    }
+
+    public void setPullRequestUnverifiedMergeBranch(String pullRequestUnverifiedMergeBranch) {
+        this.pullRequestUnverifiedMergeBranch = pullRequestUnverifiedMergeBranch;
+    }
+
+    public PipelineabledomainTriggerParams tag(Object tag) {
+        this.tag = tag;
+        return this;
+    }
+
+    /**
+     * Get tag
+     *
+     * @return tag
+     **/
+
+    public Object getTag() {
+        return tag;
+    }
+
+    public void setTag(Object tag) {
+        this.tag = tag;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PipelineabledomainTriggerParams pipelineabledomainTriggerParams = (PipelineabledomainTriggerParams) o;
+        return Objects.equals(this.branch, pipelineabledomainTriggerParams.branch) &&
+                Objects.equals(this.branchDest, pipelineabledomainTriggerParams.branchDest) &&
+                Objects.equals(this.branchDestRepoOwner, pipelineabledomainTriggerParams.branchDestRepoOwner) &&
+                Objects.equals(this.branchRepoOwner, pipelineabledomainTriggerParams.branchRepoOwner) &&
+                Objects.equals(this.commitHash, pipelineabledomainTriggerParams.commitHash) &&
+                Objects.equals(this.commitMessage, pipelineabledomainTriggerParams.commitMessage) &&
+                Objects.equals(this.environments, pipelineabledomainTriggerParams.environments) &&
+                Objects.equals(this.pullRequestAuthor, pipelineabledomainTriggerParams.pullRequestAuthor) &&
+                Objects.equals(this.pullRequestHeadBranch, pipelineabledomainTriggerParams.pullRequestHeadBranch) &&
+                Objects.equals(this.pullRequestId, pipelineabledomainTriggerParams.pullRequestId) &&
+                Objects.equals(this.pullRequestMergeBranch, pipelineabledomainTriggerParams.pullRequestMergeBranch) &&
+                Objects.equals(this.pullRequestRepositoryUrl, pipelineabledomainTriggerParams.pullRequestRepositoryUrl) &&
+                Objects.equals(this.pullRequestUnverifiedMergeBranch, pipelineabledomainTriggerParams.pullRequestUnverifiedMergeBranch) &&
+                Objects.equals(this.tag, pipelineabledomainTriggerParams.tag);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(branch, branchDest, branchDestRepoOwner, branchRepoOwner, commitHash, commitMessage, environments, pullRequestAuthor,
+                pullRequestHeadBranch, pullRequestId, pullRequestMergeBranch, pullRequestRepositoryUrl, pullRequestUnverifiedMergeBranch, tag);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class PipelineabledomainTriggerParams {\n"
+                + "    branch: " + toIndentedString(branch) + "\n"
+                + "    branchDest: " + toIndentedString(branchDest) + "\n"
+                + "    branchDestRepoOwner: " + toIndentedString(branchDestRepoOwner) + "\n"
+                + "    branchRepoOwner: " + toIndentedString(branchRepoOwner) + "\n"
+                + "    commitHash: " + toIndentedString(commitHash) + "\n"
+                + "    commitMessage: " + toIndentedString(commitMessage) + "\n"
+                + "    environments: " + toIndentedString(environments) + "\n"
+                + "    pullRequestAuthor: " + toIndentedString(pullRequestAuthor) + "\n"
+                + "    pullRequestHeadBranch: " + toIndentedString(pullRequestHeadBranch) + "\n"
+                + "    pullRequestId: " + toIndentedString(pullRequestId) + "\n"
+                + "    pullRequestMergeBranch: " + toIndentedString(pullRequestMergeBranch) + "\n"
+                + "    pullRequestRepositoryUrl: " + toIndentedString(pullRequestRepositoryUrl) + "\n"
+                + "    pullRequestUnverifiedMergeBranch: " + toIndentedString(pullRequestUnverifiedMergeBranch) + "\n"
+                + "    tag: " + toIndentedString(tag) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

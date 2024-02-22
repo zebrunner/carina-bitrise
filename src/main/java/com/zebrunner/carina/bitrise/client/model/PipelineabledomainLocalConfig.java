@@ -16,96 +16,92 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * PipelineabledomainLocalConfig
  */
 
-
-
 public class PipelineabledomainLocalConfig {
-  @SerializedName("host")
-  private String host = null;
+    @SerializedName("host")
+    private String host = null;
 
-  @SerializedName("username")
-  private String username = null;
+    @SerializedName("username")
+    private String username = null;
 
-  public PipelineabledomainLocalConfig host(String host) {
-    this.host = host;
-    return this;
-  }
-
-   /**
-   * Get host
-   * @return host
-  **/
-  
-  public String getHost() {
-    return host;
-  }
-
-  public void setHost(String host) {
-    this.host = host;
-  }
-
-  public PipelineabledomainLocalConfig username(String username) {
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Get username
-   * @return username
-  **/
-  
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public PipelineabledomainLocalConfig host(String host) {
+        this.host = host;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get host
+     *
+     * @return host
+     **/
+
+    public String getHost() {
+        return host;
     }
-    PipelineabledomainLocalConfig pipelineabledomainLocalConfig = (PipelineabledomainLocalConfig) o;
-    return Objects.equals(this.host, pipelineabledomainLocalConfig.host) &&
-        Objects.equals(this.username, pipelineabledomainLocalConfig.username);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(host, username);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PipelineabledomainLocalConfig {\n");
-    
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setHost(String host) {
+        this.host = host;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public PipelineabledomainLocalConfig username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return username
+     **/
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PipelineabledomainLocalConfig pipelineabledomainLocalConfig = (PipelineabledomainLocalConfig) o;
+        return Objects.equals(this.host, pipelineabledomainLocalConfig.host) &&
+                Objects.equals(this.username, pipelineabledomainLocalConfig.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(host, username);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class PipelineabledomainLocalConfig {\n"
+                + "    host: " + toIndentedString(host) + "\n"
+                + "    username: " + toIndentedString(username) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

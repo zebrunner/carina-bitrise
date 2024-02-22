@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0ProvProfileDocumentUpdateParams
  */
 
-
-
 public class V0ProvProfileDocumentUpdateParams {
-  @SerializedName("is_expose")
-  private Boolean isExpose = null;
+    @SerializedName("is_expose")
+    private Boolean isExpose = null;
 
-  @SerializedName("is_protected")
-  private Boolean isProtected = null;
+    @SerializedName("is_protected")
+    private Boolean isProtected = null;
 
-  @SerializedName("processed")
-  private Boolean processed = null;
+    @SerializedName("processed")
+    private Boolean processed = null;
 
-  public V0ProvProfileDocumentUpdateParams isExpose(Boolean isExpose) {
-    this.isExpose = isExpose;
-    return this;
-  }
-
-   /**
-   * Get isExpose
-   * @return isExpose
-  **/
-  
-  public Boolean isIsExpose() {
-    return isExpose;
-  }
-
-  public void setIsExpose(Boolean isExpose) {
-    this.isExpose = isExpose;
-  }
-
-  public V0ProvProfileDocumentUpdateParams isProtected(Boolean isProtected) {
-    this.isProtected = isProtected;
-    return this;
-  }
-
-   /**
-   * Get isProtected
-   * @return isProtected
-  **/
-  
-  public Boolean isIsProtected() {
-    return isProtected;
-  }
-
-  public void setIsProtected(Boolean isProtected) {
-    this.isProtected = isProtected;
-  }
-
-  public V0ProvProfileDocumentUpdateParams processed(Boolean processed) {
-    this.processed = processed;
-    return this;
-  }
-
-   /**
-   * Get processed
-   * @return processed
-  **/
-  
-  public Boolean isProcessed() {
-    return processed;
-  }
-
-  public void setProcessed(Boolean processed) {
-    this.processed = processed;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0ProvProfileDocumentUpdateParams isExpose(Boolean isExpose) {
+        this.isExpose = isExpose;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get isExpose
+     *
+     * @return isExpose
+     **/
+
+    public Boolean isIsExpose() {
+        return isExpose;
     }
-    V0ProvProfileDocumentUpdateParams v0ProvProfileDocumentUpdateParams = (V0ProvProfileDocumentUpdateParams) o;
-    return Objects.equals(this.isExpose, v0ProvProfileDocumentUpdateParams.isExpose) &&
-        Objects.equals(this.isProtected, v0ProvProfileDocumentUpdateParams.isProtected) &&
-        Objects.equals(this.processed, v0ProvProfileDocumentUpdateParams.processed);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(isExpose, isProtected, processed);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0ProvProfileDocumentUpdateParams {\n");
-    
-    sb.append("    isExpose: ").append(toIndentedString(isExpose)).append("\n");
-    sb.append("    isProtected: ").append(toIndentedString(isProtected)).append("\n");
-    sb.append("    processed: ").append(toIndentedString(processed)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setIsExpose(Boolean isExpose) {
+        this.isExpose = isExpose;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0ProvProfileDocumentUpdateParams isProtected(Boolean isProtected) {
+        this.isProtected = isProtected;
+        return this;
+    }
+
+    /**
+     * Get isProtected
+     *
+     * @return isProtected
+     **/
+
+    public Boolean isIsProtected() {
+        return isProtected;
+    }
+
+    public void setIsProtected(Boolean isProtected) {
+        this.isProtected = isProtected;
+    }
+
+    public V0ProvProfileDocumentUpdateParams processed(Boolean processed) {
+        this.processed = processed;
+        return this;
+    }
+
+    /**
+     * Get processed
+     *
+     * @return processed
+     **/
+
+    public Boolean isProcessed() {
+        return processed;
+    }
+
+    public void setProcessed(Boolean processed) {
+        this.processed = processed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0ProvProfileDocumentUpdateParams v0ProvProfileDocumentUpdateParams = (V0ProvProfileDocumentUpdateParams) o;
+        return Objects.equals(this.isExpose, v0ProvProfileDocumentUpdateParams.isExpose) &&
+                Objects.equals(this.isProtected, v0ProvProfileDocumentUpdateParams.isProtected) &&
+                Objects.equals(this.processed, v0ProvProfileDocumentUpdateParams.processed);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isExpose, isProtected, processed);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0ProvProfileDocumentUpdateParams {\n"
+                + "    isExpose: " + toIndentedString(isExpose) + "\n"
+                + "    isProtected: " + toIndentedString(isProtected) + "\n"
+                + "    processed: " + toIndentedString(processed) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

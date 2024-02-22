@@ -16,73 +16,68 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0AppConfigRequestParam
  */
 
-
-
 public class V0AppConfigRequestParam {
-  @SerializedName("app_config_datastore_yaml")
-  private String appConfigDatastoreYaml = null;
+    @SerializedName("app_config_datastore_yaml")
+    private String appConfigDatastoreYaml = null;
 
-  public V0AppConfigRequestParam appConfigDatastoreYaml(String appConfigDatastoreYaml) {
-    this.appConfigDatastoreYaml = appConfigDatastoreYaml;
-    return this;
-  }
-
-   /**
-   * The bitrise.yml of your application, defined in JSON format
-   * @return appConfigDatastoreYaml
-  **/
-  
-  public String getAppConfigDatastoreYaml() {
-    return appConfigDatastoreYaml;
-  }
-
-  public void setAppConfigDatastoreYaml(String appConfigDatastoreYaml) {
-    this.appConfigDatastoreYaml = appConfigDatastoreYaml;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppConfigRequestParam appConfigDatastoreYaml(String appConfigDatastoreYaml) {
+        this.appConfigDatastoreYaml = appConfigDatastoreYaml;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The bitrise.yml of your application, defined in JSON format
+     *
+     * @return appConfigDatastoreYaml
+     **/
+
+    public String getAppConfigDatastoreYaml() {
+        return appConfigDatastoreYaml;
     }
-    V0AppConfigRequestParam v0AppConfigRequestParam = (V0AppConfigRequestParam) o;
-    return Objects.equals(this.appConfigDatastoreYaml, v0AppConfigRequestParam.appConfigDatastoreYaml);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(appConfigDatastoreYaml);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppConfigRequestParam {\n");
-    
-    sb.append("    appConfigDatastoreYaml: ").append(toIndentedString(appConfigDatastoreYaml)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setAppConfigDatastoreYaml(String appConfigDatastoreYaml) {
+        this.appConfigDatastoreYaml = appConfigDatastoreYaml;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppConfigRequestParam v0AppConfigRequestParam = (V0AppConfigRequestParam) o;
+        return Objects.equals(this.appConfigDatastoreYaml, v0AppConfigRequestParam.appConfigDatastoreYaml);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(appConfigDatastoreYaml);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppConfigRequestParam {\n"
+                + "    appConfigDatastoreYaml: " + toIndentedString(appConfigDatastoreYaml) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

@@ -17,80 +17,77 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0AddonsListResponseModel
  */
 
-
-
 public class V0AddonsListResponseModel {
-  @SerializedName("data")
-  private List<AddonsAddon> data = null;
+    @SerializedName("data")
+    private List<AddonsAddon> data = null;
 
-  public V0AddonsListResponseModel data(List<AddonsAddon> data) {
-    this.data = data;
-    return this;
-  }
-
-  public V0AddonsListResponseModel addDataItem(AddonsAddon dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<AddonsAddon>();
+    public V0AddonsListResponseModel data(List<AddonsAddon> data) {
+        this.data = data;
+        return this;
     }
-    this.data.add(dataItem);
-    return this;
-  }
 
-   /**
-   * Get data
-   * @return data
-  **/
-
-  public List<AddonsAddon> getData() {
-    return data;
-  }
-
-  public void setData(List<AddonsAddon> data) {
-    this.data = data;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AddonsListResponseModel addDataItem(AddonsAddon dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<AddonsAddon>();
+        }
+        this.data.add(dataItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+
+    public List<AddonsAddon> getData() {
+        return data;
     }
-    V0AddonsListResponseModel v0AddonsListResponseModel = (V0AddonsListResponseModel) o;
-    return Objects.equals(this.data, v0AddonsListResponseModel.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AddonsListResponseModel {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(List<AddonsAddon> data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AddonsListResponseModel v0AddonsListResponseModel = (V0AddonsListResponseModel) o;
+        return Objects.equals(this.data, v0AddonsListResponseModel.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AddonsListResponseModel {\n"
+                + "    data: " + toIndentedString(data) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

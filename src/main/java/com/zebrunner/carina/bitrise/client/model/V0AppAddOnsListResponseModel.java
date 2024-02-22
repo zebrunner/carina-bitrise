@@ -17,80 +17,77 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0AppAddOnsListResponseModel
  */
 
-
-
 public class V0AppAddOnsListResponseModel {
-  @SerializedName("data")
-  private List<V0AppAddOnResponseItemModel> data = null;
+    @SerializedName("data")
+    private List<V0AppAddOnResponseItemModel> data = null;
 
-  public V0AppAddOnsListResponseModel data(List<V0AppAddOnResponseItemModel> data) {
-    this.data = data;
-    return this;
-  }
-
-  public V0AppAddOnsListResponseModel addDataItem(V0AppAddOnResponseItemModel dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<V0AppAddOnResponseItemModel>();
+    public V0AppAddOnsListResponseModel data(List<V0AppAddOnResponseItemModel> data) {
+        this.data = data;
+        return this;
     }
-    this.data.add(dataItem);
-    return this;
-  }
 
-   /**
-   * Get data
-   * @return data
-  **/
-
-  public List<V0AppAddOnResponseItemModel> getData() {
-    return data;
-  }
-
-  public void setData(List<V0AppAddOnResponseItemModel> data) {
-    this.data = data;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppAddOnsListResponseModel addDataItem(V0AppAddOnResponseItemModel dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<V0AppAddOnResponseItemModel>();
+        }
+        this.data.add(dataItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+
+    public List<V0AppAddOnResponseItemModel> getData() {
+        return data;
     }
-    V0AppAddOnsListResponseModel v0AppAddOnsListResponseModel = (V0AppAddOnsListResponseModel) o;
-    return Objects.equals(this.data, v0AppAddOnsListResponseModel.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppAddOnsListResponseModel {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(List<V0AppAddOnResponseItemModel> data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppAddOnsListResponseModel v0AppAddOnsListResponseModel = (V0AppAddOnsListResponseModel) o;
+        return Objects.equals(this.data, v0AppAddOnsListResponseModel.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppAddOnsListResponseModel {\n"
+                + "    data: " + toIndentedString(data) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

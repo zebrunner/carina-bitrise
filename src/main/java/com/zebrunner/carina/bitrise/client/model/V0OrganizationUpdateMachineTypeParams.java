@@ -16,96 +16,92 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0OrganizationUpdateMachineTypeParams
  */
 
-
-
 public class V0OrganizationUpdateMachineTypeParams {
-  @SerializedName("from_machine")
-  private String fromMachine = null;
+    @SerializedName("from_machine")
+    private String fromMachine = null;
 
-  @SerializedName("to_machine")
-  private String toMachine = null;
+    @SerializedName("to_machine")
+    private String toMachine = null;
 
-  public V0OrganizationUpdateMachineTypeParams fromMachine(String fromMachine) {
-    this.fromMachine = fromMachine;
-    return this;
-  }
-
-   /**
-   * Machine type to migrate from
-   * @return fromMachine
-  **/
-
-  public String getFromMachine() {
-    return fromMachine;
-  }
-
-  public void setFromMachine(String fromMachine) {
-    this.fromMachine = fromMachine;
-  }
-
-  public V0OrganizationUpdateMachineTypeParams toMachine(String toMachine) {
-    this.toMachine = toMachine;
-    return this;
-  }
-
-   /**
-   * Machine type to migrate to
-   * @return toMachine
-  **/
-
-  public String getToMachine() {
-    return toMachine;
-  }
-
-  public void setToMachine(String toMachine) {
-    this.toMachine = toMachine;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0OrganizationUpdateMachineTypeParams fromMachine(String fromMachine) {
+        this.fromMachine = fromMachine;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Machine type to migrate from
+     *
+     * @return fromMachine
+     **/
+
+    public String getFromMachine() {
+        return fromMachine;
     }
-    V0OrganizationUpdateMachineTypeParams v0OrganizationUpdateMachineTypeParams = (V0OrganizationUpdateMachineTypeParams) o;
-    return Objects.equals(this.fromMachine, v0OrganizationUpdateMachineTypeParams.fromMachine) &&
-        Objects.equals(this.toMachine, v0OrganizationUpdateMachineTypeParams.toMachine);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(fromMachine, toMachine);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0OrganizationUpdateMachineTypeParams {\n");
-    
-    sb.append("    fromMachine: ").append(toIndentedString(fromMachine)).append("\n");
-    sb.append("    toMachine: ").append(toIndentedString(toMachine)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setFromMachine(String fromMachine) {
+        this.fromMachine = fromMachine;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0OrganizationUpdateMachineTypeParams toMachine(String toMachine) {
+        this.toMachine = toMachine;
+        return this;
+    }
+
+    /**
+     * Machine type to migrate to
+     *
+     * @return toMachine
+     **/
+
+    public String getToMachine() {
+        return toMachine;
+    }
+
+    public void setToMachine(String toMachine) {
+        this.toMachine = toMachine;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0OrganizationUpdateMachineTypeParams v0OrganizationUpdateMachineTypeParams = (V0OrganizationUpdateMachineTypeParams) o;
+        return Objects.equals(this.fromMachine, v0OrganizationUpdateMachineTypeParams.fromMachine) &&
+                Objects.equals(this.toMachine, v0OrganizationUpdateMachineTypeParams.toMachine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fromMachine, toMachine);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0OrganizationUpdateMachineTypeParams {\n"
+                + "    fromMachine: " + toIndentedString(fromMachine) + "\n"
+                + "    toMachine: " + toIndentedString(toMachine) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

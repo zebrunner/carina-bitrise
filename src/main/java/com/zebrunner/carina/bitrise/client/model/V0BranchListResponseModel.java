@@ -17,80 +17,77 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0BranchListResponseModel
  */
 
-
-
 public class V0BranchListResponseModel {
-  @SerializedName("data")
-  private List<String> data = null;
+    @SerializedName("data")
+    private List<String> data = null;
 
-  public V0BranchListResponseModel data(List<String> data) {
-    this.data = data;
-    return this;
-  }
-
-  public V0BranchListResponseModel addDataItem(String dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<String>();
+    public V0BranchListResponseModel data(List<String> data) {
+        this.data = data;
+        return this;
     }
-    this.data.add(dataItem);
-    return this;
-  }
 
-   /**
-   * Get data
-   * @return data
-  **/
-  
-  public List<String> getData() {
-    return data;
-  }
-
-  public void setData(List<String> data) {
-    this.data = data;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0BranchListResponseModel addDataItem(String dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<String>();
+        }
+        this.data.add(dataItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+
+    public List<String> getData() {
+        return data;
     }
-    V0BranchListResponseModel v0BranchListResponseModel = (V0BranchListResponseModel) o;
-    return Objects.equals(this.data, v0BranchListResponseModel.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0BranchListResponseModel {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(List<String> data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0BranchListResponseModel v0BranchListResponseModel = (V0BranchListResponseModel) o;
+        return Objects.equals(this.data, v0BranchListResponseModel.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0BranchListResponseModel {\n"
+                + "    data: " + toIndentedString(data) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

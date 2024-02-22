@@ -17,172 +17,173 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0ProjectFileStorageDocumentUpdateParams
  */
 
-
-
 public class V0ProjectFileStorageDocumentUpdateParams {
-  @SerializedName("exposed_meta_datastore")
-  private List<Integer> exposedMetaDatastore = null;
+    @SerializedName("exposed_meta_datastore")
+    private List<Integer> exposedMetaDatastore = null;
 
-  @SerializedName("is_expose")
-  private Boolean isExpose = null;
+    @SerializedName("is_expose")
+    private Boolean isExpose = null;
 
-  @SerializedName("is_protected")
-  private Boolean isProtected = null;
+    @SerializedName("is_protected")
+    private Boolean isProtected = null;
 
-  @SerializedName("processed")
-  private Boolean processed = null;
+    @SerializedName("processed")
+    private Boolean processed = null;
 
-  @SerializedName("user_env_key")
-  private String userEnvKey = null;
+    @SerializedName("user_env_key")
+    private String userEnvKey = null;
 
-  public V0ProjectFileStorageDocumentUpdateParams exposedMetaDatastore(List<Integer> exposedMetaDatastore) {
-    this.exposedMetaDatastore = exposedMetaDatastore;
-    return this;
-  }
-
-  public V0ProjectFileStorageDocumentUpdateParams addExposedMetaDatastoreItem(Integer exposedMetaDatastoreItem) {
-    if (this.exposedMetaDatastore == null) {
-      this.exposedMetaDatastore = new ArrayList<Integer>();
+    public V0ProjectFileStorageDocumentUpdateParams exposedMetaDatastore(List<Integer> exposedMetaDatastore) {
+        this.exposedMetaDatastore = exposedMetaDatastore;
+        return this;
     }
-    this.exposedMetaDatastore.add(exposedMetaDatastoreItem);
-    return this;
-  }
 
-   /**
-   * Get exposedMetaDatastore
-   * @return exposedMetaDatastore
-  **/
-  
-  public List<Integer> getExposedMetaDatastore() {
-    return exposedMetaDatastore;
-  }
-
-  public void setExposedMetaDatastore(List<Integer> exposedMetaDatastore) {
-    this.exposedMetaDatastore = exposedMetaDatastore;
-  }
-
-  public V0ProjectFileStorageDocumentUpdateParams isExpose(Boolean isExpose) {
-    this.isExpose = isExpose;
-    return this;
-  }
-
-   /**
-   * Get isExpose
-   * @return isExpose
-  **/
-  
-  public Boolean isIsExpose() {
-    return isExpose;
-  }
-
-  public void setIsExpose(Boolean isExpose) {
-    this.isExpose = isExpose;
-  }
-
-  public V0ProjectFileStorageDocumentUpdateParams isProtected(Boolean isProtected) {
-    this.isProtected = isProtected;
-    return this;
-  }
-
-   /**
-   * Get isProtected
-   * @return isProtected
-  **/
-  
-  public Boolean isIsProtected() {
-    return isProtected;
-  }
-
-  public void setIsProtected(Boolean isProtected) {
-    this.isProtected = isProtected;
-  }
-
-  public V0ProjectFileStorageDocumentUpdateParams processed(Boolean processed) {
-    this.processed = processed;
-    return this;
-  }
-
-   /**
-   * Get processed
-   * @return processed
-  **/
-  
-  public Boolean isProcessed() {
-    return processed;
-  }
-
-  public void setProcessed(Boolean processed) {
-    this.processed = processed;
-  }
-
-  public V0ProjectFileStorageDocumentUpdateParams userEnvKey(String userEnvKey) {
-    this.userEnvKey = userEnvKey;
-    return this;
-  }
-
-   /**
-   * Get userEnvKey
-   * @return userEnvKey
-  **/
-  
-  public String getUserEnvKey() {
-    return userEnvKey;
-  }
-
-  public void setUserEnvKey(String userEnvKey) {
-    this.userEnvKey = userEnvKey;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0ProjectFileStorageDocumentUpdateParams addExposedMetaDatastoreItem(Integer exposedMetaDatastoreItem) {
+        if (this.exposedMetaDatastore == null) {
+            this.exposedMetaDatastore = new ArrayList<Integer>();
+        }
+        this.exposedMetaDatastore.add(exposedMetaDatastoreItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get exposedMetaDatastore
+     *
+     * @return exposedMetaDatastore
+     **/
+
+    public List<Integer> getExposedMetaDatastore() {
+        return exposedMetaDatastore;
     }
-    V0ProjectFileStorageDocumentUpdateParams v0ProjectFileStorageDocumentUpdateParams = (V0ProjectFileStorageDocumentUpdateParams) o;
-    return Objects.equals(this.exposedMetaDatastore, v0ProjectFileStorageDocumentUpdateParams.exposedMetaDatastore) &&
-        Objects.equals(this.isExpose, v0ProjectFileStorageDocumentUpdateParams.isExpose) &&
-        Objects.equals(this.isProtected, v0ProjectFileStorageDocumentUpdateParams.isProtected) &&
-        Objects.equals(this.processed, v0ProjectFileStorageDocumentUpdateParams.processed) &&
-        Objects.equals(this.userEnvKey, v0ProjectFileStorageDocumentUpdateParams.userEnvKey);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(exposedMetaDatastore, isExpose, isProtected, processed, userEnvKey);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0ProjectFileStorageDocumentUpdateParams {\n");
-    
-    sb.append("    exposedMetaDatastore: ").append(toIndentedString(exposedMetaDatastore)).append("\n");
-    sb.append("    isExpose: ").append(toIndentedString(isExpose)).append("\n");
-    sb.append("    isProtected: ").append(toIndentedString(isProtected)).append("\n");
-    sb.append("    processed: ").append(toIndentedString(processed)).append("\n");
-    sb.append("    userEnvKey: ").append(toIndentedString(userEnvKey)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setExposedMetaDatastore(List<Integer> exposedMetaDatastore) {
+        this.exposedMetaDatastore = exposedMetaDatastore;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0ProjectFileStorageDocumentUpdateParams isExpose(Boolean isExpose) {
+        this.isExpose = isExpose;
+        return this;
+    }
+
+    /**
+     * Get isExpose
+     *
+     * @return isExpose
+     **/
+
+    public Boolean isIsExpose() {
+        return isExpose;
+    }
+
+    public void setIsExpose(Boolean isExpose) {
+        this.isExpose = isExpose;
+    }
+
+    public V0ProjectFileStorageDocumentUpdateParams isProtected(Boolean isProtected) {
+        this.isProtected = isProtected;
+        return this;
+    }
+
+    /**
+     * Get isProtected
+     *
+     * @return isProtected
+     **/
+
+    public Boolean isIsProtected() {
+        return isProtected;
+    }
+
+    public void setIsProtected(Boolean isProtected) {
+        this.isProtected = isProtected;
+    }
+
+    public V0ProjectFileStorageDocumentUpdateParams processed(Boolean processed) {
+        this.processed = processed;
+        return this;
+    }
+
+    /**
+     * Get processed
+     *
+     * @return processed
+     **/
+
+    public Boolean isProcessed() {
+        return processed;
+    }
+
+    public void setProcessed(Boolean processed) {
+        this.processed = processed;
+    }
+
+    public V0ProjectFileStorageDocumentUpdateParams userEnvKey(String userEnvKey) {
+        this.userEnvKey = userEnvKey;
+        return this;
+    }
+
+    /**
+     * Get userEnvKey
+     *
+     * @return userEnvKey
+     **/
+
+    public String getUserEnvKey() {
+        return userEnvKey;
+    }
+
+    public void setUserEnvKey(String userEnvKey) {
+        this.userEnvKey = userEnvKey;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0ProjectFileStorageDocumentUpdateParams v0ProjectFileStorageDocumentUpdateParams = (V0ProjectFileStorageDocumentUpdateParams) o;
+        return Objects.equals(this.exposedMetaDatastore, v0ProjectFileStorageDocumentUpdateParams.exposedMetaDatastore) &&
+                Objects.equals(this.isExpose, v0ProjectFileStorageDocumentUpdateParams.isExpose) &&
+                Objects.equals(this.isProtected, v0ProjectFileStorageDocumentUpdateParams.isProtected) &&
+                Objects.equals(this.processed, v0ProjectFileStorageDocumentUpdateParams.processed) &&
+                Objects.equals(this.userEnvKey, v0ProjectFileStorageDocumentUpdateParams.userEnvKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(exposedMetaDatastore, isExpose, isProtected, processed, userEnvKey);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0ProjectFileStorageDocumentUpdateParams {\n"
+                + "    exposedMetaDatastore: " + toIndentedString(exposedMetaDatastore) + "\n"
+                + "    isExpose: " + toIndentedString(isExpose) + "\n"
+                + "    isProtected: " + toIndentedString(isProtected) + "\n"
+                + "    processed: " + toIndentedString(processed) + "\n"
+                + "    userEnvKey: " + toIndentedString(userEnvKey) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

@@ -16,73 +16,68 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0CacheItemDownloadURLResponseModel
  */
 
-
-
 public class V0CacheItemDownloadURLResponseModel {
-  @SerializedName("download_url")
-  private String downloadUrl = null;
+    @SerializedName("download_url")
+    private String downloadUrl = null;
 
-  public V0CacheItemDownloadURLResponseModel downloadUrl(String downloadUrl) {
-    this.downloadUrl = downloadUrl;
-    return this;
-  }
-
-   /**
-   * Get downloadUrl
-   * @return downloadUrl
-  **/
-  
-  public String getDownloadUrl() {
-    return downloadUrl;
-  }
-
-  public void setDownloadUrl(String downloadUrl) {
-    this.downloadUrl = downloadUrl;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0CacheItemDownloadURLResponseModel downloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get downloadUrl
+     *
+     * @return downloadUrl
+     **/
+
+    public String getDownloadUrl() {
+        return downloadUrl;
     }
-    V0CacheItemDownloadURLResponseModel v0CacheItemDownloadURLResponseModel = (V0CacheItemDownloadURLResponseModel) o;
-    return Objects.equals(this.downloadUrl, v0CacheItemDownloadURLResponseModel.downloadUrl);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(downloadUrl);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0CacheItemDownloadURLResponseModel {\n");
-    
-    sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setDownloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0CacheItemDownloadURLResponseModel v0CacheItemDownloadURLResponseModel = (V0CacheItemDownloadURLResponseModel) o;
+        return Objects.equals(this.downloadUrl, v0CacheItemDownloadURLResponseModel.downloadUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(downloadUrl);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0CacheItemDownloadURLResponseModel {\n"
+                + "    downloadUrl: " + toIndentedString(downloadUrl) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

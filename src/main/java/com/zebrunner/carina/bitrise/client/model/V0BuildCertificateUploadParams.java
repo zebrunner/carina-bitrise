@@ -16,96 +16,92 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0BuildCertificateUploadParams
  */
 
-
-
 public class V0BuildCertificateUploadParams {
-  @SerializedName("upload_file_name")
-  private String uploadFileName = null;
+    @SerializedName("upload_file_name")
+    private String uploadFileName = null;
 
-  @SerializedName("upload_file_size")
-  private Integer uploadFileSize = null;
+    @SerializedName("upload_file_size")
+    private Integer uploadFileSize = null;
 
-  public V0BuildCertificateUploadParams uploadFileName(String uploadFileName) {
-    this.uploadFileName = uploadFileName;
-    return this;
-  }
-
-   /**
-   * Get uploadFileName
-   * @return uploadFileName
-  **/
-  
-  public String getUploadFileName() {
-    return uploadFileName;
-  }
-
-  public void setUploadFileName(String uploadFileName) {
-    this.uploadFileName = uploadFileName;
-  }
-
-  public V0BuildCertificateUploadParams uploadFileSize(Integer uploadFileSize) {
-    this.uploadFileSize = uploadFileSize;
-    return this;
-  }
-
-   /**
-   * Get uploadFileSize
-   * @return uploadFileSize
-  **/
-  
-  public Integer getUploadFileSize() {
-    return uploadFileSize;
-  }
-
-  public void setUploadFileSize(Integer uploadFileSize) {
-    this.uploadFileSize = uploadFileSize;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0BuildCertificateUploadParams uploadFileName(String uploadFileName) {
+        this.uploadFileName = uploadFileName;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get uploadFileName
+     *
+     * @return uploadFileName
+     **/
+
+    public String getUploadFileName() {
+        return uploadFileName;
     }
-    V0BuildCertificateUploadParams v0BuildCertificateUploadParams = (V0BuildCertificateUploadParams) o;
-    return Objects.equals(this.uploadFileName, v0BuildCertificateUploadParams.uploadFileName) &&
-        Objects.equals(this.uploadFileSize, v0BuildCertificateUploadParams.uploadFileSize);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(uploadFileName, uploadFileSize);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0BuildCertificateUploadParams {\n");
-    
-    sb.append("    uploadFileName: ").append(toIndentedString(uploadFileName)).append("\n");
-    sb.append("    uploadFileSize: ").append(toIndentedString(uploadFileSize)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setUploadFileName(String uploadFileName) {
+        this.uploadFileName = uploadFileName;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0BuildCertificateUploadParams uploadFileSize(Integer uploadFileSize) {
+        this.uploadFileSize = uploadFileSize;
+        return this;
+    }
+
+    /**
+     * Get uploadFileSize
+     *
+     * @return uploadFileSize
+     **/
+
+    public Integer getUploadFileSize() {
+        return uploadFileSize;
+    }
+
+    public void setUploadFileSize(Integer uploadFileSize) {
+        this.uploadFileSize = uploadFileSize;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0BuildCertificateUploadParams v0BuildCertificateUploadParams = (V0BuildCertificateUploadParams) o;
+        return Objects.equals(this.uploadFileName, v0BuildCertificateUploadParams.uploadFileName) &&
+                Objects.equals(this.uploadFileSize, v0BuildCertificateUploadParams.uploadFileSize);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uploadFileName, uploadFileSize);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0BuildCertificateUploadParams {\n"
+                + "    uploadFileName: " + toIndentedString(uploadFileName) + "\n"
+                + "    uploadFileSize: " + toIndentedString(uploadFileSize) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

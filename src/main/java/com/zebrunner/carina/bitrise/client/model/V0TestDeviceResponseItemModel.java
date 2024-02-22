@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0TestDeviceResponseItemModel
  */
 
-
-
 public class V0TestDeviceResponseItemModel {
-  @SerializedName("device_id")
-  private String deviceId = null;
+    @SerializedName("device_id")
+    private String deviceId = null;
 
-  @SerializedName("device_type")
-  private String deviceType = null;
+    @SerializedName("device_type")
+    private String deviceType = null;
 
-  @SerializedName("owner")
-  private String owner = null;
+    @SerializedName("owner")
+    private String owner = null;
 
-  public V0TestDeviceResponseItemModel deviceId(String deviceId) {
-    this.deviceId = deviceId;
-    return this;
-  }
-
-   /**
-   * Get deviceId
-   * @return deviceId
-  **/
-
-  public String getDeviceId() {
-    return deviceId;
-  }
-
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
-
-  public V0TestDeviceResponseItemModel deviceType(String deviceType) {
-    this.deviceType = deviceType;
-    return this;
-  }
-
-   /**
-   * Get deviceType
-   * @return deviceType
-  **/
-
-  public String getDeviceType() {
-    return deviceType;
-  }
-
-  public void setDeviceType(String deviceType) {
-    this.deviceType = deviceType;
-  }
-
-  public V0TestDeviceResponseItemModel owner(String owner) {
-    this.owner = owner;
-    return this;
-  }
-
-   /**
-   * Get owner
-   * @return owner
-  **/
-
-  public String getOwner() {
-    return owner;
-  }
-
-  public void setOwner(String owner) {
-    this.owner = owner;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0TestDeviceResponseItemModel deviceId(String deviceId) {
+        this.deviceId = deviceId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get deviceId
+     *
+     * @return deviceId
+     **/
+
+    public String getDeviceId() {
+        return deviceId;
     }
-    V0TestDeviceResponseItemModel v0TestDeviceResponseItemModel = (V0TestDeviceResponseItemModel) o;
-    return Objects.equals(this.deviceId, v0TestDeviceResponseItemModel.deviceId) &&
-        Objects.equals(this.deviceType, v0TestDeviceResponseItemModel.deviceType) &&
-        Objects.equals(this.owner, v0TestDeviceResponseItemModel.owner);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(deviceId, deviceType, owner);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0TestDeviceResponseItemModel {\n");
-    
-    sb.append("    deviceId: ").append(toIndentedString(deviceId)).append("\n");
-    sb.append("    deviceType: ").append(toIndentedString(deviceType)).append("\n");
-    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0TestDeviceResponseItemModel deviceType(String deviceType) {
+        this.deviceType = deviceType;
+        return this;
+    }
+
+    /**
+     * Get deviceType
+     *
+     * @return deviceType
+     **/
+
+    public String getDeviceType() {
+        return deviceType;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
+    }
+
+    public V0TestDeviceResponseItemModel owner(String owner) {
+        this.owner = owner;
+        return this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return owner
+     **/
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0TestDeviceResponseItemModel v0TestDeviceResponseItemModel = (V0TestDeviceResponseItemModel) o;
+        return Objects.equals(this.deviceId, v0TestDeviceResponseItemModel.deviceId) &&
+                Objects.equals(this.deviceType, v0TestDeviceResponseItemModel.deviceType) &&
+                Objects.equals(this.owner, v0TestDeviceResponseItemModel.owner);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(deviceId, deviceType, owner);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0TestDeviceResponseItemModel {\n"
+                + "    deviceId: " + toIndentedString(deviceId) + "\n"
+                + "    deviceType: " + toIndentedString(deviceType) + "\n"
+                + "    owner: " + toIndentedString(owner) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

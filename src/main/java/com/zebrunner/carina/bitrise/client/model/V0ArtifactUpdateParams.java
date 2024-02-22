@@ -16,73 +16,68 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0ArtifactUpdateParams
  */
 
-
-
 public class V0ArtifactUpdateParams {
-  @SerializedName("is_public_page_enabled")
-  private Boolean isPublicPageEnabled = null;
+    @SerializedName("is_public_page_enabled")
+    private Boolean isPublicPageEnabled = null;
 
-  public V0ArtifactUpdateParams isPublicPageEnabled(Boolean isPublicPageEnabled) {
-    this.isPublicPageEnabled = isPublicPageEnabled;
-    return this;
-  }
-
-   /**
-   * Get isPublicPageEnabled
-   * @return isPublicPageEnabled
-  **/
-  
-  public Boolean isIsPublicPageEnabled() {
-    return isPublicPageEnabled;
-  }
-
-  public void setIsPublicPageEnabled(Boolean isPublicPageEnabled) {
-    this.isPublicPageEnabled = isPublicPageEnabled;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0ArtifactUpdateParams isPublicPageEnabled(Boolean isPublicPageEnabled) {
+        this.isPublicPageEnabled = isPublicPageEnabled;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get isPublicPageEnabled
+     *
+     * @return isPublicPageEnabled
+     **/
+
+    public Boolean isIsPublicPageEnabled() {
+        return isPublicPageEnabled;
     }
-    V0ArtifactUpdateParams v0ArtifactUpdateParams = (V0ArtifactUpdateParams) o;
-    return Objects.equals(this.isPublicPageEnabled, v0ArtifactUpdateParams.isPublicPageEnabled);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(isPublicPageEnabled);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0ArtifactUpdateParams {\n");
-    
-    sb.append("    isPublicPageEnabled: ").append(toIndentedString(isPublicPageEnabled)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setIsPublicPageEnabled(Boolean isPublicPageEnabled) {
+        this.isPublicPageEnabled = isPublicPageEnabled;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0ArtifactUpdateParams v0ArtifactUpdateParams = (V0ArtifactUpdateParams) o;
+        return Objects.equals(this.isPublicPageEnabled, v0ArtifactUpdateParams.isPublicPageEnabled);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isPublicPageEnabled);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0ArtifactUpdateParams {\n"
+                + "    isPublicPageEnabled: " + toIndentedString(isPublicPageEnabled) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

@@ -51,18 +51,20 @@ public class TestDevicesApi {
 
     /**
      * Build call for testDeviceList
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call testDeviceListCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call testDeviceListCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/test-devices"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -72,52 +74,52 @@ public class TestDevicesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call testDeviceListValidateBeforeCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call testDeviceListValidateBeforeCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling testDeviceList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = testDeviceListCall(appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * List the test devices for an app
      * List registered test devices of all members of a specified Bitrise app
+     *
      * @param appSlug App slug (required)
      * @return V0TestDeviceListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -130,25 +132,29 @@ public class TestDevicesApi {
     /**
      * List the test devices for an app
      * List registered test devices of all members of a specified Bitrise app
+     *
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0TestDeviceListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0TestDeviceListResponseModel> testDeviceListWithHttpInfo(String appSlug) throws ApiException {
         com.squareup.okhttp.Call call = testDeviceListValidateBeforeCall(appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0TestDeviceListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0TestDeviceListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List the test devices for an app (asynchronously)
      * List registered test devices of all members of a specified Bitrise app
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call testDeviceListAsync(String appSlug, final ApiCallback<V0TestDeviceListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call testDeviceListAsync(String appSlug, final ApiCallback<V0TestDeviceListResponseModel> callback)
+            throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,7 +176,8 @@ public class TestDevicesApi {
         }
 
         com.squareup.okhttp.Call call = testDeviceListValidateBeforeCall(appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0TestDeviceListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0TestDeviceListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

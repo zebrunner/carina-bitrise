@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0OwnerAccountResponseModel
  */
 
-
-
 public class V0OwnerAccountResponseModel {
-  @SerializedName("account_type")
-  private String accountType = null;
+    @SerializedName("account_type")
+    private String accountType = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+    @SerializedName("slug")
+    private String slug = null;
 
-  public V0OwnerAccountResponseModel accountType(String accountType) {
-    this.accountType = accountType;
-    return this;
-  }
-
-   /**
-   * Get accountType
-   * @return accountType
-  **/
-  
-  public String getAccountType() {
-    return accountType;
-  }
-
-  public void setAccountType(String accountType) {
-    this.accountType = accountType;
-  }
-
-  public V0OwnerAccountResponseModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public V0OwnerAccountResponseModel slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Get slug
-   * @return slug
-  **/
-  
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0OwnerAccountResponseModel accountType(String accountType) {
+        this.accountType = accountType;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get accountType
+     *
+     * @return accountType
+     **/
+
+    public String getAccountType() {
+        return accountType;
     }
-    V0OwnerAccountResponseModel v0OwnerAccountResponseModel = (V0OwnerAccountResponseModel) o;
-    return Objects.equals(this.accountType, v0OwnerAccountResponseModel.accountType) &&
-        Objects.equals(this.name, v0OwnerAccountResponseModel.name) &&
-        Objects.equals(this.slug, v0OwnerAccountResponseModel.slug);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(accountType, name, slug);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0OwnerAccountResponseModel {\n");
-    
-    sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0OwnerAccountResponseModel name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     **/
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public V0OwnerAccountResponseModel slug(String slug) {
+        this.slug = slug;
+        return this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return slug
+     **/
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0OwnerAccountResponseModel v0OwnerAccountResponseModel = (V0OwnerAccountResponseModel) o;
+        return Objects.equals(this.accountType, v0OwnerAccountResponseModel.accountType) &&
+                Objects.equals(this.name, v0OwnerAccountResponseModel.name) &&
+                Objects.equals(this.slug, v0OwnerAccountResponseModel.slug);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountType, name, slug);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0OwnerAccountResponseModel {\n"
+                + "    accountType: " + toIndentedString(accountType) + "\n"
+                + "    name: " + toIndentedString(name) + "\n"
+                + "    slug: " + toIndentedString(slug) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

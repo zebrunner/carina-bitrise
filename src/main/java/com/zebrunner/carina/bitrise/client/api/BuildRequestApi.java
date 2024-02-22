@@ -53,18 +53,20 @@ public class BuildRequestApi {
 
     /**
      * Build call for buildRequestList
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildRequestListCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call buildRequestListCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/build-requests"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -74,52 +76,52 @@ public class BuildRequestApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call buildRequestListValidateBeforeCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call buildRequestListValidateBeforeCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling buildRequestList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = buildRequestListCall(appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * List the open build requests for an app
      * List the existing open build requests of a specified Bitrise app
+     *
      * @param appSlug App slug (required)
      * @return V0BuildRequestListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -132,25 +134,29 @@ public class BuildRequestApi {
     /**
      * List the open build requests for an app
      * List the existing open build requests of a specified Bitrise app
+     *
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0BuildRequestListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0BuildRequestListResponseModel> buildRequestListWithHttpInfo(String appSlug) throws ApiException {
         com.squareup.okhttp.Call call = buildRequestListValidateBeforeCall(appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0BuildRequestListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildRequestListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List the open build requests for an app (asynchronously)
      * List the existing open build requests of a specified Bitrise app
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call buildRequestListAsync(String appSlug, final ApiCallback<V0BuildRequestListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call buildRequestListAsync(String appSlug, final ApiCallback<V0BuildRequestListResponseModel> callback)
+            throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -172,27 +178,32 @@ public class BuildRequestApi {
         }
 
         com.squareup.okhttp.Call call = buildRequestListValidateBeforeCall(appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0BuildRequestListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildRequestListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for buildRequestUpdate
-     * @param body Build request parameters (required)
-     * @param appSlug App slug (required)
-     * @param buildRequestSlug Build request slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Build request parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param buildRequestSlug        Build request slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildRequestUpdateCall(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call buildRequestUpdateCall(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/build-requests/{build-request-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-request-slug" + "\\}", apiClient.escapeString(buildRequestSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-request-slug" + "\\}", apiClient.escapeString(buildRequestSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -202,35 +213,39 @@ public class BuildRequestApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call buildRequestUpdateValidateBeforeCall(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call buildRequestUpdateValidateBeforeCall(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling buildRequestUpdate(Async)");
@@ -243,26 +258,24 @@ public class BuildRequestApi {
         if (buildRequestSlug == null) {
             throw new ApiException("Missing the required parameter 'buildRequestSlug' when calling buildRequestUpdate(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = buildRequestUpdateCall(body, appSlug, buildRequestSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update a build request
      * Update a specific build request of a specific app
-     * @param body Build request parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body             Build request parameters (required)
+     * @param appSlug          App slug (required)
      * @param buildRequestSlug Build request slug (required)
      * @return V0BuildRequestUpdateResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V0BuildRequestUpdateResponseModel buildRequestUpdate(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug) throws ApiException {
+    public V0BuildRequestUpdateResponseModel buildRequestUpdate(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug)
+            throws ApiException {
         ApiResponse<V0BuildRequestUpdateResponseModel> resp = buildRequestUpdateWithHttpInfo(body, appSlug, buildRequestSlug);
         return resp.getData();
     }
@@ -270,29 +283,34 @@ public class BuildRequestApi {
     /**
      * Update a build request
      * Update a specific build request of a specific app
-     * @param body Build request parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body             Build request parameters (required)
+     * @param appSlug          App slug (required)
      * @param buildRequestSlug Build request slug (required)
      * @return ApiResponse&lt;V0BuildRequestUpdateResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0BuildRequestUpdateResponseModel> buildRequestUpdateWithHttpInfo(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug) throws ApiException {
+    public ApiResponse<V0BuildRequestUpdateResponseModel> buildRequestUpdateWithHttpInfo(V0BuildRequestUpdateParams body, String appSlug,
+            String buildRequestSlug) throws ApiException {
         com.squareup.okhttp.Call call = buildRequestUpdateValidateBeforeCall(body, appSlug, buildRequestSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0BuildRequestUpdateResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildRequestUpdateResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Update a build request (asynchronously)
      * Update a specific build request of a specific app
-     * @param body Build request parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body             Build request parameters (required)
+     * @param appSlug          App slug (required)
      * @param buildRequestSlug Build request slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback         The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call buildRequestUpdateAsync(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug, final ApiCallback<V0BuildRequestUpdateResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call buildRequestUpdateAsync(V0BuildRequestUpdateParams body, String appSlug, String buildRequestSlug,
+            final ApiCallback<V0BuildRequestUpdateResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -313,8 +331,10 @@ public class BuildRequestApi {
             };
         }
 
-        com.squareup.okhttp.Call call = buildRequestUpdateValidateBeforeCall(body, appSlug, buildRequestSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0BuildRequestUpdateResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = buildRequestUpdateValidateBeforeCall(body, appSlug, buildRequestSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0BuildRequestUpdateResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

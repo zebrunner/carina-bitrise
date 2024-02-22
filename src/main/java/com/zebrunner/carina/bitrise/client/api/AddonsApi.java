@@ -54,18 +54,20 @@ public class AddonsApi {
 
     /**
      * Build call for addonListByApp
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addonListByAppCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addonListByAppCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/addons"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -75,52 +77,52 @@ public class AddonsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addonListByAppValidateBeforeCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addonListByAppValidateBeforeCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling addonListByApp(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = addonListByAppCall(appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get list of the addons for apps
      * List all the provisioned addons for the authorized apps
+     *
      * @param appSlug App slug (required)
      * @return V0AppAddOnsListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -133,25 +135,29 @@ public class AddonsApi {
     /**
      * Get list of the addons for apps
      * List all the provisioned addons for the authorized apps
+     *
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0AppAddOnsListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0AppAddOnsListResponseModel> addonListByAppWithHttpInfo(String appSlug) throws ApiException {
         com.squareup.okhttp.Call call = addonListByAppValidateBeforeCall(appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0AppAddOnsListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AppAddOnsListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get list of the addons for apps (asynchronously)
      * List all the provisioned addons for the authorized apps
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addonListByAppAsync(String appSlug, final ApiCallback<V0AppAddOnsListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call addonListByAppAsync(String appSlug, final ApiCallback<V0AppAddOnsListResponseModel> callback)
+            throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -173,24 +179,28 @@ public class AddonsApi {
         }
 
         com.squareup.okhttp.Call call = addonListByAppValidateBeforeCall(appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0AppAddOnsListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AppAddOnsListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for addonListByOrganization
-     * @param organizationSlug Organization slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param organizationSlug        Organization slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addonListByOrganizationCall(String organizationSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addonListByOrganizationCall(String organizationSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/organizations/{organization-slug}/addons"
-            .replaceAll("\\{" + "organization-slug" + "\\}", apiClient.escapeString(organizationSlug.toString()));
+                .replaceAll("\\{" + "organization-slug" + "\\}", apiClient.escapeString(organizationSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -200,52 +210,53 @@ public class AddonsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addonListByOrganizationValidateBeforeCall(String organizationSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addonListByOrganizationValidateBeforeCall(String organizationSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'organizationSlug' is set
         if (organizationSlug == null) {
             throw new ApiException("Missing the required parameter 'organizationSlug' when calling addonListByOrganization(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = addonListByOrganizationCall(organizationSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get list of the addons for organization
      * List all the provisioned addons for organization
+     *
      * @param organizationSlug Organization slug (required)
      * @return V0OwnerAddOnsListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -258,25 +269,29 @@ public class AddonsApi {
     /**
      * Get list of the addons for organization
      * List all the provisioned addons for organization
+     *
      * @param organizationSlug Organization slug (required)
      * @return ApiResponse&lt;V0OwnerAddOnsListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0OwnerAddOnsListResponseModel> addonListByOrganizationWithHttpInfo(String organizationSlug) throws ApiException {
         com.squareup.okhttp.Call call = addonListByOrganizationValidateBeforeCall(organizationSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0OwnerAddOnsListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0OwnerAddOnsListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get list of the addons for organization (asynchronously)
      * List all the provisioned addons for organization
+     *
      * @param organizationSlug Organization slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback         The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addonListByOrganizationAsync(String organizationSlug, final ApiCallback<V0OwnerAddOnsListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call addonListByOrganizationAsync(String organizationSlug, final ApiCallback<V0OwnerAddOnsListResponseModel> callback)
+            throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -298,24 +313,28 @@ public class AddonsApi {
         }
 
         com.squareup.okhttp.Call call = addonListByOrganizationValidateBeforeCall(organizationSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0OwnerAddOnsListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0OwnerAddOnsListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for addonListByUser
-     * @param userSlug User slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param userSlug                User slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addonListByUserCall(String userSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addonListByUserCall(String userSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/users/{user-slug}/addons"
-            .replaceAll("\\{" + "user-slug" + "\\}", apiClient.escapeString(userSlug.toString()));
+                .replaceAll("\\{" + "user-slug" + "\\}", apiClient.escapeString(userSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -325,52 +344,52 @@ public class AddonsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addonListByUserValidateBeforeCall(String userSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addonListByUserValidateBeforeCall(String userSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'userSlug' is set
         if (userSlug == null) {
             throw new ApiException("Missing the required parameter 'userSlug' when calling addonListByUser(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = addonListByUserCall(userSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get list of the addons for user
      * List all the provisioned addons for the authenticated user
+     *
      * @param userSlug User slug (required)
      * @return V0OwnerAddOnsListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -383,25 +402,29 @@ public class AddonsApi {
     /**
      * Get list of the addons for user
      * List all the provisioned addons for the authenticated user
+     *
      * @param userSlug User slug (required)
      * @return ApiResponse&lt;V0OwnerAddOnsListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0OwnerAddOnsListResponseModel> addonListByUserWithHttpInfo(String userSlug) throws ApiException {
         com.squareup.okhttp.Call call = addonListByUserValidateBeforeCall(userSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0OwnerAddOnsListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0OwnerAddOnsListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get list of the addons for user (asynchronously)
      * List all the provisioned addons for the authenticated user
+     *
      * @param userSlug User slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call addonListByUserAsync(String userSlug, final ApiCallback<V0OwnerAddOnsListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call addonListByUserAsync(String userSlug, final ApiCallback<V0OwnerAddOnsListResponseModel> callback)
+            throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -423,20 +446,24 @@ public class AddonsApi {
         }
 
         com.squareup.okhttp.Call call = addonListByUserValidateBeforeCall(userSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0OwnerAddOnsListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0OwnerAddOnsListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for addonsList
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addonsListCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addonsListCall(final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/addons";
 
@@ -448,48 +475,48 @@ public class AddonsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] {};
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addonsListValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    private com.squareup.okhttp.Call addonsListValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+
         com.squareup.okhttp.Call call = addonsListCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get list of available Bitrise addons
      * List all the available Bitrise addons
+     *
      * @return V0AddonsListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -501,18 +528,21 @@ public class AddonsApi {
     /**
      * Get list of available Bitrise addons
      * List all the available Bitrise addons
+     *
      * @return ApiResponse&lt;V0AddonsListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0AddonsListResponseModel> addonsListWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = addonsListValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<V0AddonsListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AddonsListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get list of available Bitrise addons (asynchronously)
      * List all the available Bitrise addons
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -539,24 +569,28 @@ public class AddonsApi {
         }
 
         com.squareup.okhttp.Call call = addonsListValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0AddonsListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AddonsListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for addonsShow
-     * @param addonId Addon ID (required)
-     * @param progressListener Progress listener
+     *
+     * @param addonId                 Addon ID (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call addonsShowCall(String addonId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call addonsShowCall(String addonId, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/addons/{addon-id}"
-            .replaceAll("\\{" + "addon-id" + "\\}", apiClient.escapeString(addonId.toString()));
+                .replaceAll("\\{" + "addon-id" + "\\}", apiClient.escapeString(addonId));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -566,52 +600,52 @@ public class AddonsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] {};
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call addonsShowValidateBeforeCall(String addonId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call addonsShowValidateBeforeCall(String addonId, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'addonId' is set
         if (addonId == null) {
             throw new ApiException("Missing the required parameter 'addonId' when calling addonsShow(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = addonsShowCall(addonId, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a specific Bitrise addon
      * Show details of a specific Bitrise addon
+     *
      * @param addonId Addon ID (required)
      * @return V0AddonsShowResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -624,20 +658,23 @@ public class AddonsApi {
     /**
      * Get a specific Bitrise addon
      * Show details of a specific Bitrise addon
+     *
      * @param addonId Addon ID (required)
      * @return ApiResponse&lt;V0AddonsShowResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0AddonsShowResponseModel> addonsShowWithHttpInfo(String addonId) throws ApiException {
         com.squareup.okhttp.Call call = addonsShowValidateBeforeCall(addonId, null, null);
-        Type localVarReturnType = new TypeToken<V0AddonsShowResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AddonsShowResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a specific Bitrise addon (asynchronously)
      * Show details of a specific Bitrise addon
-     * @param addonId Addon ID (required)
+     *
+     * @param addonId  Addon ID (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -664,7 +701,8 @@ public class AddonsApi {
         }
 
         com.squareup.okhttp.Call call = addonsShowValidateBeforeCall(addonId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0AddonsShowResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AddonsShowResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -17,134 +17,133 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0OrganizationUpdateMachineTypeResponse
  */
 
-
-
 public class V0OrganizationUpdateMachineTypeResponse {
-  @SerializedName("errors")
-  private List<V0OrganizationUpdateMachineTypeResponseErrors> errors = null;
+    @SerializedName("errors")
+    private List<V0OrganizationUpdateMachineTypeResponseErrors> errors = null;
 
-  @SerializedName("message")
-  private String message = null;
+    @SerializedName("message")
+    private String message = null;
 
-  @SerializedName("migrated_apps")
-  private List<String> migratedApps = null;
+    @SerializedName("migrated_apps")
+    private List<String> migratedApps = null;
 
-  public V0OrganizationUpdateMachineTypeResponse errors(List<V0OrganizationUpdateMachineTypeResponseErrors> errors) {
-    this.errors = errors;
-    return this;
-  }
-
-  public V0OrganizationUpdateMachineTypeResponse addErrorsItem(V0OrganizationUpdateMachineTypeResponseErrors errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<V0OrganizationUpdateMachineTypeResponseErrors>();
+    public V0OrganizationUpdateMachineTypeResponse errors(List<V0OrganizationUpdateMachineTypeResponseErrors> errors) {
+        this.errors = errors;
+        return this;
     }
-    this.errors.add(errorsItem);
-    return this;
-  }
 
-   /**
-   * Get errors
-   * @return errors
-  **/
-
-  public List<V0OrganizationUpdateMachineTypeResponseErrors> getErrors() {
-    return errors;
-  }
-
-  public void setErrors(List<V0OrganizationUpdateMachineTypeResponseErrors> errors) {
-    this.errors = errors;
-  }
-
-  public V0OrganizationUpdateMachineTypeResponse message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * The result of the migration
-   * @return message
-  **/
-
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public V0OrganizationUpdateMachineTypeResponse migratedApps(List<String> migratedApps) {
-    this.migratedApps = migratedApps;
-    return this;
-  }
-
-  public V0OrganizationUpdateMachineTypeResponse addMigratedAppsItem(String migratedAppsItem) {
-    if (this.migratedApps == null) {
-      this.migratedApps = new ArrayList<String>();
+    public V0OrganizationUpdateMachineTypeResponse addErrorsItem(V0OrganizationUpdateMachineTypeResponseErrors errorsItem) {
+        if (this.errors == null) {
+            this.errors = new ArrayList<V0OrganizationUpdateMachineTypeResponseErrors>();
+        }
+        this.errors.add(errorsItem);
+        return this;
     }
-    this.migratedApps.add(migratedAppsItem);
-    return this;
-  }
 
-   /**
-   * The migrated apps&#x27; identifiers in the following format \&quot;#{app.title} (#{app.slug})\&quot;
-   * @return migratedApps
-  **/
+    /**
+     * Get errors
+     *
+     * @return errors
+     **/
 
-  public List<String> getMigratedApps() {
-    return migratedApps;
-  }
-
-  public void setMigratedApps(List<String> migratedApps) {
-    this.migratedApps = migratedApps;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public List<V0OrganizationUpdateMachineTypeResponseErrors> getErrors() {
+        return errors;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setErrors(List<V0OrganizationUpdateMachineTypeResponseErrors> errors) {
+        this.errors = errors;
     }
-    V0OrganizationUpdateMachineTypeResponse v0OrganizationUpdateMachineTypeResponse = (V0OrganizationUpdateMachineTypeResponse) o;
-    return Objects.equals(this.errors, v0OrganizationUpdateMachineTypeResponse.errors) &&
-        Objects.equals(this.message, v0OrganizationUpdateMachineTypeResponse.message) &&
-        Objects.equals(this.migratedApps, v0OrganizationUpdateMachineTypeResponse.migratedApps);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(errors, message, migratedApps);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0OrganizationUpdateMachineTypeResponse {\n");
-    
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    migratedApps: ").append(toIndentedString(migratedApps)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public V0OrganizationUpdateMachineTypeResponse message(String message) {
+        this.message = message;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The result of the migration
+     *
+     * @return message
+     **/
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public V0OrganizationUpdateMachineTypeResponse migratedApps(List<String> migratedApps) {
+        this.migratedApps = migratedApps;
+        return this;
+    }
+
+    public V0OrganizationUpdateMachineTypeResponse addMigratedAppsItem(String migratedAppsItem) {
+        if (this.migratedApps == null) {
+            this.migratedApps = new ArrayList<String>();
+        }
+        this.migratedApps.add(migratedAppsItem);
+        return this;
+    }
+
+    /**
+     * The migrated apps&#x27; identifiers in the following format \&quot;#{app.title} (#{app.slug})\&quot;
+     *
+     * @return migratedApps
+     **/
+
+    public List<String> getMigratedApps() {
+        return migratedApps;
+    }
+
+    public void setMigratedApps(List<String> migratedApps) {
+        this.migratedApps = migratedApps;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0OrganizationUpdateMachineTypeResponse v0OrganizationUpdateMachineTypeResponse = (V0OrganizationUpdateMachineTypeResponse) o;
+        return Objects.equals(this.errors, v0OrganizationUpdateMachineTypeResponse.errors) &&
+                Objects.equals(this.message, v0OrganizationUpdateMachineTypeResponse.message) &&
+                Objects.equals(this.migratedApps, v0OrganizationUpdateMachineTypeResponse.migratedApps);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(errors, message, migratedApps);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0OrganizationUpdateMachineTypeResponse {\n"
+                + "    errors: " + toIndentedString(errors) + "\n"
+                + "    message: " + toIndentedString(message) + "\n"
+                + "    migratedApps: " + toIndentedString(migratedApps) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

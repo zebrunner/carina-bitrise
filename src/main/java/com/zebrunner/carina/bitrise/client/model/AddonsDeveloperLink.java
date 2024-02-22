@@ -16,96 +16,92 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * AddonsDeveloperLink
  */
 
-
-
 public class AddonsDeveloperLink {
-  @SerializedName("title")
-  private String title = null;
+    @SerializedName("title")
+    private String title = null;
 
-  @SerializedName("url")
-  private String url = null;
+    @SerializedName("url")
+    private String url = null;
 
-  public AddonsDeveloperLink title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Get title
-   * @return title
-  **/
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public AddonsDeveloperLink url(String url) {
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * Get url
-   * @return url
-  **/
-
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public AddonsDeveloperLink title(String title) {
+        this.title = title;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get title
+     *
+     * @return title
+     **/
+
+    public String getTitle() {
+        return title;
     }
-    AddonsDeveloperLink addonsDeveloperLink = (AddonsDeveloperLink) o;
-    return Objects.equals(this.title, addonsDeveloperLink.title) &&
-        Objects.equals(this.url, addonsDeveloperLink.url);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(title, url);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AddonsDeveloperLink {\n");
-    
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setTitle(String title) {
+        this.title = title;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public AddonsDeveloperLink url(String url) {
+        this.url = url;
+        return this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return url
+     **/
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AddonsDeveloperLink addonsDeveloperLink = (AddonsDeveloperLink) o;
+        return Objects.equals(this.title, addonsDeveloperLink.title) &&
+                Objects.equals(this.url, addonsDeveloperLink.url);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, url);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class AddonsDeveloperLink {\n"
+                + "    title: " + toIndentedString(title) + "\n"
+                + "    url: " + toIndentedString(url) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

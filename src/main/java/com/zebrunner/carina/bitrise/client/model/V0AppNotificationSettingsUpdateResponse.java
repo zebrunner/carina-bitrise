@@ -16,73 +16,68 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0AppNotificationSettingsUpdateResponse
  */
 
-
-
 public class V0AppNotificationSettingsUpdateResponse {
-  @SerializedName("msg")
-  private String msg = null;
+    @SerializedName("msg")
+    private String msg = null;
 
-  public V0AppNotificationSettingsUpdateResponse msg(String msg) {
-    this.msg = msg;
-    return this;
-  }
-
-   /**
-   * Get msg
-   * @return msg
-  **/
-  
-  public String getMsg() {
-    return msg;
-  }
-
-  public void setMsg(String msg) {
-    this.msg = msg;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppNotificationSettingsUpdateResponse msg(String msg) {
+        this.msg = msg;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get msg
+     *
+     * @return msg
+     **/
+
+    public String getMsg() {
+        return msg;
     }
-    V0AppNotificationSettingsUpdateResponse v0AppNotificationSettingsUpdateResponse = (V0AppNotificationSettingsUpdateResponse) o;
-    return Objects.equals(this.msg, v0AppNotificationSettingsUpdateResponse.msg);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(msg);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppNotificationSettingsUpdateResponse {\n");
-    
-    sb.append("    msg: ").append(toIndentedString(msg)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppNotificationSettingsUpdateResponse v0AppNotificationSettingsUpdateResponse = (V0AppNotificationSettingsUpdateResponse) o;
+        return Objects.equals(this.msg, v0AppNotificationSettingsUpdateResponse.msg);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(msg);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppNotificationSettingsUpdateResponse {\n"
+                + "    msg: " + toIndentedString(msg) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

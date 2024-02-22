@@ -16,234 +16,236 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0PipelineShowWorkflowResponseModel
  */
 
-
-
 public class V0PipelineShowWorkflowResponseModel {
-  @SerializedName("credit_cost")
-  private Object creditCost = null;
+    @SerializedName("credit_cost")
+    private Object creditCost = null;
 
-  @SerializedName("external_id")
-  private String externalId = null;
+    @SerializedName("external_id")
+    private String externalId = null;
 
-  @SerializedName("finished_at")
-  private String finishedAt = null;
+    @SerializedName("finished_at")
+    private String finishedAt = null;
 
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("startFailureReason")
-  private String startFailureReason = null;
+    @SerializedName("startFailureReason")
+    private String startFailureReason = null;
 
-  @SerializedName("started_at")
-  private String startedAt = null;
+    @SerializedName("started_at")
+    private String startedAt = null;
 
-  @SerializedName("status")
-  private String status = null;
+    @SerializedName("status")
+    private String status = null;
 
-  public V0PipelineShowWorkflowResponseModel creditCost(Object creditCost) {
-    this.creditCost = creditCost;
-    return this;
-  }
-
-   /**
-   * Get creditCost
-   * @return creditCost
-  **/
-  
-  public Object getCreditCost() {
-    return creditCost;
-  }
-
-  public void setCreditCost(Object creditCost) {
-    this.creditCost = creditCost;
-  }
-
-  public V0PipelineShowWorkflowResponseModel externalId(String externalId) {
-    this.externalId = externalId;
-    return this;
-  }
-
-   /**
-   * Get externalId
-   * @return externalId
-  **/
-  
-  public String getExternalId() {
-    return externalId;
-  }
-
-  public void setExternalId(String externalId) {
-    this.externalId = externalId;
-  }
-
-  public V0PipelineShowWorkflowResponseModel finishedAt(String finishedAt) {
-    this.finishedAt = finishedAt;
-    return this;
-  }
-
-   /**
-   * Get finishedAt
-   * @return finishedAt
-  **/
-  
-  public String getFinishedAt() {
-    return finishedAt;
-  }
-
-  public void setFinishedAt(String finishedAt) {
-    this.finishedAt = finishedAt;
-  }
-
-  public V0PipelineShowWorkflowResponseModel id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public V0PipelineShowWorkflowResponseModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public V0PipelineShowWorkflowResponseModel startFailureReason(String startFailureReason) {
-    this.startFailureReason = startFailureReason;
-    return this;
-  }
-
-   /**
-   * Get startFailureReason
-   * @return startFailureReason
-  **/
-  
-  public String getStartFailureReason() {
-    return startFailureReason;
-  }
-
-  public void setStartFailureReason(String startFailureReason) {
-    this.startFailureReason = startFailureReason;
-  }
-
-  public V0PipelineShowWorkflowResponseModel startedAt(String startedAt) {
-    this.startedAt = startedAt;
-    return this;
-  }
-
-   /**
-   * Get startedAt
-   * @return startedAt
-  **/
-  
-  public String getStartedAt() {
-    return startedAt;
-  }
-
-  public void setStartedAt(String startedAt) {
-    this.startedAt = startedAt;
-  }
-
-  public V0PipelineShowWorkflowResponseModel status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0PipelineShowWorkflowResponseModel creditCost(Object creditCost) {
+        this.creditCost = creditCost;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get creditCost
+     *
+     * @return creditCost
+     **/
+
+    public Object getCreditCost() {
+        return creditCost;
     }
-    V0PipelineShowWorkflowResponseModel v0PipelineShowWorkflowResponseModel = (V0PipelineShowWorkflowResponseModel) o;
-    return Objects.equals(this.creditCost, v0PipelineShowWorkflowResponseModel.creditCost) &&
-        Objects.equals(this.externalId, v0PipelineShowWorkflowResponseModel.externalId) &&
-        Objects.equals(this.finishedAt, v0PipelineShowWorkflowResponseModel.finishedAt) &&
-        Objects.equals(this.id, v0PipelineShowWorkflowResponseModel.id) &&
-        Objects.equals(this.name, v0PipelineShowWorkflowResponseModel.name) &&
-        Objects.equals(this.startFailureReason, v0PipelineShowWorkflowResponseModel.startFailureReason) &&
-        Objects.equals(this.startedAt, v0PipelineShowWorkflowResponseModel.startedAt) &&
-        Objects.equals(this.status, v0PipelineShowWorkflowResponseModel.status);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(creditCost, externalId, finishedAt, id, name, startFailureReason, startedAt, status);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0PipelineShowWorkflowResponseModel {\n");
-    
-    sb.append("    creditCost: ").append(toIndentedString(creditCost)).append("\n");
-    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-    sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    startFailureReason: ").append(toIndentedString(startFailureReason)).append("\n");
-    sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCreditCost(Object creditCost) {
+        this.creditCost = creditCost;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0PipelineShowWorkflowResponseModel externalId(String externalId) {
+        this.externalId = externalId;
+        return this;
+    }
+
+    /**
+     * Get externalId
+     *
+     * @return externalId
+     **/
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public V0PipelineShowWorkflowResponseModel finishedAt(String finishedAt) {
+        this.finishedAt = finishedAt;
+        return this;
+    }
+
+    /**
+     * Get finishedAt
+     *
+     * @return finishedAt
+     **/
+
+    public String getFinishedAt() {
+        return finishedAt;
+    }
+
+    public void setFinishedAt(String finishedAt) {
+        this.finishedAt = finishedAt;
+    }
+
+    public V0PipelineShowWorkflowResponseModel id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return id
+     **/
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public V0PipelineShowWorkflowResponseModel name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     **/
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public V0PipelineShowWorkflowResponseModel startFailureReason(String startFailureReason) {
+        this.startFailureReason = startFailureReason;
+        return this;
+    }
+
+    /**
+     * Get startFailureReason
+     *
+     * @return startFailureReason
+     **/
+
+    public String getStartFailureReason() {
+        return startFailureReason;
+    }
+
+    public void setStartFailureReason(String startFailureReason) {
+        this.startFailureReason = startFailureReason;
+    }
+
+    public V0PipelineShowWorkflowResponseModel startedAt(String startedAt) {
+        this.startedAt = startedAt;
+        return this;
+    }
+
+    /**
+     * Get startedAt
+     *
+     * @return startedAt
+     **/
+
+    public String getStartedAt() {
+        return startedAt;
+    }
+
+    public void setStartedAt(String startedAt) {
+        this.startedAt = startedAt;
+    }
+
+    public V0PipelineShowWorkflowResponseModel status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return status
+     **/
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0PipelineShowWorkflowResponseModel v0PipelineShowWorkflowResponseModel = (V0PipelineShowWorkflowResponseModel) o;
+        return Objects.equals(this.creditCost, v0PipelineShowWorkflowResponseModel.creditCost) &&
+                Objects.equals(this.externalId, v0PipelineShowWorkflowResponseModel.externalId) &&
+                Objects.equals(this.finishedAt, v0PipelineShowWorkflowResponseModel.finishedAt) &&
+                Objects.equals(this.id, v0PipelineShowWorkflowResponseModel.id) &&
+                Objects.equals(this.name, v0PipelineShowWorkflowResponseModel.name) &&
+                Objects.equals(this.startFailureReason, v0PipelineShowWorkflowResponseModel.startFailureReason) &&
+                Objects.equals(this.startedAt, v0PipelineShowWorkflowResponseModel.startedAt) &&
+                Objects.equals(this.status, v0PipelineShowWorkflowResponseModel.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(creditCost, externalId, finishedAt, id, name, startFailureReason, startedAt, status);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0PipelineShowWorkflowResponseModel {\n"
+                + "    creditCost: " + toIndentedString(creditCost) + "\n"
+                + "    externalId: " + toIndentedString(externalId) + "\n"
+                + "    finishedAt: " + toIndentedString(finishedAt) + "\n"
+                + "    id: " + toIndentedString(id) + "\n"
+                + "    name: " + toIndentedString(name) + "\n"
+                + "    startFailureReason: " + toIndentedString(startFailureReason) + "\n"
+                + "    startedAt: " + toIndentedString(startedAt) + "\n"
+                + "    status: " + toIndentedString(status) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

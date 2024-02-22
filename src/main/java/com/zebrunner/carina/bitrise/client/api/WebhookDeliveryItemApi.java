@@ -53,64 +53,71 @@ public class WebhookDeliveryItemApi {
 
     /**
      * Build call for webhookDeliveryItemList
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
-     * @param next Slug of the first delivery item in the response (optional)
-     * @param limit Max number of elements per page (default: 50) (optional)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
+     * @param next                    Slug of the first delivery item in the response (optional)
+     * @param limit                   Max number of elements per page (default: 50) (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call webhookDeliveryItemListCall(String appSlug, String appWebhookSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call webhookDeliveryItemListCall(String appSlug, String appWebhookSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/outgoing-webhooks/{app-webhook-slug}/delivery-items"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "app-webhook-slug" + "\\}", apiClient.escapeString(appWebhookSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "app-webhook-slug" + "\\}", apiClient.escapeString(appWebhookSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (next != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
+            localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call webhookDeliveryItemListValidateBeforeCall(String appSlug, String appWebhookSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhookDeliveryItemListValidateBeforeCall(String appSlug, String appWebhookSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling webhookDeliveryItemList(Async)");
@@ -119,27 +126,25 @@ public class WebhookDeliveryItemApi {
         if (appWebhookSlug == null) {
             throw new ApiException("Missing the required parameter 'appWebhookSlug' when calling webhookDeliveryItemList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = webhookDeliveryItemListCall(appSlug, appWebhookSlug, next, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * List the webhook delivery items of an app
      * List all the delivery items of an outgoing webhook of a Bitrise application
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug        App slug (required)
      * @param appWebhookSlug App webhook slug (required)
-     * @param next Slug of the first delivery item in the response (optional)
-     * @param limit Max number of elements per page (default: 50) (optional)
+     * @param next           Slug of the first delivery item in the response (optional)
+     * @param limit          Max number of elements per page (default: 50) (optional)
      * @return V0WebhookDeliveryItemShowResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V0WebhookDeliveryItemShowResponseModel webhookDeliveryItemList(String appSlug, String appWebhookSlug, String next, Integer limit) throws ApiException {
+    public V0WebhookDeliveryItemShowResponseModel webhookDeliveryItemList(String appSlug, String appWebhookSlug, String next, Integer limit)
+            throws ApiException {
         ApiResponse<V0WebhookDeliveryItemShowResponseModel> resp = webhookDeliveryItemListWithHttpInfo(appSlug, appWebhookSlug, next, limit);
         return resp.getData();
     }
@@ -147,31 +152,36 @@ public class WebhookDeliveryItemApi {
     /**
      * List the webhook delivery items of an app
      * List all the delivery items of an outgoing webhook of a Bitrise application
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug        App slug (required)
      * @param appWebhookSlug App webhook slug (required)
-     * @param next Slug of the first delivery item in the response (optional)
-     * @param limit Max number of elements per page (default: 50) (optional)
+     * @param next           Slug of the first delivery item in the response (optional)
+     * @param limit          Max number of elements per page (default: 50) (optional)
      * @return ApiResponse&lt;V0WebhookDeliveryItemShowResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0WebhookDeliveryItemShowResponseModel> webhookDeliveryItemListWithHttpInfo(String appSlug, String appWebhookSlug, String next, Integer limit) throws ApiException {
+    public ApiResponse<V0WebhookDeliveryItemShowResponseModel> webhookDeliveryItemListWithHttpInfo(String appSlug, String appWebhookSlug, String next,
+            Integer limit) throws ApiException {
         com.squareup.okhttp.Call call = webhookDeliveryItemListValidateBeforeCall(appSlug, appWebhookSlug, next, limit, null, null);
-        Type localVarReturnType = new TypeToken<V0WebhookDeliveryItemShowResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0WebhookDeliveryItemShowResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List the webhook delivery items of an app (asynchronously)
      * List all the delivery items of an outgoing webhook of a Bitrise application
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug        App slug (required)
      * @param appWebhookSlug App webhook slug (required)
-     * @param next Slug of the first delivery item in the response (optional)
-     * @param limit Max number of elements per page (default: 50) (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param next           Slug of the first delivery item in the response (optional)
+     * @param limit          Max number of elements per page (default: 50) (optional)
+     * @param callback       The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhookDeliveryItemListAsync(String appSlug, String appWebhookSlug, String next, Integer limit, final ApiCallback<V0WebhookDeliveryItemShowResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhookDeliveryItemListAsync(String appSlug, String appWebhookSlug, String next, Integer limit,
+            final ApiCallback<V0WebhookDeliveryItemShowResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -192,29 +202,35 @@ public class WebhookDeliveryItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = webhookDeliveryItemListValidateBeforeCall(appSlug, appWebhookSlug, next, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0WebhookDeliveryItemShowResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = webhookDeliveryItemListValidateBeforeCall(appSlug, appWebhookSlug, next, limit, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0WebhookDeliveryItemShowResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for webhookDeliveryItemRedeliver
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
      * @param webhookDeliveryItemSlug Webhook delivery item slug (required)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call webhookDeliveryItemRedeliverCall(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call webhookDeliveryItemRedeliverCall(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/outgoing-webhooks/{app-webhook-slug}/delivery-items/{webhook-delivery-item-slug}/redeliver"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "app-webhook-slug" + "\\}", apiClient.escapeString(appWebhookSlug.toString()))
-            .replaceAll("\\{" + "webhook-delivery-item-slug" + "\\}", apiClient.escapeString(webhookDeliveryItemSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "app-webhook-slug" + "\\}", apiClient.escapeString(appWebhookSlug))
+                .replaceAll("\\{" + "webhook-delivery-item-slug" + "\\}", apiClient.escapeString(webhookDeliveryItemSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -224,35 +240,39 @@ public class WebhookDeliveryItemApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call webhookDeliveryItemRedeliverValidateBeforeCall(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhookDeliveryItemRedeliverValidateBeforeCall(String appSlug, String appWebhookSlug,
+            String webhookDeliveryItemSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling webhookDeliveryItemRedeliver(Async)");
@@ -265,26 +285,25 @@ public class WebhookDeliveryItemApi {
         if (webhookDeliveryItemSlug == null) {
             throw new ApiException("Missing the required parameter 'webhookDeliveryItemSlug' when calling webhookDeliveryItemRedeliver(Async)");
         }
-        
-        com.squareup.okhttp.Call call = webhookDeliveryItemRedeliverCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = webhookDeliveryItemRedeliverCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, progressListener,
+                progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Re-deliver the webhook delivery items of an app
      * Re-deliver the delivery item of a specified webhook of a Bitrise application
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
      * @param webhookDeliveryItemSlug Webhook delivery item slug (required)
      * @return ServiceStandardErrorRespModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ServiceStandardErrorRespModel webhookDeliveryItemRedeliver(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug) throws ApiException {
+    public ServiceStandardErrorRespModel webhookDeliveryItemRedeliver(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug)
+            throws ApiException {
         ApiResponse<ServiceStandardErrorRespModel> resp = webhookDeliveryItemRedeliverWithHttpInfo(appSlug, appWebhookSlug, webhookDeliveryItemSlug);
         return resp.getData();
     }
@@ -292,29 +311,34 @@ public class WebhookDeliveryItemApi {
     /**
      * Re-deliver the webhook delivery items of an app
      * Re-deliver the delivery item of a specified webhook of a Bitrise application
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
      * @param webhookDeliveryItemSlug Webhook delivery item slug (required)
      * @return ApiResponse&lt;ServiceStandardErrorRespModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ServiceStandardErrorRespModel> webhookDeliveryItemRedeliverWithHttpInfo(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug) throws ApiException {
+    public ApiResponse<ServiceStandardErrorRespModel> webhookDeliveryItemRedeliverWithHttpInfo(String appSlug, String appWebhookSlug,
+            String webhookDeliveryItemSlug) throws ApiException {
         com.squareup.okhttp.Call call = webhookDeliveryItemRedeliverValidateBeforeCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, null, null);
-        Type localVarReturnType = new TypeToken<ServiceStandardErrorRespModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<ServiceStandardErrorRespModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Re-deliver the webhook delivery items of an app (asynchronously)
      * Re-deliver the delivery item of a specified webhook of a Bitrise application
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
      * @param webhookDeliveryItemSlug Webhook delivery item slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhookDeliveryItemRedeliverAsync(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug, final ApiCallback<ServiceStandardErrorRespModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhookDeliveryItemRedeliverAsync(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug,
+            final ApiCallback<ServiceStandardErrorRespModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -335,29 +359,35 @@ public class WebhookDeliveryItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = webhookDeliveryItemRedeliverValidateBeforeCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ServiceStandardErrorRespModel>(){}.getType();
+        com.squareup.okhttp.Call call = webhookDeliveryItemRedeliverValidateBeforeCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug,
+                progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ServiceStandardErrorRespModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for webhookDeliveryItemShow
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
      * @param webhookDeliveryItemSlug Webhook delivery item slug (required)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call webhookDeliveryItemShowCall(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call webhookDeliveryItemShowCall(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/outgoing-webhooks/{app-webhook-slug}/delivery-items/{webhook-delivery-item-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "app-webhook-slug" + "\\}", apiClient.escapeString(appWebhookSlug.toString()))
-            .replaceAll("\\{" + "webhook-delivery-item-slug" + "\\}", apiClient.escapeString(webhookDeliveryItemSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "app-webhook-slug" + "\\}", apiClient.escapeString(appWebhookSlug))
+                .replaceAll("\\{" + "webhook-delivery-item-slug" + "\\}", apiClient.escapeString(webhookDeliveryItemSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -367,35 +397,39 @@ public class WebhookDeliveryItemApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call webhookDeliveryItemShowValidateBeforeCall(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call webhookDeliveryItemShowValidateBeforeCall(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling webhookDeliveryItemShow(Async)");
@@ -408,26 +442,25 @@ public class WebhookDeliveryItemApi {
         if (webhookDeliveryItemSlug == null) {
             throw new ApiException("Missing the required parameter 'webhookDeliveryItemSlug' when calling webhookDeliveryItemShow(Async)");
         }
-        
-        com.squareup.okhttp.Call call = webhookDeliveryItemShowCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = webhookDeliveryItemShowCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, progressListener,
+                progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a specific delivery item of a webhook
      * Get the specified delivery item of an outgoing webhook of a Bitrise application
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
      * @param webhookDeliveryItemSlug Webhook delivery item slug (required)
      * @return V0WebhookDeliveryItemResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V0WebhookDeliveryItemResponseModel webhookDeliveryItemShow(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug) throws ApiException {
+    public V0WebhookDeliveryItemResponseModel webhookDeliveryItemShow(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug)
+            throws ApiException {
         ApiResponse<V0WebhookDeliveryItemResponseModel> resp = webhookDeliveryItemShowWithHttpInfo(appSlug, appWebhookSlug, webhookDeliveryItemSlug);
         return resp.getData();
     }
@@ -435,29 +468,34 @@ public class WebhookDeliveryItemApi {
     /**
      * Get a specific delivery item of a webhook
      * Get the specified delivery item of an outgoing webhook of a Bitrise application
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
      * @param webhookDeliveryItemSlug Webhook delivery item slug (required)
      * @return ApiResponse&lt;V0WebhookDeliveryItemResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0WebhookDeliveryItemResponseModel> webhookDeliveryItemShowWithHttpInfo(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug) throws ApiException {
+    public ApiResponse<V0WebhookDeliveryItemResponseModel> webhookDeliveryItemShowWithHttpInfo(String appSlug, String appWebhookSlug,
+            String webhookDeliveryItemSlug) throws ApiException {
         com.squareup.okhttp.Call call = webhookDeliveryItemShowValidateBeforeCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0WebhookDeliveryItemResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0WebhookDeliveryItemResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a specific delivery item of a webhook (asynchronously)
      * Get the specified delivery item of an outgoing webhook of a Bitrise application
-     * @param appSlug App slug (required)
-     * @param appWebhookSlug App webhook slug (required)
+     *
+     * @param appSlug                 App slug (required)
+     * @param appWebhookSlug          App webhook slug (required)
      * @param webhookDeliveryItemSlug Webhook delivery item slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call webhookDeliveryItemShowAsync(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug, final ApiCallback<V0WebhookDeliveryItemResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call webhookDeliveryItemShowAsync(String appSlug, String appWebhookSlug, String webhookDeliveryItemSlug,
+            final ApiCallback<V0WebhookDeliveryItemResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -478,8 +516,10 @@ public class WebhookDeliveryItemApi {
             };
         }
 
-        com.squareup.okhttp.Call call = webhookDeliveryItemShowValidateBeforeCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0WebhookDeliveryItemResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = webhookDeliveryItemShowValidateBeforeCall(appSlug, appWebhookSlug, webhookDeliveryItemSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0WebhookDeliveryItemResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

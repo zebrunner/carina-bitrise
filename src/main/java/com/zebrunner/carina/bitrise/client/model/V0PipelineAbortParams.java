@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0PipelineAbortParams
  */
 
-
-
 public class V0PipelineAbortParams {
-  @SerializedName("abort_reason")
-  private String abortReason = null;
+    @SerializedName("abort_reason")
+    private String abortReason = null;
 
-  @SerializedName("abort_with_success")
-  private Boolean abortWithSuccess = null;
+    @SerializedName("abort_with_success")
+    private Boolean abortWithSuccess = null;
 
-  @SerializedName("skip_notifications")
-  private Boolean skipNotifications = null;
+    @SerializedName("skip_notifications")
+    private Boolean skipNotifications = null;
 
-  public V0PipelineAbortParams abortReason(String abortReason) {
-    this.abortReason = abortReason;
-    return this;
-  }
-
-   /**
-   * Get abortReason
-   * @return abortReason
-  **/
-  
-  public String getAbortReason() {
-    return abortReason;
-  }
-
-  public void setAbortReason(String abortReason) {
-    this.abortReason = abortReason;
-  }
-
-  public V0PipelineAbortParams abortWithSuccess(Boolean abortWithSuccess) {
-    this.abortWithSuccess = abortWithSuccess;
-    return this;
-  }
-
-   /**
-   * Get abortWithSuccess
-   * @return abortWithSuccess
-  **/
-  
-  public Boolean isAbortWithSuccess() {
-    return abortWithSuccess;
-  }
-
-  public void setAbortWithSuccess(Boolean abortWithSuccess) {
-    this.abortWithSuccess = abortWithSuccess;
-  }
-
-  public V0PipelineAbortParams skipNotifications(Boolean skipNotifications) {
-    this.skipNotifications = skipNotifications;
-    return this;
-  }
-
-   /**
-   * Get skipNotifications
-   * @return skipNotifications
-  **/
-  
-  public Boolean isSkipNotifications() {
-    return skipNotifications;
-  }
-
-  public void setSkipNotifications(Boolean skipNotifications) {
-    this.skipNotifications = skipNotifications;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0PipelineAbortParams abortReason(String abortReason) {
+        this.abortReason = abortReason;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get abortReason
+     *
+     * @return abortReason
+     **/
+
+    public String getAbortReason() {
+        return abortReason;
     }
-    V0PipelineAbortParams v0PipelineAbortParams = (V0PipelineAbortParams) o;
-    return Objects.equals(this.abortReason, v0PipelineAbortParams.abortReason) &&
-        Objects.equals(this.abortWithSuccess, v0PipelineAbortParams.abortWithSuccess) &&
-        Objects.equals(this.skipNotifications, v0PipelineAbortParams.skipNotifications);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(abortReason, abortWithSuccess, skipNotifications);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0PipelineAbortParams {\n");
-    
-    sb.append("    abortReason: ").append(toIndentedString(abortReason)).append("\n");
-    sb.append("    abortWithSuccess: ").append(toIndentedString(abortWithSuccess)).append("\n");
-    sb.append("    skipNotifications: ").append(toIndentedString(skipNotifications)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setAbortReason(String abortReason) {
+        this.abortReason = abortReason;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0PipelineAbortParams abortWithSuccess(Boolean abortWithSuccess) {
+        this.abortWithSuccess = abortWithSuccess;
+        return this;
+    }
+
+    /**
+     * Get abortWithSuccess
+     *
+     * @return abortWithSuccess
+     **/
+
+    public Boolean isAbortWithSuccess() {
+        return abortWithSuccess;
+    }
+
+    public void setAbortWithSuccess(Boolean abortWithSuccess) {
+        this.abortWithSuccess = abortWithSuccess;
+    }
+
+    public V0PipelineAbortParams skipNotifications(Boolean skipNotifications) {
+        this.skipNotifications = skipNotifications;
+        return this;
+    }
+
+    /**
+     * Get skipNotifications
+     *
+     * @return skipNotifications
+     **/
+
+    public Boolean isSkipNotifications() {
+        return skipNotifications;
+    }
+
+    public void setSkipNotifications(Boolean skipNotifications) {
+        this.skipNotifications = skipNotifications;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0PipelineAbortParams v0PipelineAbortParams = (V0PipelineAbortParams) o;
+        return Objects.equals(this.abortReason, v0PipelineAbortParams.abortReason) &&
+                Objects.equals(this.abortWithSuccess, v0PipelineAbortParams.abortWithSuccess) &&
+                Objects.equals(this.skipNotifications, v0PipelineAbortParams.skipNotifications);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(abortReason, abortWithSuccess, skipNotifications);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0PipelineAbortParams {\n"
+                + "    abortReason: " + toIndentedString(abortReason) + "\n"
+                + "    abortWithSuccess: " + toIndentedString(abortWithSuccess) + "\n"
+                + "    skipNotifications: " + toIndentedString(skipNotifications) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

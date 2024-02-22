@@ -16,73 +16,68 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0PipelineShowAppResponseModel
  */
 
-
-
 public class V0PipelineShowAppResponseModel {
-  @SerializedName("slug")
-  private String slug = null;
+    @SerializedName("slug")
+    private String slug = null;
 
-  public V0PipelineShowAppResponseModel slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Get slug
-   * @return slug
-  **/
-  
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0PipelineShowAppResponseModel slug(String slug) {
+        this.slug = slug;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get slug
+     *
+     * @return slug
+     **/
+
+    public String getSlug() {
+        return slug;
     }
-    V0PipelineShowAppResponseModel v0PipelineShowAppResponseModel = (V0PipelineShowAppResponseModel) o;
-    return Objects.equals(this.slug, v0PipelineShowAppResponseModel.slug);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(slug);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0PipelineShowAppResponseModel {\n");
-    
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0PipelineShowAppResponseModel v0PipelineShowAppResponseModel = (V0PipelineShowAppResponseModel) o;
+        return Objects.equals(this.slug, v0PipelineShowAppResponseModel.slug);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(slug);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0PipelineShowAppResponseModel {\n"
+                + "    slug: " + toIndentedString(slug) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

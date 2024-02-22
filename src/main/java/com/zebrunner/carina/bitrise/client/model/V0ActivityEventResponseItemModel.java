@@ -16,257 +16,260 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0ActivityEventResponseItemModel
  */
 
-
-
 public class V0ActivityEventResponseItemModel {
-  @SerializedName("created_at")
-  private String createdAt = null;
+    @SerializedName("created_at")
+    private String createdAt = null;
 
-  @SerializedName("description")
-  private String description = null;
+    @SerializedName("description")
+    private String description = null;
 
-  @SerializedName("event_icon")
-  private String eventIcon = null;
+    @SerializedName("event_icon")
+    private String eventIcon = null;
 
-  @SerializedName("event_stype")
-  private String eventStype = null;
+    @SerializedName("event_stype")
+    private String eventStype = null;
 
-  @SerializedName("repository_avatar_icon_url")
-  private String repositoryAvatarIconUrl = null;
+    @SerializedName("repository_avatar_icon_url")
+    private String repositoryAvatarIconUrl = null;
 
-  @SerializedName("repository_title")
-  private String repositoryTitle = null;
+    @SerializedName("repository_title")
+    private String repositoryTitle = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+    @SerializedName("slug")
+    private String slug = null;
 
-  @SerializedName("target_path_string")
-  private String targetPathString = null;
+    @SerializedName("target_path_string")
+    private String targetPathString = null;
 
-  @SerializedName("title")
-  private String title = null;
+    @SerializedName("title")
+    private String title = null;
 
-  public V0ActivityEventResponseItemModel createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public V0ActivityEventResponseItemModel description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public V0ActivityEventResponseItemModel eventIcon(String eventIcon) {
-    this.eventIcon = eventIcon;
-    return this;
-  }
-
-   /**
-   * Get eventIcon
-   * @return eventIcon
-  **/
-
-  public String getEventIcon() {
-    return eventIcon;
-  }
-
-  public void setEventIcon(String eventIcon) {
-    this.eventIcon = eventIcon;
-  }
-
-  public V0ActivityEventResponseItemModel eventStype(String eventStype) {
-    this.eventStype = eventStype;
-    return this;
-  }
-
-   /**
-   * Get eventStype
-   * @return eventStype
-  **/
-
-  public String getEventStype() {
-    return eventStype;
-  }
-
-  public void setEventStype(String eventStype) {
-    this.eventStype = eventStype;
-  }
-
-  public V0ActivityEventResponseItemModel repositoryAvatarIconUrl(String repositoryAvatarIconUrl) {
-    this.repositoryAvatarIconUrl = repositoryAvatarIconUrl;
-    return this;
-  }
-
-   /**
-   * Get repositoryAvatarIconUrl
-   * @return repositoryAvatarIconUrl
-  **/
-
-  public String getRepositoryAvatarIconUrl() {
-    return repositoryAvatarIconUrl;
-  }
-
-  public void setRepositoryAvatarIconUrl(String repositoryAvatarIconUrl) {
-    this.repositoryAvatarIconUrl = repositoryAvatarIconUrl;
-  }
-
-  public V0ActivityEventResponseItemModel repositoryTitle(String repositoryTitle) {
-    this.repositoryTitle = repositoryTitle;
-    return this;
-  }
-
-   /**
-   * Get repositoryTitle
-   * @return repositoryTitle
-  **/
-
-  public String getRepositoryTitle() {
-    return repositoryTitle;
-  }
-
-  public void setRepositoryTitle(String repositoryTitle) {
-    this.repositoryTitle = repositoryTitle;
-  }
-
-  public V0ActivityEventResponseItemModel slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Get slug
-   * @return slug
-  **/
-
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public V0ActivityEventResponseItemModel targetPathString(String targetPathString) {
-    this.targetPathString = targetPathString;
-    return this;
-  }
-
-   /**
-   * Get targetPathString
-   * @return targetPathString
-  **/
-
-  public String getTargetPathString() {
-    return targetPathString;
-  }
-
-  public void setTargetPathString(String targetPathString) {
-    this.targetPathString = targetPathString;
-  }
-
-  public V0ActivityEventResponseItemModel title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Get title
-   * @return title
-  **/
-
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0ActivityEventResponseItemModel createdAt(String createdAt) {
+        this.createdAt = createdAt;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get createdAt
+     *
+     * @return createdAt
+     **/
+
+    public String getCreatedAt() {
+        return createdAt;
     }
-    V0ActivityEventResponseItemModel v0ActivityEventResponseItemModel = (V0ActivityEventResponseItemModel) o;
-    return Objects.equals(this.createdAt, v0ActivityEventResponseItemModel.createdAt) &&
-        Objects.equals(this.description, v0ActivityEventResponseItemModel.description) &&
-        Objects.equals(this.eventIcon, v0ActivityEventResponseItemModel.eventIcon) &&
-        Objects.equals(this.eventStype, v0ActivityEventResponseItemModel.eventStype) &&
-        Objects.equals(this.repositoryAvatarIconUrl, v0ActivityEventResponseItemModel.repositoryAvatarIconUrl) &&
-        Objects.equals(this.repositoryTitle, v0ActivityEventResponseItemModel.repositoryTitle) &&
-        Objects.equals(this.slug, v0ActivityEventResponseItemModel.slug) &&
-        Objects.equals(this.targetPathString, v0ActivityEventResponseItemModel.targetPathString) &&
-        Objects.equals(this.title, v0ActivityEventResponseItemModel.title);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(createdAt, description, eventIcon, eventStype, repositoryAvatarIconUrl, repositoryTitle, slug, targetPathString, title);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0ActivityEventResponseItemModel {\n");
-    
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    eventIcon: ").append(toIndentedString(eventIcon)).append("\n");
-    sb.append("    eventStype: ").append(toIndentedString(eventStype)).append("\n");
-    sb.append("    repositoryAvatarIconUrl: ").append(toIndentedString(repositoryAvatarIconUrl)).append("\n");
-    sb.append("    repositoryTitle: ").append(toIndentedString(repositoryTitle)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    targetPathString: ").append(toIndentedString(targetPathString)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0ActivityEventResponseItemModel description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return description
+     **/
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public V0ActivityEventResponseItemModel eventIcon(String eventIcon) {
+        this.eventIcon = eventIcon;
+        return this;
+    }
+
+    /**
+     * Get eventIcon
+     *
+     * @return eventIcon
+     **/
+
+    public String getEventIcon() {
+        return eventIcon;
+    }
+
+    public void setEventIcon(String eventIcon) {
+        this.eventIcon = eventIcon;
+    }
+
+    public V0ActivityEventResponseItemModel eventStype(String eventStype) {
+        this.eventStype = eventStype;
+        return this;
+    }
+
+    /**
+     * Get eventStype
+     *
+     * @return eventStype
+     **/
+
+    public String getEventStype() {
+        return eventStype;
+    }
+
+    public void setEventStype(String eventStype) {
+        this.eventStype = eventStype;
+    }
+
+    public V0ActivityEventResponseItemModel repositoryAvatarIconUrl(String repositoryAvatarIconUrl) {
+        this.repositoryAvatarIconUrl = repositoryAvatarIconUrl;
+        return this;
+    }
+
+    /**
+     * Get repositoryAvatarIconUrl
+     *
+     * @return repositoryAvatarIconUrl
+     **/
+
+    public String getRepositoryAvatarIconUrl() {
+        return repositoryAvatarIconUrl;
+    }
+
+    public void setRepositoryAvatarIconUrl(String repositoryAvatarIconUrl) {
+        this.repositoryAvatarIconUrl = repositoryAvatarIconUrl;
+    }
+
+    public V0ActivityEventResponseItemModel repositoryTitle(String repositoryTitle) {
+        this.repositoryTitle = repositoryTitle;
+        return this;
+    }
+
+    /**
+     * Get repositoryTitle
+     *
+     * @return repositoryTitle
+     **/
+
+    public String getRepositoryTitle() {
+        return repositoryTitle;
+    }
+
+    public void setRepositoryTitle(String repositoryTitle) {
+        this.repositoryTitle = repositoryTitle;
+    }
+
+    public V0ActivityEventResponseItemModel slug(String slug) {
+        this.slug = slug;
+        return this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return slug
+     **/
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public V0ActivityEventResponseItemModel targetPathString(String targetPathString) {
+        this.targetPathString = targetPathString;
+        return this;
+    }
+
+    /**
+     * Get targetPathString
+     *
+     * @return targetPathString
+     **/
+
+    public String getTargetPathString() {
+        return targetPathString;
+    }
+
+    public void setTargetPathString(String targetPathString) {
+        this.targetPathString = targetPathString;
+    }
+
+    public V0ActivityEventResponseItemModel title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return title
+     **/
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0ActivityEventResponseItemModel v0ActivityEventResponseItemModel = (V0ActivityEventResponseItemModel) o;
+        return Objects.equals(this.createdAt, v0ActivityEventResponseItemModel.createdAt) &&
+                Objects.equals(this.description, v0ActivityEventResponseItemModel.description) &&
+                Objects.equals(this.eventIcon, v0ActivityEventResponseItemModel.eventIcon) &&
+                Objects.equals(this.eventStype, v0ActivityEventResponseItemModel.eventStype) &&
+                Objects.equals(this.repositoryAvatarIconUrl, v0ActivityEventResponseItemModel.repositoryAvatarIconUrl) &&
+                Objects.equals(this.repositoryTitle, v0ActivityEventResponseItemModel.repositoryTitle) &&
+                Objects.equals(this.slug, v0ActivityEventResponseItemModel.slug) &&
+                Objects.equals(this.targetPathString, v0ActivityEventResponseItemModel.targetPathString) &&
+                Objects.equals(this.title, v0ActivityEventResponseItemModel.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(createdAt, description, eventIcon, eventStype, repositoryAvatarIconUrl, repositoryTitle, slug, targetPathString, title);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0ActivityEventResponseItemModel {\n"
+                + "    createdAt: " + toIndentedString(createdAt) + "\n"
+                + "    description: " + toIndentedString(description) + "\n"
+                + "    eventIcon: " + toIndentedString(eventIcon) + "\n"
+                + "    eventStype: " + toIndentedString(eventStype) + "\n"
+                + "    repositoryAvatarIconUrl: " + toIndentedString(repositoryAvatarIconUrl) + "\n"
+                + "    repositoryTitle: " + toIndentedString(repositoryTitle) + "\n"
+                + "    slug: " + toIndentedString(slug) + "\n"
+                + "    targetPathString: " + toIndentedString(targetPathString) + "\n"
+                + "    title: " + toIndentedString(title) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

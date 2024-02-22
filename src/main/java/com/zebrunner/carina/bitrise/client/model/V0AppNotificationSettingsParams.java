@@ -16,96 +16,92 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0AppNotificationSettingsParams
  */
 
-
-
 public class V0AppNotificationSettingsParams {
-  @SerializedName("on_failure")
-  private String onFailure = null;
+    @SerializedName("on_failure")
+    private String onFailure = null;
 
-  @SerializedName("on_success")
-  private String onSuccess = null;
+    @SerializedName("on_success")
+    private String onSuccess = null;
 
-  public V0AppNotificationSettingsParams onFailure(String onFailure) {
-    this.onFailure = onFailure;
-    return this;
-  }
-
-   /**
-   * When should Bitrise send notifications for the users on build failure? Possible values: always, never, change
-   * @return onFailure
-  **/
-
-  public String getOnFailure() {
-    return onFailure;
-  }
-
-  public void setOnFailure(String onFailure) {
-    this.onFailure = onFailure;
-  }
-
-  public V0AppNotificationSettingsParams onSuccess(String onSuccess) {
-    this.onSuccess = onSuccess;
-    return this;
-  }
-
-   /**
-   * When should Bitrise send notifications for the users on build success? Possible values: always, never, change
-   * @return onSuccess
-  **/
-
-  public String getOnSuccess() {
-    return onSuccess;
-  }
-
-  public void setOnSuccess(String onSuccess) {
-    this.onSuccess = onSuccess;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppNotificationSettingsParams onFailure(String onFailure) {
+        this.onFailure = onFailure;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * When should Bitrise send notifications for the users on build failure? Possible values: always, never, change
+     *
+     * @return onFailure
+     **/
+
+    public String getOnFailure() {
+        return onFailure;
     }
-    V0AppNotificationSettingsParams v0AppNotificationSettingsParams = (V0AppNotificationSettingsParams) o;
-    return Objects.equals(this.onFailure, v0AppNotificationSettingsParams.onFailure) &&
-        Objects.equals(this.onSuccess, v0AppNotificationSettingsParams.onSuccess);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(onFailure, onSuccess);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppNotificationSettingsParams {\n");
-    
-    sb.append("    onFailure: ").append(toIndentedString(onFailure)).append("\n");
-    sb.append("    onSuccess: ").append(toIndentedString(onSuccess)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setOnFailure(String onFailure) {
+        this.onFailure = onFailure;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0AppNotificationSettingsParams onSuccess(String onSuccess) {
+        this.onSuccess = onSuccess;
+        return this;
+    }
+
+    /**
+     * When should Bitrise send notifications for the users on build success? Possible values: always, never, change
+     *
+     * @return onSuccess
+     **/
+
+    public String getOnSuccess() {
+        return onSuccess;
+    }
+
+    public void setOnSuccess(String onSuccess) {
+        this.onSuccess = onSuccess;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppNotificationSettingsParams v0AppNotificationSettingsParams = (V0AppNotificationSettingsParams) o;
+        return Objects.equals(this.onFailure, v0AppNotificationSettingsParams.onFailure) &&
+                Objects.equals(this.onSuccess, v0AppNotificationSettingsParams.onSuccess);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(onFailure, onSuccess);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppNotificationSettingsParams {\n"
+                + "    onFailure: " + toIndentedString(onFailure) + "\n"
+                + "    onSuccess: " + toIndentedString(onSuccess) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

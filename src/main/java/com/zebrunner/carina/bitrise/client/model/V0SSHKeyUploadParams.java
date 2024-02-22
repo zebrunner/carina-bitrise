@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0SSHKeyUploadParams
  */
 
-
-
 public class V0SSHKeyUploadParams {
-  @SerializedName("auth_ssh_private_key")
-  private String authSshPrivateKey = null;
+    @SerializedName("auth_ssh_private_key")
+    private String authSshPrivateKey = null;
 
-  @SerializedName("auth_ssh_public_key")
-  private String authSshPublicKey = null;
+    @SerializedName("auth_ssh_public_key")
+    private String authSshPublicKey = null;
 
-  @SerializedName("is_register_key_into_provider_service")
-  private Boolean isRegisterKeyIntoProviderService = null;
+    @SerializedName("is_register_key_into_provider_service")
+    private Boolean isRegisterKeyIntoProviderService = null;
 
-  public V0SSHKeyUploadParams authSshPrivateKey(String authSshPrivateKey) {
-    this.authSshPrivateKey = authSshPrivateKey;
-    return this;
-  }
-
-   /**
-   * The private part of the SSH key you would like to use
-   * @return authSshPrivateKey
-  **/
-  
-  public String getAuthSshPrivateKey() {
-    return authSshPrivateKey;
-  }
-
-  public void setAuthSshPrivateKey(String authSshPrivateKey) {
-    this.authSshPrivateKey = authSshPrivateKey;
-  }
-
-  public V0SSHKeyUploadParams authSshPublicKey(String authSshPublicKey) {
-    this.authSshPublicKey = authSshPublicKey;
-    return this;
-  }
-
-   /**
-   * The public part of the SSH key you would like to use
-   * @return authSshPublicKey
-  **/
-  
-  public String getAuthSshPublicKey() {
-    return authSshPublicKey;
-  }
-
-  public void setAuthSshPublicKey(String authSshPublicKey) {
-    this.authSshPublicKey = authSshPublicKey;
-  }
-
-  public V0SSHKeyUploadParams isRegisterKeyIntoProviderService(Boolean isRegisterKeyIntoProviderService) {
-    this.isRegisterKeyIntoProviderService = isRegisterKeyIntoProviderService;
-    return this;
-  }
-
-   /**
-   * If it&#x27;s set to true, the provided SSH key will be registered at the provider of the application
-   * @return isRegisterKeyIntoProviderService
-  **/
-  
-  public Boolean isIsRegisterKeyIntoProviderService() {
-    return isRegisterKeyIntoProviderService;
-  }
-
-  public void setIsRegisterKeyIntoProviderService(Boolean isRegisterKeyIntoProviderService) {
-    this.isRegisterKeyIntoProviderService = isRegisterKeyIntoProviderService;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0SSHKeyUploadParams authSshPrivateKey(String authSshPrivateKey) {
+        this.authSshPrivateKey = authSshPrivateKey;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The private part of the SSH key you would like to use
+     *
+     * @return authSshPrivateKey
+     **/
+
+    public String getAuthSshPrivateKey() {
+        return authSshPrivateKey;
     }
-    V0SSHKeyUploadParams v0SSHKeyUploadParams = (V0SSHKeyUploadParams) o;
-    return Objects.equals(this.authSshPrivateKey, v0SSHKeyUploadParams.authSshPrivateKey) &&
-        Objects.equals(this.authSshPublicKey, v0SSHKeyUploadParams.authSshPublicKey) &&
-        Objects.equals(this.isRegisterKeyIntoProviderService, v0SSHKeyUploadParams.isRegisterKeyIntoProviderService);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(authSshPrivateKey, authSshPublicKey, isRegisterKeyIntoProviderService);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0SSHKeyUploadParams {\n");
-    
-    sb.append("    authSshPrivateKey: ").append(toIndentedString(authSshPrivateKey)).append("\n");
-    sb.append("    authSshPublicKey: ").append(toIndentedString(authSshPublicKey)).append("\n");
-    sb.append("    isRegisterKeyIntoProviderService: ").append(toIndentedString(isRegisterKeyIntoProviderService)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setAuthSshPrivateKey(String authSshPrivateKey) {
+        this.authSshPrivateKey = authSshPrivateKey;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0SSHKeyUploadParams authSshPublicKey(String authSshPublicKey) {
+        this.authSshPublicKey = authSshPublicKey;
+        return this;
+    }
+
+    /**
+     * The public part of the SSH key you would like to use
+     *
+     * @return authSshPublicKey
+     **/
+
+    public String getAuthSshPublicKey() {
+        return authSshPublicKey;
+    }
+
+    public void setAuthSshPublicKey(String authSshPublicKey) {
+        this.authSshPublicKey = authSshPublicKey;
+    }
+
+    public V0SSHKeyUploadParams isRegisterKeyIntoProviderService(Boolean isRegisterKeyIntoProviderService) {
+        this.isRegisterKeyIntoProviderService = isRegisterKeyIntoProviderService;
+        return this;
+    }
+
+    /**
+     * If it&#x27;s set to true, the provided SSH key will be registered at the provider of the application
+     *
+     * @return isRegisterKeyIntoProviderService
+     **/
+
+    public Boolean isIsRegisterKeyIntoProviderService() {
+        return isRegisterKeyIntoProviderService;
+    }
+
+    public void setIsRegisterKeyIntoProviderService(Boolean isRegisterKeyIntoProviderService) {
+        this.isRegisterKeyIntoProviderService = isRegisterKeyIntoProviderService;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0SSHKeyUploadParams v0SSHKeyUploadParams = (V0SSHKeyUploadParams) o;
+        return Objects.equals(this.authSshPrivateKey, v0SSHKeyUploadParams.authSshPrivateKey) &&
+                Objects.equals(this.authSshPublicKey, v0SSHKeyUploadParams.authSshPublicKey) &&
+                Objects.equals(this.isRegisterKeyIntoProviderService, v0SSHKeyUploadParams.isRegisterKeyIntoProviderService);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(authSshPrivateKey, authSshPublicKey, isRegisterKeyIntoProviderService);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0SSHKeyUploadParams {\n"
+                + "    authSshPrivateKey: " + toIndentedString(authSshPrivateKey) + "\n"
+                + "    authSshPublicKey: " + toIndentedString(authSshPublicKey) + "\n"
+                + "    isRegisterKeyIntoProviderService: " + toIndentedString(isRegisterKeyIntoProviderService) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

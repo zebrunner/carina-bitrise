@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * AddonsSetupInstruction
  */
 
-
-
 public class AddonsSetupInstruction {
-  @SerializedName("card_content")
-  private String cardContent = null;
+    @SerializedName("card_content")
+    private String cardContent = null;
 
-  @SerializedName("description")
-  private String description = null;
+    @SerializedName("description")
+    private String description = null;
 
-  @SerializedName("type")
-  private String type = null;
+    @SerializedName("type")
+    private String type = null;
 
-  public AddonsSetupInstruction cardContent(String cardContent) {
-    this.cardContent = cardContent;
-    return this;
-  }
-
-   /**
-   * Get cardContent
-   * @return cardContent
-  **/
-  
-  public String getCardContent() {
-    return cardContent;
-  }
-
-  public void setCardContent(String cardContent) {
-    this.cardContent = cardContent;
-  }
-
-  public AddonsSetupInstruction description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public AddonsSetupInstruction type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public AddonsSetupInstruction cardContent(String cardContent) {
+        this.cardContent = cardContent;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get cardContent
+     *
+     * @return cardContent
+     **/
+
+    public String getCardContent() {
+        return cardContent;
     }
-    AddonsSetupInstruction addonsSetupInstruction = (AddonsSetupInstruction) o;
-    return Objects.equals(this.cardContent, addonsSetupInstruction.cardContent) &&
-        Objects.equals(this.description, addonsSetupInstruction.description) &&
-        Objects.equals(this.type, addonsSetupInstruction.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(cardContent, description, type);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AddonsSetupInstruction {\n");
-    
-    sb.append("    cardContent: ").append(toIndentedString(cardContent)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCardContent(String cardContent) {
+        this.cardContent = cardContent;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public AddonsSetupInstruction description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return description
+     **/
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public AddonsSetupInstruction type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return type
+     **/
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AddonsSetupInstruction addonsSetupInstruction = (AddonsSetupInstruction) o;
+        return Objects.equals(this.cardContent, addonsSetupInstruction.cardContent) &&
+                Objects.equals(this.description, addonsSetupInstruction.description) &&
+                Objects.equals(this.type, addonsSetupInstruction.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cardContent, description, type);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class AddonsSetupInstruction {\n"
+                + "    cardContent: " + toIndentedString(cardContent) + "\n"
+                + "    description: " + toIndentedString(description) + "\n"
+                + "    type: " + toIndentedString(type) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

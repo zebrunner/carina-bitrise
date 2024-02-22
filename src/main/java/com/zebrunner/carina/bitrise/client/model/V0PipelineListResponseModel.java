@@ -17,103 +17,101 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0PipelineListResponseModel
  */
 
-
-
 public class V0PipelineListResponseModel {
-  @SerializedName("data")
-  private List<V0PipelineListResponseItemModel> data = null;
+    @SerializedName("data")
+    private List<V0PipelineListResponseItemModel> data = null;
 
-  @SerializedName("paging")
-  private AllOfv0PipelineListResponseModelPaging paging = null;
+    @SerializedName("paging")
+    private AllOfv0PipelineListResponseModelPaging paging = null;
 
-  public V0PipelineListResponseModel data(List<V0PipelineListResponseItemModel> data) {
-    this.data = data;
-    return this;
-  }
-
-  public V0PipelineListResponseModel addDataItem(V0PipelineListResponseItemModel dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<V0PipelineListResponseItemModel>();
+    public V0PipelineListResponseModel data(List<V0PipelineListResponseItemModel> data) {
+        this.data = data;
+        return this;
     }
-    this.data.add(dataItem);
-    return this;
-  }
 
-   /**
-   * Get data
-   * @return data
-  **/
-
-  public List<V0PipelineListResponseItemModel> getData() {
-    return data;
-  }
-
-  public void setData(List<V0PipelineListResponseItemModel> data) {
-    this.data = data;
-  }
-
-  public V0PipelineListResponseModel paging(AllOfv0PipelineListResponseModelPaging paging) {
-    this.paging = paging;
-    return this;
-  }
-
-   /**
-   * pagination
-   * @return paging
-  **/
-
-  public AllOfv0PipelineListResponseModelPaging getPaging() {
-    return paging;
-  }
-
-  public void setPaging(AllOfv0PipelineListResponseModelPaging paging) {
-    this.paging = paging;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0PipelineListResponseModel addDataItem(V0PipelineListResponseItemModel dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<V0PipelineListResponseItemModel>();
+        }
+        this.data.add(dataItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+
+    public List<V0PipelineListResponseItemModel> getData() {
+        return data;
     }
-    V0PipelineListResponseModel v0PipelineListResponseModel = (V0PipelineListResponseModel) o;
-    return Objects.equals(this.data, v0PipelineListResponseModel.data) &&
-        Objects.equals(this.paging, v0PipelineListResponseModel.paging);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, paging);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0PipelineListResponseModel {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    paging: ").append(toIndentedString(paging)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(List<V0PipelineListResponseItemModel> data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0PipelineListResponseModel paging(AllOfv0PipelineListResponseModelPaging paging) {
+        this.paging = paging;
+        return this;
+    }
+
+    /**
+     * pagination
+     *
+     * @return paging
+     **/
+
+    public AllOfv0PipelineListResponseModelPaging getPaging() {
+        return paging;
+    }
+
+    public void setPaging(AllOfv0PipelineListResponseModelPaging paging) {
+        this.paging = paging;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0PipelineListResponseModel v0PipelineListResponseModel = (V0PipelineListResponseModel) o;
+        return Objects.equals(this.data, v0PipelineListResponseModel.data) &&
+                Objects.equals(this.paging, v0PipelineListResponseModel.paging);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, paging);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0PipelineListResponseModel {\n"
+                + "    data: " + toIndentedString(data) + "\n"
+                + "    paging: " + toIndentedString(paging) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

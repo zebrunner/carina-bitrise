@@ -16,165 +16,164 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0PlanDataModel
  */
 
-
-
 public class V0PlanDataModel {
-  @SerializedName("container_count")
-  private Integer containerCount = null;
+    @SerializedName("container_count")
+    private Integer containerCount = null;
 
-  @SerializedName("expires_at")
-  private String expiresAt = null;
+    @SerializedName("expires_at")
+    private String expiresAt = null;
 
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("price")
-  private Integer price = null;
+    @SerializedName("price")
+    private Integer price = null;
 
-  public V0PlanDataModel containerCount(Integer containerCount) {
-    this.containerCount = containerCount;
-    return this;
-  }
-
-   /**
-   * Get containerCount
-   * @return containerCount
-  **/
-
-  public Integer getContainerCount() {
-    return containerCount;
-  }
-
-  public void setContainerCount(Integer containerCount) {
-    this.containerCount = containerCount;
-  }
-
-  public V0PlanDataModel expiresAt(String expiresAt) {
-    this.expiresAt = expiresAt;
-    return this;
-  }
-
-   /**
-   * Get expiresAt
-   * @return expiresAt
-  **/
-
-  public String getExpiresAt() {
-    return expiresAt;
-  }
-
-  public void setExpiresAt(String expiresAt) {
-    this.expiresAt = expiresAt;
-  }
-
-  public V0PlanDataModel id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public V0PlanDataModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public V0PlanDataModel price(Integer price) {
-    this.price = price;
-    return this;
-  }
-
-   /**
-   * Get price
-   * @return price
-  **/
-
-  public Integer getPrice() {
-    return price;
-  }
-
-  public void setPrice(Integer price) {
-    this.price = price;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0PlanDataModel containerCount(Integer containerCount) {
+        this.containerCount = containerCount;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get containerCount
+     *
+     * @return containerCount
+     **/
+
+    public Integer getContainerCount() {
+        return containerCount;
     }
-    V0PlanDataModel v0PlanDataModel = (V0PlanDataModel) o;
-    return Objects.equals(this.containerCount, v0PlanDataModel.containerCount) &&
-        Objects.equals(this.expiresAt, v0PlanDataModel.expiresAt) &&
-        Objects.equals(this.id, v0PlanDataModel.id) &&
-        Objects.equals(this.name, v0PlanDataModel.name) &&
-        Objects.equals(this.price, v0PlanDataModel.price);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(containerCount, expiresAt, id, name, price);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0PlanDataModel {\n");
-    
-    sb.append("    containerCount: ").append(toIndentedString(containerCount)).append("\n");
-    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    price: ").append(toIndentedString(price)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setContainerCount(Integer containerCount) {
+        this.containerCount = containerCount;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0PlanDataModel expiresAt(String expiresAt) {
+        this.expiresAt = expiresAt;
+        return this;
+    }
+
+    /**
+     * Get expiresAt
+     *
+     * @return expiresAt
+     **/
+
+    public String getExpiresAt() {
+        return expiresAt;
+    }
+
+    public void setExpiresAt(String expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    public V0PlanDataModel id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return id
+     **/
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public V0PlanDataModel name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     **/
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public V0PlanDataModel price(Integer price) {
+        this.price = price;
+        return this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return price
+     **/
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0PlanDataModel v0PlanDataModel = (V0PlanDataModel) o;
+        return Objects.equals(this.containerCount, v0PlanDataModel.containerCount) &&
+                Objects.equals(this.expiresAt, v0PlanDataModel.expiresAt) &&
+                Objects.equals(this.id, v0PlanDataModel.id) &&
+                Objects.equals(this.name, v0PlanDataModel.name) &&
+                Objects.equals(this.price, v0PlanDataModel.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(containerCount, expiresAt, id, name, price);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0PlanDataModel {\n"
+                + "    containerCount: " + toIndentedString(containerCount) + "\n"
+                + "    expiresAt: " + toIndentedString(expiresAt) + "\n"
+                + "    id: " + toIndentedString(id) + "\n"
+                + "    name: " + toIndentedString(name) + "\n"
+                + "    price: " + toIndentedString(price) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

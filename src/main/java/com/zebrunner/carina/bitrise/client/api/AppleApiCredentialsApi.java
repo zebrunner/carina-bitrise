@@ -51,18 +51,20 @@ public class AppleApiCredentialsApi {
 
     /**
      * Build call for appleApiCredentialList
-     * @param userSlug User slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param userSlug                User slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call appleApiCredentialListCall(String userSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call appleApiCredentialListCall(String userSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/users/{user-slug}/apple-api-credentials"
-            .replaceAll("\\{" + "user-slug" + "\\}", apiClient.escapeString(userSlug.toString()));
+                .replaceAll("\\{" + "user-slug" + "\\}", apiClient.escapeString(userSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -72,52 +74,53 @@ public class AppleApiCredentialsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call appleApiCredentialListValidateBeforeCall(String userSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call appleApiCredentialListValidateBeforeCall(String userSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'userSlug' is set
         if (userSlug == null) {
             throw new ApiException("Missing the required parameter 'userSlug' when calling appleApiCredentialList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = appleApiCredentialListCall(userSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * List Apple API credentials for a specific user
      * List Apple API credentials for a specific Bitrise user
+     *
      * @param userSlug User slug (required)
      * @return V0AppleAPICredentialsListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -130,25 +133,29 @@ public class AppleApiCredentialsApi {
     /**
      * List Apple API credentials for a specific user
      * List Apple API credentials for a specific Bitrise user
+     *
      * @param userSlug User slug (required)
      * @return ApiResponse&lt;V0AppleAPICredentialsListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0AppleAPICredentialsListResponse> appleApiCredentialListWithHttpInfo(String userSlug) throws ApiException {
         com.squareup.okhttp.Call call = appleApiCredentialListValidateBeforeCall(userSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0AppleAPICredentialsListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AppleAPICredentialsListResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List Apple API credentials for a specific user (asynchronously)
      * List Apple API credentials for a specific Bitrise user
+     *
      * @param userSlug User slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call appleApiCredentialListAsync(String userSlug, final ApiCallback<V0AppleAPICredentialsListResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call appleApiCredentialListAsync(String userSlug, final ApiCallback<V0AppleAPICredentialsListResponse> callback)
+            throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -170,7 +177,8 @@ public class AppleApiCredentialsApi {
         }
 
         com.squareup.okhttp.Call call = appleApiCredentialListValidateBeforeCall(userSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0AppleAPICredentialsListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AppleAPICredentialsListResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -17,80 +17,77 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0AppSecretListResponse
  */
 
-
-
 public class V0AppSecretListResponse {
-  @SerializedName("secrets")
-  private List<V0AppSecret> secrets = null;
+    @SerializedName("secrets")
+    private List<V0AppSecret> secrets = null;
 
-  public V0AppSecretListResponse secrets(List<V0AppSecret> secrets) {
-    this.secrets = secrets;
-    return this;
-  }
-
-  public V0AppSecretListResponse addSecretsItem(V0AppSecret secretsItem) {
-    if (this.secrets == null) {
-      this.secrets = new ArrayList<V0AppSecret>();
+    public V0AppSecretListResponse secrets(List<V0AppSecret> secrets) {
+        this.secrets = secrets;
+        return this;
     }
-    this.secrets.add(secretsItem);
-    return this;
-  }
 
-   /**
-   * Get secrets
-   * @return secrets
-  **/
-  
-  public List<V0AppSecret> getSecrets() {
-    return secrets;
-  }
-
-  public void setSecrets(List<V0AppSecret> secrets) {
-    this.secrets = secrets;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppSecretListResponse addSecretsItem(V0AppSecret secretsItem) {
+        if (this.secrets == null) {
+            this.secrets = new ArrayList<V0AppSecret>();
+        }
+        this.secrets.add(secretsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get secrets
+     *
+     * @return secrets
+     **/
+
+    public List<V0AppSecret> getSecrets() {
+        return secrets;
     }
-    V0AppSecretListResponse v0AppSecretListResponse = (V0AppSecretListResponse) o;
-    return Objects.equals(this.secrets, v0AppSecretListResponse.secrets);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(secrets);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppSecretListResponse {\n");
-    
-    sb.append("    secrets: ").append(toIndentedString(secrets)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setSecrets(List<V0AppSecret> secrets) {
+        this.secrets = secrets;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppSecretListResponse v0AppSecretListResponse = (V0AppSecretListResponse) o;
+        return Objects.equals(this.secrets, v0AppSecretListResponse.secrets);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(secrets);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppSecretListResponse {\n"
+                + "    secrets: " + toIndentedString(secrets) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

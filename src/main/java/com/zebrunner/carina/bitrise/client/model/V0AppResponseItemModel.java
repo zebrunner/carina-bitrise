@@ -16,349 +16,357 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0AppResponseItemModel
  */
 
-
-
 public class V0AppResponseItemModel {
-  @SerializedName("avatar_url")
-  private String avatarUrl = null;
+    @SerializedName("avatar_url")
+    private String avatarUrl = null;
 
-  @SerializedName("is_disabled")
-  private Boolean isDisabled = null;
+    @SerializedName("is_disabled")
+    private Boolean isDisabled = null;
 
-  @SerializedName("is_github_checks_enabled")
-  private Boolean isGithubChecksEnabled = null;
+    @SerializedName("is_github_checks_enabled")
+    private Boolean isGithubChecksEnabled = null;
 
-  @SerializedName("is_public")
-  private Boolean isPublic = null;
+    @SerializedName("is_public")
+    private Boolean isPublic = null;
 
-  @SerializedName("owner")
-  private V0OwnerAccountResponseModel owner = null;
+    @SerializedName("owner")
+    private V0OwnerAccountResponseModel owner = null;
 
-  @SerializedName("project_type")
-  private String projectType = null;
+    @SerializedName("project_type")
+    private String projectType = null;
 
-  @SerializedName("provider")
-  private String provider = null;
+    @SerializedName("provider")
+    private String provider = null;
 
-  @SerializedName("repo_owner")
-  private String repoOwner = null;
+    @SerializedName("repo_owner")
+    private String repoOwner = null;
 
-  @SerializedName("repo_slug")
-  private String repoSlug = null;
+    @SerializedName("repo_slug")
+    private String repoSlug = null;
 
-  @SerializedName("repo_url")
-  private String repoUrl = null;
+    @SerializedName("repo_url")
+    private String repoUrl = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+    @SerializedName("slug")
+    private String slug = null;
 
-  @SerializedName("status")
-  private Integer status = null;
+    @SerializedName("status")
+    private Integer status = null;
 
-  @SerializedName("title")
-  private String title = null;
+    @SerializedName("title")
+    private String title = null;
 
-  public V0AppResponseItemModel avatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
-    return this;
-  }
-
-   /**
-   * Get avatarUrl
-   * @return avatarUrl
-  **/
-  
-  public String getAvatarUrl() {
-    return avatarUrl;
-  }
-
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
-  }
-
-  public V0AppResponseItemModel isDisabled(Boolean isDisabled) {
-    this.isDisabled = isDisabled;
-    return this;
-  }
-
-   /**
-   * Get isDisabled
-   * @return isDisabled
-  **/
-  
-  public Boolean isIsDisabled() {
-    return isDisabled;
-  }
-
-  public void setIsDisabled(Boolean isDisabled) {
-    this.isDisabled = isDisabled;
-  }
-
-  public V0AppResponseItemModel isGithubChecksEnabled(Boolean isGithubChecksEnabled) {
-    this.isGithubChecksEnabled = isGithubChecksEnabled;
-    return this;
-  }
-
-   /**
-   * Get isGithubChecksEnabled
-   * @return isGithubChecksEnabled
-  **/
-  
-  public Boolean isIsGithubChecksEnabled() {
-    return isGithubChecksEnabled;
-  }
-
-  public void setIsGithubChecksEnabled(Boolean isGithubChecksEnabled) {
-    this.isGithubChecksEnabled = isGithubChecksEnabled;
-  }
-
-  public V0AppResponseItemModel isPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
-    return this;
-  }
-
-   /**
-   * Get isPublic
-   * @return isPublic
-  **/
-  
-  public Boolean isIsPublic() {
-    return isPublic;
-  }
-
-  public void setIsPublic(Boolean isPublic) {
-    this.isPublic = isPublic;
-  }
-
-  public V0AppResponseItemModel owner(V0OwnerAccountResponseModel owner) {
-    this.owner = owner;
-    return this;
-  }
-
-   /**
-   * Get owner
-   * @return owner
-  **/
-  
-  public V0OwnerAccountResponseModel getOwner() {
-    return owner;
-  }
-
-  public void setOwner(V0OwnerAccountResponseModel owner) {
-    this.owner = owner;
-  }
-
-  public V0AppResponseItemModel projectType(String projectType) {
-    this.projectType = projectType;
-    return this;
-  }
-
-   /**
-   * Get projectType
-   * @return projectType
-  **/
-  
-  public String getProjectType() {
-    return projectType;
-  }
-
-  public void setProjectType(String projectType) {
-    this.projectType = projectType;
-  }
-
-  public V0AppResponseItemModel provider(String provider) {
-    this.provider = provider;
-    return this;
-  }
-
-   /**
-   * Get provider
-   * @return provider
-  **/
-  
-  public String getProvider() {
-    return provider;
-  }
-
-  public void setProvider(String provider) {
-    this.provider = provider;
-  }
-
-  public V0AppResponseItemModel repoOwner(String repoOwner) {
-    this.repoOwner = repoOwner;
-    return this;
-  }
-
-   /**
-   * Get repoOwner
-   * @return repoOwner
-  **/
-  
-  public String getRepoOwner() {
-    return repoOwner;
-  }
-
-  public void setRepoOwner(String repoOwner) {
-    this.repoOwner = repoOwner;
-  }
-
-  public V0AppResponseItemModel repoSlug(String repoSlug) {
-    this.repoSlug = repoSlug;
-    return this;
-  }
-
-   /**
-   * Get repoSlug
-   * @return repoSlug
-  **/
-  
-  public String getRepoSlug() {
-    return repoSlug;
-  }
-
-  public void setRepoSlug(String repoSlug) {
-    this.repoSlug = repoSlug;
-  }
-
-  public V0AppResponseItemModel repoUrl(String repoUrl) {
-    this.repoUrl = repoUrl;
-    return this;
-  }
-
-   /**
-   * Get repoUrl
-   * @return repoUrl
-  **/
-  
-  public String getRepoUrl() {
-    return repoUrl;
-  }
-
-  public void setRepoUrl(String repoUrl) {
-    this.repoUrl = repoUrl;
-  }
-
-  public V0AppResponseItemModel slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Get slug
-   * @return slug
-  **/
-  
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public V0AppResponseItemModel status(Integer status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  
-  public Integer getStatus() {
-    return status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public V0AppResponseItemModel title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Get title
-   * @return title
-  **/
-  
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppResponseItemModel avatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get avatarUrl
+     *
+     * @return avatarUrl
+     **/
+
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
-    V0AppResponseItemModel v0AppResponseItemModel = (V0AppResponseItemModel) o;
-    return Objects.equals(this.avatarUrl, v0AppResponseItemModel.avatarUrl) &&
-        Objects.equals(this.isDisabled, v0AppResponseItemModel.isDisabled) &&
-        Objects.equals(this.isGithubChecksEnabled, v0AppResponseItemModel.isGithubChecksEnabled) &&
-        Objects.equals(this.isPublic, v0AppResponseItemModel.isPublic) &&
-        Objects.equals(this.owner, v0AppResponseItemModel.owner) &&
-        Objects.equals(this.projectType, v0AppResponseItemModel.projectType) &&
-        Objects.equals(this.provider, v0AppResponseItemModel.provider) &&
-        Objects.equals(this.repoOwner, v0AppResponseItemModel.repoOwner) &&
-        Objects.equals(this.repoSlug, v0AppResponseItemModel.repoSlug) &&
-        Objects.equals(this.repoUrl, v0AppResponseItemModel.repoUrl) &&
-        Objects.equals(this.slug, v0AppResponseItemModel.slug) &&
-        Objects.equals(this.status, v0AppResponseItemModel.status) &&
-        Objects.equals(this.title, v0AppResponseItemModel.title);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(avatarUrl, isDisabled, isGithubChecksEnabled, isPublic, owner, projectType, provider, repoOwner, repoSlug, repoUrl, slug, status, title);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppResponseItemModel {\n");
-    
-    sb.append("    avatarUrl: ").append(toIndentedString(avatarUrl)).append("\n");
-    sb.append("    isDisabled: ").append(toIndentedString(isDisabled)).append("\n");
-    sb.append("    isGithubChecksEnabled: ").append(toIndentedString(isGithubChecksEnabled)).append("\n");
-    sb.append("    isPublic: ").append(toIndentedString(isPublic)).append("\n");
-    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
-    sb.append("    projectType: ").append(toIndentedString(projectType)).append("\n");
-    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
-    sb.append("    repoOwner: ").append(toIndentedString(repoOwner)).append("\n");
-    sb.append("    repoSlug: ").append(toIndentedString(repoSlug)).append("\n");
-    sb.append("    repoUrl: ").append(toIndentedString(repoUrl)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0AppResponseItemModel isDisabled(Boolean isDisabled) {
+        this.isDisabled = isDisabled;
+        return this;
+    }
+
+    /**
+     * Get isDisabled
+     *
+     * @return isDisabled
+     **/
+
+    public Boolean isIsDisabled() {
+        return isDisabled;
+    }
+
+    public void setIsDisabled(Boolean isDisabled) {
+        this.isDisabled = isDisabled;
+    }
+
+    public V0AppResponseItemModel isGithubChecksEnabled(Boolean isGithubChecksEnabled) {
+        this.isGithubChecksEnabled = isGithubChecksEnabled;
+        return this;
+    }
+
+    /**
+     * Get isGithubChecksEnabled
+     *
+     * @return isGithubChecksEnabled
+     **/
+
+    public Boolean isIsGithubChecksEnabled() {
+        return isGithubChecksEnabled;
+    }
+
+    public void setIsGithubChecksEnabled(Boolean isGithubChecksEnabled) {
+        this.isGithubChecksEnabled = isGithubChecksEnabled;
+    }
+
+    public V0AppResponseItemModel isPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+        return this;
+    }
+
+    /**
+     * Get isPublic
+     *
+     * @return isPublic
+     **/
+
+    public Boolean isIsPublic() {
+        return isPublic;
+    }
+
+    public void setIsPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
+    }
+
+    public V0AppResponseItemModel owner(V0OwnerAccountResponseModel owner) {
+        this.owner = owner;
+        return this;
+    }
+
+    /**
+     * Get owner
+     *
+     * @return owner
+     **/
+
+    public V0OwnerAccountResponseModel getOwner() {
+        return owner;
+    }
+
+    public void setOwner(V0OwnerAccountResponseModel owner) {
+        this.owner = owner;
+    }
+
+    public V0AppResponseItemModel projectType(String projectType) {
+        this.projectType = projectType;
+        return this;
+    }
+
+    /**
+     * Get projectType
+     *
+     * @return projectType
+     **/
+
+    public String getProjectType() {
+        return projectType;
+    }
+
+    public void setProjectType(String projectType) {
+        this.projectType = projectType;
+    }
+
+    public V0AppResponseItemModel provider(String provider) {
+        this.provider = provider;
+        return this;
+    }
+
+    /**
+     * Get provider
+     *
+     * @return provider
+     **/
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
+    public V0AppResponseItemModel repoOwner(String repoOwner) {
+        this.repoOwner = repoOwner;
+        return this;
+    }
+
+    /**
+     * Get repoOwner
+     *
+     * @return repoOwner
+     **/
+
+    public String getRepoOwner() {
+        return repoOwner;
+    }
+
+    public void setRepoOwner(String repoOwner) {
+        this.repoOwner = repoOwner;
+    }
+
+    public V0AppResponseItemModel repoSlug(String repoSlug) {
+        this.repoSlug = repoSlug;
+        return this;
+    }
+
+    /**
+     * Get repoSlug
+     *
+     * @return repoSlug
+     **/
+
+    public String getRepoSlug() {
+        return repoSlug;
+    }
+
+    public void setRepoSlug(String repoSlug) {
+        this.repoSlug = repoSlug;
+    }
+
+    public V0AppResponseItemModel repoUrl(String repoUrl) {
+        this.repoUrl = repoUrl;
+        return this;
+    }
+
+    /**
+     * Get repoUrl
+     *
+     * @return repoUrl
+     **/
+
+    public String getRepoUrl() {
+        return repoUrl;
+    }
+
+    public void setRepoUrl(String repoUrl) {
+        this.repoUrl = repoUrl;
+    }
+
+    public V0AppResponseItemModel slug(String slug) {
+        this.slug = slug;
+        return this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return slug
+     **/
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public V0AppResponseItemModel status(Integer status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return status
+     **/
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public V0AppResponseItemModel title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return title
+     **/
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppResponseItemModel v0AppResponseItemModel = (V0AppResponseItemModel) o;
+        return Objects.equals(this.avatarUrl, v0AppResponseItemModel.avatarUrl) &&
+                Objects.equals(this.isDisabled, v0AppResponseItemModel.isDisabled) &&
+                Objects.equals(this.isGithubChecksEnabled, v0AppResponseItemModel.isGithubChecksEnabled) &&
+                Objects.equals(this.isPublic, v0AppResponseItemModel.isPublic) &&
+                Objects.equals(this.owner, v0AppResponseItemModel.owner) &&
+                Objects.equals(this.projectType, v0AppResponseItemModel.projectType) &&
+                Objects.equals(this.provider, v0AppResponseItemModel.provider) &&
+                Objects.equals(this.repoOwner, v0AppResponseItemModel.repoOwner) &&
+                Objects.equals(this.repoSlug, v0AppResponseItemModel.repoSlug) &&
+                Objects.equals(this.repoUrl, v0AppResponseItemModel.repoUrl) &&
+                Objects.equals(this.slug, v0AppResponseItemModel.slug) &&
+                Objects.equals(this.status, v0AppResponseItemModel.status) &&
+                Objects.equals(this.title, v0AppResponseItemModel.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(avatarUrl, isDisabled, isGithubChecksEnabled, isPublic, owner, projectType, provider, repoOwner, repoSlug, repoUrl, slug,
+                status, title);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppResponseItemModel {\n"
+                + "    avatarUrl: " + toIndentedString(avatarUrl) + "\n"
+                + "    isDisabled: " + toIndentedString(isDisabled) + "\n"
+                + "    isGithubChecksEnabled: " + toIndentedString(isGithubChecksEnabled) + "\n"
+                + "    isPublic: " + toIndentedString(isPublic) + "\n"
+                + "    owner: " + toIndentedString(owner) + "\n"
+                + "    projectType: " + toIndentedString(projectType) + "\n"
+                + "    provider: " + toIndentedString(provider) + "\n"
+                + "    repoOwner: " + toIndentedString(repoOwner) + "\n"
+                + "    repoSlug: " + toIndentedString(repoSlug) + "\n"
+                + "    repoUrl: " + toIndentedString(repoUrl) + "\n"
+                + "    slug: " + toIndentedString(slug) + "\n"
+                + "    status: " + toIndentedString(status) + "\n"
+                + "    title: " + toIndentedString(title) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

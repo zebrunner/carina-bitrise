@@ -54,20 +54,23 @@ public class BuildCertificateApi {
 
     /**
      * Build call for buildCertificateConfirm
-     * @param appSlug App slug (required)
-     * @param buildCertificateSlug Build certificate slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param buildCertificateSlug    Build certificate slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateConfirmCall(String appSlug, String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateConfirmCall(String appSlug, String buildCertificateSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/build-certificates/{build-certificate-slug}/uploaded"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-certificate-slug" + "\\}", apiClient.escapeString(buildCertificateSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-certificate-slug" + "\\}", apiClient.escapeString(buildCertificateSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -77,35 +80,39 @@ public class BuildCertificateApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call buildCertificateConfirmValidateBeforeCall(String appSlug, String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call buildCertificateConfirmValidateBeforeCall(String appSlug, String buildCertificateSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling buildCertificateConfirm(Async)");
@@ -114,20 +121,15 @@ public class BuildCertificateApi {
         if (buildCertificateSlug == null) {
             throw new ApiException("Missing the required parameter 'buildCertificateSlug' when calling buildCertificateConfirm(Async)");
         }
-        
-        com.squareup.okhttp.Call call = buildCertificateConfirmCall(appSlug, buildCertificateSlug, progressListener, progressRequestListener);
-        return call;
 
-        
-        
-        
-        
+        return buildCertificateConfirmCall(appSlug, buildCertificateSlug, progressListener, progressRequestListener);
     }
 
     /**
      * Confirm a build certificate upload
      * This is the last step of uploading a build certificate to Bitrise. Confirm the build certificate upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the iOS code signing file upload](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
      * @return V0BuildCertificateResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -140,27 +142,32 @@ public class BuildCertificateApi {
     /**
      * Confirm a build certificate upload
      * This is the last step of uploading a build certificate to Bitrise. Confirm the build certificate upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the iOS code signing file upload](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
      * @return ApiResponse&lt;V0BuildCertificateResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateConfirmWithHttpInfo(String appSlug, String buildCertificateSlug) throws ApiException {
+    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateConfirmWithHttpInfo(String appSlug, String buildCertificateSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = buildCertificateConfirmValidateBeforeCall(appSlug, buildCertificateSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Confirm a build certificate upload (asynchronously)
      * This is the last step of uploading a build certificate to Bitrise. Confirm the build certificate upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the iOS code signing file upload](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback             The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateConfirmAsync(String appSlug, String buildCertificateSlug, final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateConfirmAsync(String appSlug, String buildCertificateSlug,
+            final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -181,26 +188,32 @@ public class BuildCertificateApi {
             };
         }
 
-        com.squareup.okhttp.Call call = buildCertificateConfirmValidateBeforeCall(appSlug, buildCertificateSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = buildCertificateConfirmValidateBeforeCall(appSlug, buildCertificateSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for buildCertificateCreate
-     * @param body Build certificate parameters such as file name and its file size (required)
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Build certificate parameters such as file name and its file size (required)
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateCreateCall(V0BuildCertificateUploadParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateCreateCall(V0BuildCertificateUploadParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/build-certificates"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -210,35 +223,39 @@ public class BuildCertificateApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call buildCertificateCreateValidateBeforeCall(V0BuildCertificateUploadParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call buildCertificateCreateValidateBeforeCall(V0BuildCertificateUploadParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling buildCertificateCreate(Async)");
@@ -247,20 +264,17 @@ public class BuildCertificateApi {
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling buildCertificateCreate(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = buildCertificateCreateCall(body, appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create a build certificate
      * Create a temporary pre-signed upload URL for the build certificate and upload the file to AWS with a simple &#x60;curl&#x60; request. To complete the uploading process and view your files on the Code Signing tab of your app, continue with the [POST /apps/{app-slug}/build-certificates/{build-certificate-slug}/uploaded](https://api-docs.bitrise.io/#/build-certificate/build-certificate-confirm) endpoint. Read more in our [Creating and uploading an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#creating--uploading-an-ios-code-signing-file) guide.
-     * @param body Build certificate parameters such as file name and its file size (required)
+     *
+     * @param body    Build certificate parameters such as file name and its file size (required)
      * @param appSlug App slug (required)
      * @return V0BuildCertificateResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -273,27 +287,32 @@ public class BuildCertificateApi {
     /**
      * Create a build certificate
      * Create a temporary pre-signed upload URL for the build certificate and upload the file to AWS with a simple &#x60;curl&#x60; request. To complete the uploading process and view your files on the Code Signing tab of your app, continue with the [POST /apps/{app-slug}/build-certificates/{build-certificate-slug}/uploaded](https://api-docs.bitrise.io/#/build-certificate/build-certificate-confirm) endpoint. Read more in our [Creating and uploading an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#creating--uploading-an-ios-code-signing-file) guide.
-     * @param body Build certificate parameters such as file name and its file size (required)
+     *
+     * @param body    Build certificate parameters such as file name and its file size (required)
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0BuildCertificateResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateCreateWithHttpInfo(V0BuildCertificateUploadParams body, String appSlug) throws ApiException {
+    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateCreateWithHttpInfo(V0BuildCertificateUploadParams body, String appSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = buildCertificateCreateValidateBeforeCall(body, appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create a build certificate (asynchronously)
      * Create a temporary pre-signed upload URL for the build certificate and upload the file to AWS with a simple &#x60;curl&#x60; request. To complete the uploading process and view your files on the Code Signing tab of your app, continue with the [POST /apps/{app-slug}/build-certificates/{build-certificate-slug}/uploaded](https://api-docs.bitrise.io/#/build-certificate/build-certificate-confirm) endpoint. Read more in our [Creating and uploading an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#creating--uploading-an-ios-code-signing-file) guide.
-     * @param body Build certificate parameters such as file name and its file size (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body     Build certificate parameters such as file name and its file size (required)
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateCreateAsync(V0BuildCertificateUploadParams body, String appSlug, final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateCreateAsync(V0BuildCertificateUploadParams body, String appSlug,
+            final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -315,26 +334,31 @@ public class BuildCertificateApi {
         }
 
         com.squareup.okhttp.Call call = buildCertificateCreateValidateBeforeCall(body, appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for buildCertificateDelete
-     * @param appSlug App slug (required)
-     * @param buildCertificateSlug Build certificate slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param buildCertificateSlug    Build certificate slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateDeleteCall(String appSlug, String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateDeleteCall(String appSlug, String buildCertificateSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/build-certificates/{build-certificate-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-certificate-slug" + "\\}", apiClient.escapeString(buildCertificateSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-certificate-slug" + "\\}", apiClient.escapeString(buildCertificateSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -344,35 +368,39 @@ public class BuildCertificateApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call buildCertificateDeleteValidateBeforeCall(String appSlug, String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call buildCertificateDeleteValidateBeforeCall(String appSlug, String buildCertificateSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling buildCertificateDelete(Async)");
@@ -381,20 +409,17 @@ public class BuildCertificateApi {
         if (buildCertificateSlug == null) {
             throw new ApiException("Missing the required parameter 'buildCertificateSlug' when calling buildCertificateDelete(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = buildCertificateDeleteCall(appSlug, buildCertificateSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete a build certificate
      * Delete an app&#x27;s build certificate. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint to list all available build certificates of an app. Read more in our [Deleting an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#deleting-an-ios-code-signing-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
      * @return V0BuildCertificateResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -407,27 +432,32 @@ public class BuildCertificateApi {
     /**
      * Delete a build certificate
      * Delete an app&#x27;s build certificate. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint to list all available build certificates of an app. Read more in our [Deleting an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#deleting-an-ios-code-signing-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
      * @return ApiResponse&lt;V0BuildCertificateResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateDeleteWithHttpInfo(String appSlug, String buildCertificateSlug) throws ApiException {
+    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateDeleteWithHttpInfo(String appSlug, String buildCertificateSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = buildCertificateDeleteValidateBeforeCall(appSlug, buildCertificateSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Delete a build certificate (asynchronously)
      * Delete an app&#x27;s build certificate. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint to list all available build certificates of an app. Read more in our [Deleting an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#deleting-an-ios-code-signing-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback             The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateDeleteAsync(String appSlug, String buildCertificateSlug, final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateDeleteAsync(String appSlug, String buildCertificateSlug,
+            final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -448,89 +478,96 @@ public class BuildCertificateApi {
             };
         }
 
-        com.squareup.okhttp.Call call = buildCertificateDeleteValidateBeforeCall(appSlug, buildCertificateSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = buildCertificateDeleteValidateBeforeCall(appSlug, buildCertificateSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for buildCertificateList
-     * @param appSlug App slug (required)
-     * @param next Slug of the first build certificate in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param next                    Slug of the first build certificate in the response (optional)
+     * @param limit                   Max number of build certificates per page is 50. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateListCall(String appSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateListCall(String appSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/build-certificates"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (next != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
+            localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call buildCertificateListValidateBeforeCall(String appSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call buildCertificateListValidateBeforeCall(String appSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling buildCertificateList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = buildCertificateListCall(appSlug, next, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a list of the build certificates
      * List all the build certificates that have been uploaded to a specific app. Read more in our [Listing the uploaded iOS code signing files of an app](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#listing-the-uploaded-ios-code-signing-files-of-an-app) guide.
+     *
      * @param appSlug App slug (required)
-     * @param next Slug of the first build certificate in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     * @param next    Slug of the first build certificate in the response (optional)
+     * @param limit   Max number of build certificates per page is 50. (optional)
      * @return V0BuildCertificateListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -542,29 +579,34 @@ public class BuildCertificateApi {
     /**
      * Get a list of the build certificates
      * List all the build certificates that have been uploaded to a specific app. Read more in our [Listing the uploaded iOS code signing files of an app](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#listing-the-uploaded-ios-code-signing-files-of-an-app) guide.
+     *
      * @param appSlug App slug (required)
-     * @param next Slug of the first build certificate in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     * @param next    Slug of the first build certificate in the response (optional)
+     * @param limit   Max number of build certificates per page is 50. (optional)
      * @return ApiResponse&lt;V0BuildCertificateListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0BuildCertificateListResponseModel> buildCertificateListWithHttpInfo(String appSlug, String next, Integer limit) throws ApiException {
+    public ApiResponse<V0BuildCertificateListResponseModel> buildCertificateListWithHttpInfo(String appSlug, String next, Integer limit)
+            throws ApiException {
         com.squareup.okhttp.Call call = buildCertificateListValidateBeforeCall(appSlug, next, limit, null, null);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildCertificateListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a list of the build certificates (asynchronously)
      * List all the build certificates that have been uploaded to a specific app. Read more in our [Listing the uploaded iOS code signing files of an app](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#listing-the-uploaded-ios-code-signing-files-of-an-app) guide.
-     * @param appSlug App slug (required)
-     * @param next Slug of the first build certificate in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     *
+     * @param appSlug  App slug (required)
+     * @param next     Slug of the first build certificate in the response (optional)
+     * @param limit    Max number of build certificates per page is 50. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateListAsync(String appSlug, String next, Integer limit, final ApiCallback<V0BuildCertificateListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateListAsync(String appSlug, String next, Integer limit,
+            final ApiCallback<V0BuildCertificateListResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -586,26 +628,31 @@ public class BuildCertificateApi {
         }
 
         com.squareup.okhttp.Call call = buildCertificateListValidateBeforeCall(appSlug, next, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildCertificateListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for buildCertificateShow
-     * @param appSlug App slug (required)
-     * @param buildCertificateSlug Build certificate slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param buildCertificateSlug    Build certificate slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateShowCall(String appSlug, String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateShowCall(String appSlug, String buildCertificateSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/build-certificates/{build-certificate-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-certificate-slug" + "\\}", apiClient.escapeString(buildCertificateSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-certificate-slug" + "\\}", apiClient.escapeString(buildCertificateSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -615,35 +662,39 @@ public class BuildCertificateApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call buildCertificateShowValidateBeforeCall(String appSlug, String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call buildCertificateShowValidateBeforeCall(String appSlug, String buildCertificateSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling buildCertificateShow(Async)");
@@ -652,20 +703,17 @@ public class BuildCertificateApi {
         if (buildCertificateSlug == null) {
             throw new ApiException("Missing the required parameter 'buildCertificateSlug' when calling buildCertificateShow(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = buildCertificateShowCall(appSlug, buildCertificateSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a specific build certificate
      * Retrieve data of a specific build certificate. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint to list all available build certificates of an app. Read more in our [Getting a specific iOS code signing file&#x27;s data](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#getting-a-specific-ios-code-signing-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
      * @return V0BuildCertificateResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -678,27 +726,32 @@ public class BuildCertificateApi {
     /**
      * Get a specific build certificate
      * Retrieve data of a specific build certificate. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint to list all available build certificates of an app. Read more in our [Getting a specific iOS code signing file&#x27;s data](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#getting-a-specific-ios-code-signing-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
      * @return ApiResponse&lt;V0BuildCertificateResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateShowWithHttpInfo(String appSlug, String buildCertificateSlug) throws ApiException {
+    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateShowWithHttpInfo(String appSlug, String buildCertificateSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = buildCertificateShowValidateBeforeCall(appSlug, buildCertificateSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a specific build certificate (asynchronously)
      * Retrieve data of a specific build certificate. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint to list all available build certificates of an app. Read more in our [Getting a specific iOS code signing file&#x27;s data](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#getting-a-specific-ios-code-signing-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback             The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateShowAsync(String appSlug, String buildCertificateSlug, final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateShowAsync(String appSlug, String buildCertificateSlug,
+            final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -719,28 +772,34 @@ public class BuildCertificateApi {
             };
         }
 
-        com.squareup.okhttp.Call call = buildCertificateShowValidateBeforeCall(appSlug, buildCertificateSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = buildCertificateShowValidateBeforeCall(appSlug, buildCertificateSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for buildCertificateUpdate
-     * @param body Build certificate parameters (required)
-     * @param appSlug App slug (required)
-     * @param buildCertificateSlug Build certificate slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Build certificate parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param buildCertificateSlug    Build certificate slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateUpdateCall(V0BuildCertificateUpdateParams body, String appSlug, String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateUpdateCall(V0BuildCertificateUpdateParams body, String appSlug, String buildCertificateSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/build-certificates/{build-certificate-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-certificate-slug" + "\\}", apiClient.escapeString(buildCertificateSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-certificate-slug" + "\\}", apiClient.escapeString(buildCertificateSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -750,35 +809,39 @@ public class BuildCertificateApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call buildCertificateUpdateValidateBeforeCall(V0BuildCertificateUpdateParams body, String appSlug, String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call buildCertificateUpdateValidateBeforeCall(V0BuildCertificateUpdateParams body, String appSlug,
+            String buildCertificateSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling buildCertificateUpdate(Async)");
@@ -791,26 +854,24 @@ public class BuildCertificateApi {
         if (buildCertificateSlug == null) {
             throw new ApiException("Missing the required parameter 'buildCertificateSlug' when calling buildCertificateUpdate(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = buildCertificateUpdateCall(body, appSlug, buildCertificateSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update a build certificate
      * Update an uploaded build certificate&#x27;s attributes. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint. Read more in our [Updating an uploaded iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param body Build certificate parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                 Build certificate parameters (required)
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
      * @return V0BuildCertificateResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V0BuildCertificateResponseModel buildCertificateUpdate(V0BuildCertificateUpdateParams body, String appSlug, String buildCertificateSlug) throws ApiException {
+    public V0BuildCertificateResponseModel buildCertificateUpdate(V0BuildCertificateUpdateParams body, String appSlug, String buildCertificateSlug)
+            throws ApiException {
         ApiResponse<V0BuildCertificateResponseModel> resp = buildCertificateUpdateWithHttpInfo(body, appSlug, buildCertificateSlug);
         return resp.getData();
     }
@@ -818,29 +879,34 @@ public class BuildCertificateApi {
     /**
      * Update a build certificate
      * Update an uploaded build certificate&#x27;s attributes. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint. Read more in our [Updating an uploaded iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param body Build certificate parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                 Build certificate parameters (required)
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
      * @return ApiResponse&lt;V0BuildCertificateResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateUpdateWithHttpInfo(V0BuildCertificateUpdateParams body, String appSlug, String buildCertificateSlug) throws ApiException {
+    public ApiResponse<V0BuildCertificateResponseModel> buildCertificateUpdateWithHttpInfo(V0BuildCertificateUpdateParams body, String appSlug,
+            String buildCertificateSlug) throws ApiException {
         com.squareup.okhttp.Call call = buildCertificateUpdateValidateBeforeCall(body, appSlug, buildCertificateSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Update a build certificate (asynchronously)
      * Update an uploaded build certificate&#x27;s attributes. You can fetch the build certificate slug for this endpoint if you first call the [GET /apps/{app-slug}/build-certificates](https://api-docs.bitrise.io/#/build-certificate/build-certificate-list) endpoint. Read more in our [Updating an uploaded iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param body Build certificate parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                 Build certificate parameters (required)
+     * @param appSlug              App slug (required)
      * @param buildCertificateSlug Build certificate slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback             The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call buildCertificateUpdateAsync(V0BuildCertificateUpdateParams body, String appSlug, String buildCertificateSlug, final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call buildCertificateUpdateAsync(V0BuildCertificateUpdateParams body, String appSlug, String buildCertificateSlug,
+            final ApiCallback<V0BuildCertificateResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -861,8 +927,10 @@ public class BuildCertificateApi {
             };
         }
 
-        com.squareup.okhttp.Call call = buildCertificateUpdateValidateBeforeCall(body, appSlug, buildCertificateSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = buildCertificateUpdateValidateBeforeCall(body, appSlug, buildCertificateSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0BuildCertificateResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

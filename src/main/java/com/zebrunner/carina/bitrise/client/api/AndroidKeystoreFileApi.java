@@ -53,20 +53,23 @@ public class AndroidKeystoreFileApi {
 
     /**
      * Build call for androidKeystoreFileConfirm
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param androidKeystoreFileSlug Android keystore file slug (required)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call androidKeystoreFileConfirmCall(String appSlug, String androidKeystoreFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call androidKeystoreFileConfirmCall(String appSlug, String androidKeystoreFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/android-keystore-files/{android-keystore-file-slug}/uploaded"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "android-keystore-file-slug" + "\\}", apiClient.escapeString(androidKeystoreFileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "android-keystore-file-slug" + "\\}", apiClient.escapeString(androidKeystoreFileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -76,35 +79,39 @@ public class AndroidKeystoreFileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call androidKeystoreFileConfirmValidateBeforeCall(String appSlug, String androidKeystoreFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call androidKeystoreFileConfirmValidateBeforeCall(String appSlug, String androidKeystoreFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling androidKeystoreFileConfirm(Async)");
@@ -113,20 +120,17 @@ public class AndroidKeystoreFileApi {
         if (androidKeystoreFileSlug == null) {
             throw new ApiException("Missing the required parameter 'androidKeystoreFileSlug' when calling androidKeystoreFileConfirm(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = androidKeystoreFileConfirmCall(appSlug, androidKeystoreFileSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Confirm an android keystore file upload
      * This is the last step of uploading an android keystore file to Bitrise. Confirm the android keystore file upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the upload](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#confirming-the-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param androidKeystoreFileSlug Android keystore file slug (required)
      * @return V0ProjectFileStorageResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -139,27 +143,32 @@ public class AndroidKeystoreFileApi {
     /**
      * Confirm an android keystore file upload
      * This is the last step of uploading an android keystore file to Bitrise. Confirm the android keystore file upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the upload](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#confirming-the-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param androidKeystoreFileSlug Android keystore file slug (required)
      * @return ApiResponse&lt;V0ProjectFileStorageResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageResponseModel> androidKeystoreFileConfirmWithHttpInfo(String appSlug, String androidKeystoreFileSlug) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageResponseModel> androidKeystoreFileConfirmWithHttpInfo(String appSlug, String androidKeystoreFileSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = androidKeystoreFileConfirmValidateBeforeCall(appSlug, androidKeystoreFileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Confirm an android keystore file upload (asynchronously)
      * This is the last step of uploading an android keystore file to Bitrise. Confirm the android keystore file upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the upload](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#confirming-the-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param androidKeystoreFileSlug Android keystore file slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call androidKeystoreFileConfirmAsync(String appSlug, String androidKeystoreFileSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call androidKeystoreFileConfirmAsync(String appSlug, String androidKeystoreFileSlug,
+            final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -180,26 +189,32 @@ public class AndroidKeystoreFileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = androidKeystoreFileConfirmValidateBeforeCall(appSlug, androidKeystoreFileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = androidKeystoreFileConfirmValidateBeforeCall(appSlug, androidKeystoreFileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for androidKeystoreFileCreate
-     * @param body Android keystore file parameters (required)
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Android keystore file parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call androidKeystoreFileCreateCall(V0AndroidKeystoreFileUploadParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call androidKeystoreFileCreateCall(V0AndroidKeystoreFileUploadParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/android-keystore-files"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -209,35 +224,39 @@ public class AndroidKeystoreFileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call androidKeystoreFileCreateValidateBeforeCall(V0AndroidKeystoreFileUploadParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call androidKeystoreFileCreateValidateBeforeCall(V0AndroidKeystoreFileUploadParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling androidKeystoreFileCreate(Async)");
@@ -246,20 +265,17 @@ public class AndroidKeystoreFileApi {
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling androidKeystoreFileCreate(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = androidKeystoreFileCreateCall(body, appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create an Android keystore file
      * Add a new Android keystore file to an app. &#x60;keystore_file_name&#x60; is required if there is already an existing keystore file for the app. It will determine the environment variable key to be used to refer to the keystore file in builds. E.g. &#x60;BITRISE_ANDROID_KEYSTORE_&lt;keystore_file_name&gt;_URL&#x60;. The &#x60;keystore_file_name&#x60; can only contain letters, numbers, and underscores.
-     * @param body Android keystore file parameters (required)
+     *
+     * @param body    Android keystore file parameters (required)
      * @param appSlug App slug (required)
      * @return V0ProjectFileStorageResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -272,27 +288,32 @@ public class AndroidKeystoreFileApi {
     /**
      * Create an Android keystore file
      * Add a new Android keystore file to an app. &#x60;keystore_file_name&#x60; is required if there is already an existing keystore file for the app. It will determine the environment variable key to be used to refer to the keystore file in builds. E.g. &#x60;BITRISE_ANDROID_KEYSTORE_&lt;keystore_file_name&gt;_URL&#x60;. The &#x60;keystore_file_name&#x60; can only contain letters, numbers, and underscores.
-     * @param body Android keystore file parameters (required)
+     *
+     * @param body    Android keystore file parameters (required)
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0ProjectFileStorageResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageResponseModel> androidKeystoreFileCreateWithHttpInfo(V0AndroidKeystoreFileUploadParams body, String appSlug) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageResponseModel> androidKeystoreFileCreateWithHttpInfo(V0AndroidKeystoreFileUploadParams body,
+            String appSlug) throws ApiException {
         com.squareup.okhttp.Call call = androidKeystoreFileCreateValidateBeforeCall(body, appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create an Android keystore file (asynchronously)
      * Add a new Android keystore file to an app. &#x60;keystore_file_name&#x60; is required if there is already an existing keystore file for the app. It will determine the environment variable key to be used to refer to the keystore file in builds. E.g. &#x60;BITRISE_ANDROID_KEYSTORE_&lt;keystore_file_name&gt;_URL&#x60;. The &#x60;keystore_file_name&#x60; can only contain letters, numbers, and underscores.
-     * @param body Android keystore file parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body     Android keystore file parameters (required)
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call androidKeystoreFileCreateAsync(V0AndroidKeystoreFileUploadParams body, String appSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call androidKeystoreFileCreateAsync(V0AndroidKeystoreFileUploadParams body, String appSlug,
+            final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -314,26 +335,31 @@ public class AndroidKeystoreFileApi {
         }
 
         com.squareup.okhttp.Call call = androidKeystoreFileCreateValidateBeforeCall(body, appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for androidKeystoreFileDelete
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param androidKeystoreFileSlug Android keystore file slug (required)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call androidKeystoreFileDeleteCall(String appSlug, String androidKeystoreFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call androidKeystoreFileDeleteCall(String appSlug, String androidKeystoreFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/android-keystore-files/{android-keystore-file-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "android-keystore-file-slug" + "\\}", apiClient.escapeString(androidKeystoreFileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "android-keystore-file-slug" + "\\}", apiClient.escapeString(androidKeystoreFileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -343,35 +369,39 @@ public class AndroidKeystoreFileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call androidKeystoreFileDeleteValidateBeforeCall(String appSlug, String androidKeystoreFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call androidKeystoreFileDeleteValidateBeforeCall(String appSlug, String androidKeystoreFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling androidKeystoreFileDelete(Async)");
@@ -380,20 +410,17 @@ public class AndroidKeystoreFileApi {
         if (androidKeystoreFileSlug == null) {
             throw new ApiException("Missing the required parameter 'androidKeystoreFileSlug' when calling androidKeystoreFileDelete(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = androidKeystoreFileDeleteCall(appSlug, androidKeystoreFileSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete an android keystore file
      * Delete an app&#x27;s android keystore file. You can fetch an app&#x27;s android keystore file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/android-keystore-files](https://api-docs.bitrise.io/#/android-keystore-file/android-keystore-file-list) endpoint. Read more in our [Deleting a file](https://devcenter.bitrise.io/api/managing-android-keystore-files.html) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param androidKeystoreFileSlug Android keystore file slug (required)
      * @return V0ProjectFileStorageResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -406,27 +433,32 @@ public class AndroidKeystoreFileApi {
     /**
      * Delete an android keystore file
      * Delete an app&#x27;s android keystore file. You can fetch an app&#x27;s android keystore file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/android-keystore-files](https://api-docs.bitrise.io/#/android-keystore-file/android-keystore-file-list) endpoint. Read more in our [Deleting a file](https://devcenter.bitrise.io/api/managing-android-keystore-files.html) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param androidKeystoreFileSlug Android keystore file slug (required)
      * @return ApiResponse&lt;V0ProjectFileStorageResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageResponseModel> androidKeystoreFileDeleteWithHttpInfo(String appSlug, String androidKeystoreFileSlug) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageResponseModel> androidKeystoreFileDeleteWithHttpInfo(String appSlug, String androidKeystoreFileSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = androidKeystoreFileDeleteValidateBeforeCall(appSlug, androidKeystoreFileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Delete an android keystore file (asynchronously)
      * Delete an app&#x27;s android keystore file. You can fetch an app&#x27;s android keystore file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/android-keystore-files](https://api-docs.bitrise.io/#/android-keystore-file/android-keystore-file-list) endpoint. Read more in our [Deleting a file](https://devcenter.bitrise.io/api/managing-android-keystore-files.html) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param androidKeystoreFileSlug Android keystore file slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call androidKeystoreFileDeleteAsync(String appSlug, String androidKeystoreFileSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call androidKeystoreFileDeleteAsync(String appSlug, String androidKeystoreFileSlug,
+            final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -447,89 +479,96 @@ public class AndroidKeystoreFileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = androidKeystoreFileDeleteValidateBeforeCall(appSlug, androidKeystoreFileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = androidKeystoreFileDeleteValidateBeforeCall(appSlug, androidKeystoreFileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for androidKeystoreFileList
-     * @param appSlug App slug (required)
-     * @param next Slug of the first android keystore file in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param next                    Slug of the first android keystore file in the response (optional)
+     * @param limit                   Max number of build certificates per page is 50. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call androidKeystoreFileListCall(String appSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call androidKeystoreFileListCall(String appSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/android-keystore-files"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (next != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
+            localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call androidKeystoreFileListValidateBeforeCall(String appSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call androidKeystoreFileListValidateBeforeCall(String appSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling androidKeystoreFileList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = androidKeystoreFileListCall(appSlug, next, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a list of the android keystore files
      * List all the android keystore files that have been uploaded to a specific app.
+     *
      * @param appSlug App slug (required)
-     * @param next Slug of the first android keystore file in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     * @param next    Slug of the first android keystore file in the response (optional)
+     * @param limit   Max number of build certificates per page is 50. (optional)
      * @return V0ProjectFileStorageListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -541,29 +580,34 @@ public class AndroidKeystoreFileApi {
     /**
      * Get a list of the android keystore files
      * List all the android keystore files that have been uploaded to a specific app.
+     *
      * @param appSlug App slug (required)
-     * @param next Slug of the first android keystore file in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     * @param next    Slug of the first android keystore file in the response (optional)
+     * @param limit   Max number of build certificates per page is 50. (optional)
      * @return ApiResponse&lt;V0ProjectFileStorageListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageListResponseModel> androidKeystoreFileListWithHttpInfo(String appSlug, String next, Integer limit) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageListResponseModel> androidKeystoreFileListWithHttpInfo(String appSlug, String next, Integer limit)
+            throws ApiException {
         com.squareup.okhttp.Call call = androidKeystoreFileListValidateBeforeCall(appSlug, next, limit, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a list of the android keystore files (asynchronously)
      * List all the android keystore files that have been uploaded to a specific app.
-     * @param appSlug App slug (required)
-     * @param next Slug of the first android keystore file in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     *
+     * @param appSlug  App slug (required)
+     * @param next     Slug of the first android keystore file in the response (optional)
+     * @param limit    Max number of build certificates per page is 50. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call androidKeystoreFileListAsync(String appSlug, String next, Integer limit, final ApiCallback<V0ProjectFileStorageListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call androidKeystoreFileListAsync(String appSlug, String next, Integer limit,
+            final ApiCallback<V0ProjectFileStorageListResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -585,7 +629,8 @@ public class AndroidKeystoreFileApi {
         }
 
         com.squareup.okhttp.Call call = androidKeystoreFileListValidateBeforeCall(appSlug, next, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

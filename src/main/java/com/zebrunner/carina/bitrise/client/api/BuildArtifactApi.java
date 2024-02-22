@@ -54,22 +54,25 @@ public class BuildArtifactApi {
 
     /**
      * Build call for artifactDelete
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
-     * @param artifactSlug Artifact slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param buildSlug               Build slug (required)
+     * @param artifactSlug            Artifact slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call artifactDeleteCall(String appSlug, String buildSlug, String artifactSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call artifactDeleteCall(String appSlug, String buildSlug, String artifactSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/builds/{build-slug}/artifacts/{artifact-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-slug" + "\\}", apiClient.escapeString(buildSlug.toString()))
-            .replaceAll("\\{" + "artifact-slug" + "\\}", apiClient.escapeString(artifactSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-slug" + "\\}", apiClient.escapeString(buildSlug))
+                .replaceAll("\\{" + "artifact-slug" + "\\}", apiClient.escapeString(artifactSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -79,35 +82,39 @@ public class BuildArtifactApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call artifactDeleteValidateBeforeCall(String appSlug, String buildSlug, String artifactSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call artifactDeleteValidateBeforeCall(String appSlug, String buildSlug, String artifactSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling artifactDelete(Async)");
@@ -120,21 +127,18 @@ public class BuildArtifactApi {
         if (artifactSlug == null) {
             throw new ApiException("Missing the required parameter 'artifactSlug' when calling artifactDelete(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = artifactDeleteCall(appSlug, buildSlug, artifactSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete a build artifact
      * Delete a build artifact of an app&#x27;s build. The required parameters are app slug, build slug and artifact slug. You can fetch the build artifact slug if you first list all build artifacts of an app with the [/apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-list) endpoint.
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
      * @return V0ArtifactDeleteResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -147,29 +151,34 @@ public class BuildArtifactApi {
     /**
      * Delete a build artifact
      * Delete a build artifact of an app&#x27;s build. The required parameters are app slug, build slug and artifact slug. You can fetch the build artifact slug if you first list all build artifacts of an app with the [/apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-list) endpoint.
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
      * @return ApiResponse&lt;V0ArtifactDeleteResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ArtifactDeleteResponseModel> artifactDeleteWithHttpInfo(String appSlug, String buildSlug, String artifactSlug) throws ApiException {
+    public ApiResponse<V0ArtifactDeleteResponseModel> artifactDeleteWithHttpInfo(String appSlug, String buildSlug, String artifactSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = artifactDeleteValidateBeforeCall(appSlug, buildSlug, artifactSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ArtifactDeleteResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ArtifactDeleteResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Delete a build artifact (asynchronously)
      * Delete a build artifact of an app&#x27;s build. The required parameters are app slug, build slug and artifact slug. You can fetch the build artifact slug if you first list all build artifacts of an app with the [/apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-list) endpoint.
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call artifactDeleteAsync(String appSlug, String buildSlug, String artifactSlug, final ApiCallback<V0ArtifactDeleteResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call artifactDeleteAsync(String appSlug, String buildSlug, String artifactSlug,
+            final ApiCallback<V0ArtifactDeleteResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -191,70 +200,79 @@ public class BuildArtifactApi {
         }
 
         com.squareup.okhttp.Call call = artifactDeleteValidateBeforeCall(appSlug, buildSlug, artifactSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ArtifactDeleteResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ArtifactDeleteResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for artifactList
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
-     * @param next Slug of the first build artifact in the response (optional)
-     * @param limit Max number of build artifacts per page is 50. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param buildSlug               Build slug (required)
+     * @param next                    Slug of the first build artifact in the response (optional)
+     * @param limit                   Max number of build artifacts per page is 50. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call artifactListCall(String appSlug, String buildSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call artifactListCall(String appSlug, String buildSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/builds/{build-slug}/artifacts"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-slug" + "\\}", apiClient.escapeString(buildSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-slug" + "\\}", apiClient.escapeString(buildSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (next != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
+            localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call artifactListValidateBeforeCall(String appSlug, String buildSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call artifactListValidateBeforeCall(String appSlug, String buildSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling artifactList(Async)");
@@ -263,23 +281,20 @@ public class BuildArtifactApi {
         if (buildSlug == null) {
             throw new ApiException("Missing the required parameter 'buildSlug' when calling artifactList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = artifactListCall(appSlug, buildSlug, next, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a list of all build artifacts
      * List all build artifacts that have been generated for an app&#x27;s build. This endpoint can retrieve artifacts from the archive as well. You can use the created build artifact slugs from the response output to retrieve data of a specific build artifact with the [GET/apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-show) endpoint or update a build artifact with the [PATCH/apps](https://api-docs.bitrise.io/#/build-artifact/artifact-update) endpoint.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug   App slug (required)
      * @param buildSlug Build slug (required)
-     * @param next Slug of the first build artifact in the response (optional)
-     * @param limit Max number of build artifacts per page is 50. (optional)
+     * @param next      Slug of the first build artifact in the response (optional)
+     * @param limit     Max number of build artifacts per page is 50. (optional)
      * @return V0ArtifactListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -291,31 +306,36 @@ public class BuildArtifactApi {
     /**
      * Get a list of all build artifacts
      * List all build artifacts that have been generated for an app&#x27;s build. This endpoint can retrieve artifacts from the archive as well. You can use the created build artifact slugs from the response output to retrieve data of a specific build artifact with the [GET/apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-show) endpoint or update a build artifact with the [PATCH/apps](https://api-docs.bitrise.io/#/build-artifact/artifact-update) endpoint.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug   App slug (required)
      * @param buildSlug Build slug (required)
-     * @param next Slug of the first build artifact in the response (optional)
-     * @param limit Max number of build artifacts per page is 50. (optional)
+     * @param next      Slug of the first build artifact in the response (optional)
+     * @param limit     Max number of build artifacts per page is 50. (optional)
      * @return ApiResponse&lt;V0ArtifactListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ArtifactListResponseModel> artifactListWithHttpInfo(String appSlug, String buildSlug, String next, Integer limit) throws ApiException {
+    public ApiResponse<V0ArtifactListResponseModel> artifactListWithHttpInfo(String appSlug, String buildSlug, String next, Integer limit)
+            throws ApiException {
         com.squareup.okhttp.Call call = artifactListValidateBeforeCall(appSlug, buildSlug, next, limit, null, null);
-        Type localVarReturnType = new TypeToken<V0ArtifactListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ArtifactListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a list of all build artifacts (asynchronously)
      * List all build artifacts that have been generated for an app&#x27;s build. This endpoint can retrieve artifacts from the archive as well. You can use the created build artifact slugs from the response output to retrieve data of a specific build artifact with the [GET/apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-show) endpoint or update a build artifact with the [PATCH/apps](https://api-docs.bitrise.io/#/build-artifact/artifact-update) endpoint.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug   App slug (required)
      * @param buildSlug Build slug (required)
-     * @param next Slug of the first build artifact in the response (optional)
-     * @param limit Max number of build artifacts per page is 50. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param next      Slug of the first build artifact in the response (optional)
+     * @param limit     Max number of build artifacts per page is 50. (optional)
+     * @param callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call artifactListAsync(String appSlug, String buildSlug, String next, Integer limit, final ApiCallback<V0ArtifactListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call artifactListAsync(String appSlug, String buildSlug, String next, Integer limit,
+            final ApiCallback<V0ArtifactListResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -337,69 +357,78 @@ public class BuildArtifactApi {
         }
 
         com.squareup.okhttp.Call call = artifactListValidateBeforeCall(appSlug, buildSlug, next, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ArtifactListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ArtifactListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for artifactShow
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
-     * @param artifactSlug Artifact slug (required)
-     * @param download Setting this will result in a redirect to the artifact download location (optional)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param buildSlug               Build slug (required)
+     * @param artifactSlug            Artifact slug (required)
+     * @param download                Setting this will result in a redirect to the artifact download location (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call artifactShowCall(String appSlug, String buildSlug, String artifactSlug, Integer download, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call artifactShowCall(String appSlug, String buildSlug, String artifactSlug, Integer download,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/builds/{build-slug}/artifacts/{artifact-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-slug" + "\\}", apiClient.escapeString(buildSlug.toString()))
-            .replaceAll("\\{" + "artifact-slug" + "\\}", apiClient.escapeString(artifactSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-slug" + "\\}", apiClient.escapeString(buildSlug))
+                .replaceAll("\\{" + "artifact-slug" + "\\}", apiClient.escapeString(artifactSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (download != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("download", download));
+            localVarQueryParams.addAll(apiClient.parameterToPair("download", download));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call artifactShowValidateBeforeCall(String appSlug, String buildSlug, String artifactSlug, Integer download, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call artifactShowValidateBeforeCall(String appSlug, String buildSlug, String artifactSlug, Integer download,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling artifactShow(Async)");
@@ -412,23 +441,20 @@ public class BuildArtifactApi {
         if (artifactSlug == null) {
             throw new ApiException("Missing the required parameter 'artifactSlug' when calling artifactShow(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = artifactShowCall(appSlug, buildSlug, artifactSlug, download, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a specific build artifact
      * Retrieve data of a specific build artifact. The endpoint can retrieve archived artifacts as well. The response output contains a time-limited download url (expires in 10 minutes) and a public install-page URL. You can view the build artifact with both URLs, but the public install-page url will not work unless you [enable it](https://devcenter.bitrise.io/tutorials/deploy/bitrise-app-deployment/#enabling-public-page-for-the-app).
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
-     * @param download Setting this will result in a redirect to the artifact download location (optional)
+     * @param download     Setting this will result in a redirect to the artifact download location (optional)
      * @return V0ArtifactShowResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -440,31 +466,36 @@ public class BuildArtifactApi {
     /**
      * Get a specific build artifact
      * Retrieve data of a specific build artifact. The endpoint can retrieve archived artifacts as well. The response output contains a time-limited download url (expires in 10 minutes) and a public install-page URL. You can view the build artifact with both URLs, but the public install-page url will not work unless you [enable it](https://devcenter.bitrise.io/tutorials/deploy/bitrise-app-deployment/#enabling-public-page-for-the-app).
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
-     * @param download Setting this will result in a redirect to the artifact download location (optional)
+     * @param download     Setting this will result in a redirect to the artifact download location (optional)
      * @return ApiResponse&lt;V0ArtifactShowResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ArtifactShowResponseModel> artifactShowWithHttpInfo(String appSlug, String buildSlug, String artifactSlug, Integer download) throws ApiException {
+    public ApiResponse<V0ArtifactShowResponseModel> artifactShowWithHttpInfo(String appSlug, String buildSlug, String artifactSlug, Integer download)
+            throws ApiException {
         com.squareup.okhttp.Call call = artifactShowValidateBeforeCall(appSlug, buildSlug, artifactSlug, download, null, null);
-        Type localVarReturnType = new TypeToken<V0ArtifactShowResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ArtifactShowResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a specific build artifact (asynchronously)
      * Retrieve data of a specific build artifact. The endpoint can retrieve archived artifacts as well. The response output contains a time-limited download url (expires in 10 minutes) and a public install-page URL. You can view the build artifact with both URLs, but the public install-page url will not work unless you [enable it](https://devcenter.bitrise.io/tutorials/deploy/bitrise-app-deployment/#enabling-public-page-for-the-app).
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
-     * @param download Setting this will result in a redirect to the artifact download location (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param download     Setting this will result in a redirect to the artifact download location (optional)
+     * @param callback     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call artifactShowAsync(String appSlug, String buildSlug, String artifactSlug, Integer download, final ApiCallback<V0ArtifactShowResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call artifactShowAsync(String appSlug, String buildSlug, String artifactSlug, Integer download,
+            final ApiCallback<V0ArtifactShowResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -485,30 +516,36 @@ public class BuildArtifactApi {
             };
         }
 
-        com.squareup.okhttp.Call call = artifactShowValidateBeforeCall(appSlug, buildSlug, artifactSlug, download, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ArtifactShowResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = artifactShowValidateBeforeCall(appSlug, buildSlug, artifactSlug, download, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ArtifactShowResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for artifactUpdate
-     * @param body Artifact parameters (required)
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
-     * @param artifactSlug Artifact slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Artifact parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param buildSlug               Build slug (required)
+     * @param artifactSlug            Artifact slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call artifactUpdateCall(V0ArtifactUpdateParams body, String appSlug, String buildSlug, String artifactSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call artifactUpdateCall(V0ArtifactUpdateParams body, String appSlug, String buildSlug, String artifactSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/builds/{build-slug}/artifacts/{artifact-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "build-slug" + "\\}", apiClient.escapeString(buildSlug.toString()))
-            .replaceAll("\\{" + "artifact-slug" + "\\}", apiClient.escapeString(artifactSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "build-slug" + "\\}", apiClient.escapeString(buildSlug))
+                .replaceAll("\\{" + "artifact-slug" + "\\}", apiClient.escapeString(artifactSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -518,35 +555,39 @@ public class BuildArtifactApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call artifactUpdateValidateBeforeCall(V0ArtifactUpdateParams body, String appSlug, String buildSlug, String artifactSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call artifactUpdateValidateBeforeCall(V0ArtifactUpdateParams body, String appSlug, String buildSlug,
+            String artifactSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling artifactUpdate(Async)");
@@ -563,27 +604,25 @@ public class BuildArtifactApi {
         if (artifactSlug == null) {
             throw new ApiException("Missing the required parameter 'artifactSlug' when calling artifactUpdate(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = artifactUpdateCall(body, appSlug, buildSlug, artifactSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update a build artifact
      * Update the &#x60;is_public_page_enabled&#x60; attribute of your app&#x27;s build. The required parameters are app slug, build slug and artifact slug. You can fetch the build artifact slug if you first list all build artifacts of an app with the [GET /apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-list) endpoint.
-     * @param body Artifact parameters (required)
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param body         Artifact parameters (required)
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
      * @return V0ArtifactShowResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V0ArtifactShowResponseModel artifactUpdate(V0ArtifactUpdateParams body, String appSlug, String buildSlug, String artifactSlug) throws ApiException {
+    public V0ArtifactShowResponseModel artifactUpdate(V0ArtifactUpdateParams body, String appSlug, String buildSlug, String artifactSlug)
+            throws ApiException {
         ApiResponse<V0ArtifactShowResponseModel> resp = artifactUpdateWithHttpInfo(body, appSlug, buildSlug, artifactSlug);
         return resp.getData();
     }
@@ -591,31 +630,36 @@ public class BuildArtifactApi {
     /**
      * Update a build artifact
      * Update the &#x60;is_public_page_enabled&#x60; attribute of your app&#x27;s build. The required parameters are app slug, build slug and artifact slug. You can fetch the build artifact slug if you first list all build artifacts of an app with the [GET /apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-list) endpoint.
-     * @param body Artifact parameters (required)
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param body         Artifact parameters (required)
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
      * @return ApiResponse&lt;V0ArtifactShowResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ArtifactShowResponseModel> artifactUpdateWithHttpInfo(V0ArtifactUpdateParams body, String appSlug, String buildSlug, String artifactSlug) throws ApiException {
+    public ApiResponse<V0ArtifactShowResponseModel> artifactUpdateWithHttpInfo(V0ArtifactUpdateParams body, String appSlug, String buildSlug,
+            String artifactSlug) throws ApiException {
         com.squareup.okhttp.Call call = artifactUpdateValidateBeforeCall(body, appSlug, buildSlug, artifactSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ArtifactShowResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ArtifactShowResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Update a build artifact (asynchronously)
      * Update the &#x60;is_public_page_enabled&#x60; attribute of your app&#x27;s build. The required parameters are app slug, build slug and artifact slug. You can fetch the build artifact slug if you first list all build artifacts of an app with the [GET /apps/](https://api-docs.bitrise.io/#/build-artifact/artifact-list) endpoint.
-     * @param body Artifact parameters (required)
-     * @param appSlug App slug (required)
-     * @param buildSlug Build slug (required)
+     *
+     * @param body         Artifact parameters (required)
+     * @param appSlug      App slug (required)
+     * @param buildSlug    Build slug (required)
      * @param artifactSlug Artifact slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call artifactUpdateAsync(V0ArtifactUpdateParams body, String appSlug, String buildSlug, String artifactSlug, final ApiCallback<V0ArtifactShowResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call artifactUpdateAsync(V0ArtifactUpdateParams body, String appSlug, String buildSlug, String artifactSlug,
+            final ApiCallback<V0ArtifactShowResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -636,8 +680,10 @@ public class BuildArtifactApi {
             };
         }
 
-        com.squareup.okhttp.Call call = artifactUpdateValidateBeforeCall(body, appSlug, buildSlug, artifactSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ArtifactShowResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = artifactUpdateValidateBeforeCall(body, appSlug, buildSlug, artifactSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ArtifactShowResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

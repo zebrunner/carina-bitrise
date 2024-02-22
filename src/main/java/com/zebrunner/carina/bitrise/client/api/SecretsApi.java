@@ -53,20 +53,22 @@ public class SecretsApi {
 
     /**
      * Build call for secretDelete
-     * @param appSlug App slug (required)
-     * @param secretName Secret name (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param secretName              Secret name (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call secretDeleteCall(String appSlug, String secretName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secretDeleteCall(String appSlug, String secretName, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/secrets/{secret-name}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "secret-name" + "\\}", apiClient.escapeString(secretName.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "secret-name" + "\\}", apiClient.escapeString(secretName));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -76,35 +78,39 @@ public class SecretsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call secretDeleteValidateBeforeCall(String appSlug, String secretName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secretDeleteValidateBeforeCall(String appSlug, String secretName,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling secretDelete(Async)");
@@ -113,20 +119,17 @@ public class SecretsApi {
         if (secretName == null) {
             throw new ApiException("Missing the required parameter 'secretName' when calling secretDelete(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = secretDeleteCall(appSlug, secretName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete an application secret
      * Delete an application secret. Requires administrator level privileges to the app.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -137,7 +140,8 @@ public class SecretsApi {
     /**
      * Delete an application secret
      * Delete an application secret. Requires administrator level privileges to the app.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -150,9 +154,10 @@ public class SecretsApi {
     /**
      * Delete an application secret (asynchronously)
      * Delete an application secret. Requires administrator level privileges to the app.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -181,20 +186,23 @@ public class SecretsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
+
     /**
      * Build call for secretList
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call secretListCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secretListCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/secrets"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -204,52 +212,52 @@ public class SecretsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call secretListValidateBeforeCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secretListValidateBeforeCall(String appSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling secretList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = secretListCall(appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * List the application secrets (with no values)
      * List the application secrets (with no values). Requires administrator level privileges to the app.
+     *
      * @param appSlug App slug (required)
      * @return V0AppSecretListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -262,20 +270,23 @@ public class SecretsApi {
     /**
      * List the application secrets (with no values)
      * List the application secrets (with no values). Requires administrator level privileges to the app.
+     *
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0AppSecretListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0AppSecretListResponse> secretListWithHttpInfo(String appSlug) throws ApiException {
         com.squareup.okhttp.Call call = secretListValidateBeforeCall(appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0AppSecretListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AppSecretListResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List the application secrets (with no values) (asynchronously)
      * List the application secrets (with no values). Requires administrator level privileges to the app.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -302,27 +313,32 @@ public class SecretsApi {
         }
 
         com.squareup.okhttp.Call call = secretListValidateBeforeCall(appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0AppSecretListResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AppSecretListResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for secretUpsert
-     * @param body Secret parameters (required)
-     * @param appSlug App slug (required)
-     * @param secretName Secret name (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Secret parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param secretName              Secret name (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call secretUpsertCall(V0AppSecretUpsertParams body, String appSlug, String secretName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secretUpsertCall(V0AppSecretUpsertParams body, String appSlug, String secretName,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/secrets/{secret-name}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "secret-name" + "\\}", apiClient.escapeString(secretName.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "secret-name" + "\\}", apiClient.escapeString(secretName));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -332,35 +348,39 @@ public class SecretsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call secretUpsertValidateBeforeCall(V0AppSecretUpsertParams body, String appSlug, String secretName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secretUpsertValidateBeforeCall(V0AppSecretUpsertParams body, String appSlug, String secretName,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling secretUpsert(Async)");
@@ -373,21 +393,18 @@ public class SecretsApi {
         if (secretName == null) {
             throw new ApiException("Missing the required parameter 'secretName' when calling secretUpsert(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = secretUpsertCall(body, appSlug, secretName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Upsert an application secret
      * Upsert an application secret. Requires administrator level privileges to the app.
-     * @param body Secret parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body       Secret parameters (required)
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -398,8 +415,9 @@ public class SecretsApi {
     /**
      * Upsert an application secret
      * Upsert an application secret. Requires administrator level privileges to the app.
-     * @param body Secret parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body       Secret parameters (required)
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -412,14 +430,16 @@ public class SecretsApi {
     /**
      * Upsert an application secret (asynchronously)
      * Upsert an application secret. Requires administrator level privileges to the app.
-     * @param body Secret parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body       Secret parameters (required)
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call secretUpsertAsync(V0AppSecretUpsertParams body, String appSlug, String secretName, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call secretUpsertAsync(V0AppSecretUpsertParams body, String appSlug, String secretName,
+            final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -444,22 +464,26 @@ public class SecretsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
+
     /**
      * Build call for secretValueGet
-     * @param appSlug App slug (required)
-     * @param secretName Secret name (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param secretName              Secret name (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call secretValueGetCall(String appSlug, String secretName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call secretValueGetCall(String appSlug, String secretName,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/secrets/{secret-name}/value"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "secret-name" + "\\}", apiClient.escapeString(secretName.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "secret-name" + "\\}", apiClient.escapeString(secretName));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -469,35 +493,39 @@ public class SecretsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call secretValueGetValidateBeforeCall(String appSlug, String secretName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call secretValueGetValidateBeforeCall(String appSlug, String secretName,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling secretValueGet(Async)");
@@ -506,20 +534,17 @@ public class SecretsApi {
         if (secretName == null) {
             throw new ApiException("Missing the required parameter 'secretName' when calling secretValueGet(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = secretValueGetCall(appSlug, secretName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get the value of an (unprotected) application secrets
      * Get the value of an (unprotected) application secrets. Requires administrator level privileges to the app.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
      * @return V0AppSecretGetValueResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -532,27 +557,31 @@ public class SecretsApi {
     /**
      * Get the value of an (unprotected) application secrets
      * Get the value of an (unprotected) application secrets. Requires administrator level privileges to the app.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
      * @return ApiResponse&lt;V0AppSecretGetValueResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<V0AppSecretGetValueResponse> secretValueGetWithHttpInfo(String appSlug, String secretName) throws ApiException {
         com.squareup.okhttp.Call call = secretValueGetValidateBeforeCall(appSlug, secretName, null, null);
-        Type localVarReturnType = new TypeToken<V0AppSecretGetValueResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AppSecretGetValueResponse>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get the value of an (unprotected) application secrets (asynchronously)
      * Get the value of an (unprotected) application secrets. Requires administrator level privileges to the app.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug    App slug (required)
      * @param secretName Secret name (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call secretValueGetAsync(String appSlug, String secretName, final ApiCallback<V0AppSecretGetValueResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call secretValueGetAsync(String appSlug, String secretName, final ApiCallback<V0AppSecretGetValueResponse> callback)
+            throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -574,7 +603,8 @@ public class SecretsApi {
         }
 
         com.squareup.okhttp.Call call = secretValueGetValidateBeforeCall(appSlug, secretName, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0AppSecretGetValueResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0AppSecretGetValueResponse>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

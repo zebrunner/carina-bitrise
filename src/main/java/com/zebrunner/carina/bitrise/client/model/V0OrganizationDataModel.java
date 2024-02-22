@@ -17,172 +17,173 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0OrganizationDataModel
  */
 
-
-
 public class V0OrganizationDataModel {
-  @SerializedName("avatar_icon_url")
-  private String avatarIconUrl = null;
+    @SerializedName("avatar_icon_url")
+    private String avatarIconUrl = null;
 
-  @SerializedName("concurrency_count")
-  private Integer concurrencyCount = null;
+    @SerializedName("concurrency_count")
+    private Integer concurrencyCount = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("owners")
-  private List<V0OrganizationOwner> owners = null;
+    @SerializedName("owners")
+    private List<V0OrganizationOwner> owners = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+    @SerializedName("slug")
+    private String slug = null;
 
-  public V0OrganizationDataModel avatarIconUrl(String avatarIconUrl) {
-    this.avatarIconUrl = avatarIconUrl;
-    return this;
-  }
-
-   /**
-   * Get avatarIconUrl
-   * @return avatarIconUrl
-  **/
-  
-  public String getAvatarIconUrl() {
-    return avatarIconUrl;
-  }
-
-  public void setAvatarIconUrl(String avatarIconUrl) {
-    this.avatarIconUrl = avatarIconUrl;
-  }
-
-  public V0OrganizationDataModel concurrencyCount(Integer concurrencyCount) {
-    this.concurrencyCount = concurrencyCount;
-    return this;
-  }
-
-   /**
-   * Get concurrencyCount
-   * @return concurrencyCount
-  **/
-  
-  public Integer getConcurrencyCount() {
-    return concurrencyCount;
-  }
-
-  public void setConcurrencyCount(Integer concurrencyCount) {
-    this.concurrencyCount = concurrencyCount;
-  }
-
-  public V0OrganizationDataModel name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public V0OrganizationDataModel owners(List<V0OrganizationOwner> owners) {
-    this.owners = owners;
-    return this;
-  }
-
-  public V0OrganizationDataModel addOwnersItem(V0OrganizationOwner ownersItem) {
-    if (this.owners == null) {
-      this.owners = new ArrayList<V0OrganizationOwner>();
+    public V0OrganizationDataModel avatarIconUrl(String avatarIconUrl) {
+        this.avatarIconUrl = avatarIconUrl;
+        return this;
     }
-    this.owners.add(ownersItem);
-    return this;
-  }
 
-   /**
-   * Get owners
-   * @return owners
-  **/
-  
-  public List<V0OrganizationOwner> getOwners() {
-    return owners;
-  }
+    /**
+     * Get avatarIconUrl
+     *
+     * @return avatarIconUrl
+     **/
 
-  public void setOwners(List<V0OrganizationOwner> owners) {
-    this.owners = owners;
-  }
-
-  public V0OrganizationDataModel slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Get slug
-   * @return slug
-  **/
-  
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public String getAvatarIconUrl() {
+        return avatarIconUrl;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setAvatarIconUrl(String avatarIconUrl) {
+        this.avatarIconUrl = avatarIconUrl;
     }
-    V0OrganizationDataModel v0OrganizationDataModel = (V0OrganizationDataModel) o;
-    return Objects.equals(this.avatarIconUrl, v0OrganizationDataModel.avatarIconUrl) &&
-        Objects.equals(this.concurrencyCount, v0OrganizationDataModel.concurrencyCount) &&
-        Objects.equals(this.name, v0OrganizationDataModel.name) &&
-        Objects.equals(this.owners, v0OrganizationDataModel.owners) &&
-        Objects.equals(this.slug, v0OrganizationDataModel.slug);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(avatarIconUrl, concurrencyCount, name, owners, slug);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0OrganizationDataModel {\n");
-    
-    sb.append("    avatarIconUrl: ").append(toIndentedString(avatarIconUrl)).append("\n");
-    sb.append("    concurrencyCount: ").append(toIndentedString(concurrencyCount)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    owners: ").append(toIndentedString(owners)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public V0OrganizationDataModel concurrencyCount(Integer concurrencyCount) {
+        this.concurrencyCount = concurrencyCount;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get concurrencyCount
+     *
+     * @return concurrencyCount
+     **/
+
+    public Integer getConcurrencyCount() {
+        return concurrencyCount;
+    }
+
+    public void setConcurrencyCount(Integer concurrencyCount) {
+        this.concurrencyCount = concurrencyCount;
+    }
+
+    public V0OrganizationDataModel name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     **/
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public V0OrganizationDataModel owners(List<V0OrganizationOwner> owners) {
+        this.owners = owners;
+        return this;
+    }
+
+    public V0OrganizationDataModel addOwnersItem(V0OrganizationOwner ownersItem) {
+        if (this.owners == null) {
+            this.owners = new ArrayList<V0OrganizationOwner>();
+        }
+        this.owners.add(ownersItem);
+        return this;
+    }
+
+    /**
+     * Get owners
+     *
+     * @return owners
+     **/
+
+    public List<V0OrganizationOwner> getOwners() {
+        return owners;
+    }
+
+    public void setOwners(List<V0OrganizationOwner> owners) {
+        this.owners = owners;
+    }
+
+    public V0OrganizationDataModel slug(String slug) {
+        this.slug = slug;
+        return this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return slug
+     **/
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0OrganizationDataModel v0OrganizationDataModel = (V0OrganizationDataModel) o;
+        return Objects.equals(this.avatarIconUrl, v0OrganizationDataModel.avatarIconUrl) &&
+                Objects.equals(this.concurrencyCount, v0OrganizationDataModel.concurrencyCount) &&
+                Objects.equals(this.name, v0OrganizationDataModel.name) &&
+                Objects.equals(this.owners, v0OrganizationDataModel.owners) &&
+                Objects.equals(this.slug, v0OrganizationDataModel.slug);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(avatarIconUrl, concurrencyCount, name, owners, slug);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0OrganizationDataModel {\n"
+                + "    avatarIconUrl: " + toIndentedString(avatarIconUrl) + "\n"
+                + "    concurrencyCount: " + toIndentedString(concurrencyCount) + "\n"
+                + "    name: " + toIndentedString(name) + "\n"
+                + "    owners: " + toIndentedString(owners) + "\n"
+                + "    slug: " + toIndentedString(slug) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

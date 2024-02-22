@@ -17,103 +17,101 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0ProjectFileStorageListResponseModel
  */
 
-
-
 public class V0ProjectFileStorageListResponseModel {
-  @SerializedName("data")
-  private List<V0ProjectFileStorageResponseItemModel> data = null;
+    @SerializedName("data")
+    private List<V0ProjectFileStorageResponseItemModel> data = null;
 
-  @SerializedName("paging")
-  private AllOfv0ProjectFileStorageListResponseModelPaging paging = null;
+    @SerializedName("paging")
+    private AllOfv0ProjectFileStorageListResponseModelPaging paging = null;
 
-  public V0ProjectFileStorageListResponseModel data(List<V0ProjectFileStorageResponseItemModel> data) {
-    this.data = data;
-    return this;
-  }
-
-  public V0ProjectFileStorageListResponseModel addDataItem(V0ProjectFileStorageResponseItemModel dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<V0ProjectFileStorageResponseItemModel>();
+    public V0ProjectFileStorageListResponseModel data(List<V0ProjectFileStorageResponseItemModel> data) {
+        this.data = data;
+        return this;
     }
-    this.data.add(dataItem);
-    return this;
-  }
 
-   /**
-   * Get data
-   * @return data
-  **/
-  
-  public List<V0ProjectFileStorageResponseItemModel> getData() {
-    return data;
-  }
-
-  public void setData(List<V0ProjectFileStorageResponseItemModel> data) {
-    this.data = data;
-  }
-
-  public V0ProjectFileStorageListResponseModel paging(AllOfv0ProjectFileStorageListResponseModelPaging paging) {
-    this.paging = paging;
-    return this;
-  }
-
-   /**
-   * pagination
-   * @return paging
-  **/
-  
-  public AllOfv0ProjectFileStorageListResponseModelPaging getPaging() {
-    return paging;
-  }
-
-  public void setPaging(AllOfv0ProjectFileStorageListResponseModelPaging paging) {
-    this.paging = paging;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0ProjectFileStorageListResponseModel addDataItem(V0ProjectFileStorageResponseItemModel dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<V0ProjectFileStorageResponseItemModel>();
+        }
+        this.data.add(dataItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+
+    public List<V0ProjectFileStorageResponseItemModel> getData() {
+        return data;
     }
-    V0ProjectFileStorageListResponseModel v0ProjectFileStorageListResponseModel = (V0ProjectFileStorageListResponseModel) o;
-    return Objects.equals(this.data, v0ProjectFileStorageListResponseModel.data) &&
-        Objects.equals(this.paging, v0ProjectFileStorageListResponseModel.paging);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, paging);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0ProjectFileStorageListResponseModel {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    paging: ").append(toIndentedString(paging)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(List<V0ProjectFileStorageResponseItemModel> data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0ProjectFileStorageListResponseModel paging(AllOfv0ProjectFileStorageListResponseModelPaging paging) {
+        this.paging = paging;
+        return this;
+    }
+
+    /**
+     * pagination
+     *
+     * @return paging
+     **/
+
+    public AllOfv0ProjectFileStorageListResponseModelPaging getPaging() {
+        return paging;
+    }
+
+    public void setPaging(AllOfv0ProjectFileStorageListResponseModelPaging paging) {
+        this.paging = paging;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0ProjectFileStorageListResponseModel v0ProjectFileStorageListResponseModel = (V0ProjectFileStorageListResponseModel) o;
+        return Objects.equals(this.data, v0ProjectFileStorageListResponseModel.data) &&
+                Objects.equals(this.paging, v0ProjectFileStorageListResponseModel.paging);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, paging);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0ProjectFileStorageListResponseModel {\n"
+                + "    data: " + toIndentedString(data) + "\n"
+                + "    paging: " + toIndentedString(paging) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

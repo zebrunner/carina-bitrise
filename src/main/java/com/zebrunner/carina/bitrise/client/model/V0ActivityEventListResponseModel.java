@@ -17,103 +17,101 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0ActivityEventListResponseModel
  */
 
-
-
 public class V0ActivityEventListResponseModel {
-  @SerializedName("data")
-  private List<V0ActivityEventResponseItemModel> data = null;
+    @SerializedName("data")
+    private List<V0ActivityEventResponseItemModel> data = null;
 
-  @SerializedName("paging")
-  private V0PagingResponseModel paging = null;
+    @SerializedName("paging")
+    private V0PagingResponseModel paging = null;
 
-  public V0ActivityEventListResponseModel data(List<V0ActivityEventResponseItemModel> data) {
-    this.data = data;
-    return this;
-  }
-
-  public V0ActivityEventListResponseModel addDataItem(V0ActivityEventResponseItemModel dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<V0ActivityEventResponseItemModel>();
+    public V0ActivityEventListResponseModel data(List<V0ActivityEventResponseItemModel> data) {
+        this.data = data;
+        return this;
     }
-    this.data.add(dataItem);
-    return this;
-  }
 
-   /**
-   * Get data
-   * @return data
-  **/
-  
-  public List<V0ActivityEventResponseItemModel> getData() {
-    return data;
-  }
-
-  public void setData(List<V0ActivityEventResponseItemModel> data) {
-    this.data = data;
-  }
-
-  public V0ActivityEventListResponseModel paging(V0PagingResponseModel paging) {
-    this.paging = paging;
-    return this;
-  }
-
-   /**
-   * Get paging
-   * @return paging
-  **/
-  
-  public V0PagingResponseModel getPaging() {
-    return paging;
-  }
-
-  public void setPaging(V0PagingResponseModel paging) {
-    this.paging = paging;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0ActivityEventListResponseModel addDataItem(V0ActivityEventResponseItemModel dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<V0ActivityEventResponseItemModel>();
+        }
+        this.data.add(dataItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+
+    public List<V0ActivityEventResponseItemModel> getData() {
+        return data;
     }
-    V0ActivityEventListResponseModel v0ActivityEventListResponseModel = (V0ActivityEventListResponseModel) o;
-    return Objects.equals(this.data, v0ActivityEventListResponseModel.data) &&
-        Objects.equals(this.paging, v0ActivityEventListResponseModel.paging);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, paging);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0ActivityEventListResponseModel {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    paging: ").append(toIndentedString(paging)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(List<V0ActivityEventResponseItemModel> data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0ActivityEventListResponseModel paging(V0PagingResponseModel paging) {
+        this.paging = paging;
+        return this;
+    }
+
+    /**
+     * Get paging
+     *
+     * @return paging
+     **/
+
+    public V0PagingResponseModel getPaging() {
+        return paging;
+    }
+
+    public void setPaging(V0PagingResponseModel paging) {
+        this.paging = paging;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0ActivityEventListResponseModel v0ActivityEventListResponseModel = (V0ActivityEventListResponseModel) o;
+        return Objects.equals(this.data, v0ActivityEventListResponseModel.data) &&
+                Objects.equals(this.paging, v0ActivityEventListResponseModel.paging);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, paging);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0ActivityEventListResponseModel {\n"
+                + "    data: " + toIndentedString(data) + "\n"
+                + "    paging: " + toIndentedString(paging) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

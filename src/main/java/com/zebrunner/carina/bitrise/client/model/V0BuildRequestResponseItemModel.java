@@ -17,149 +17,149 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0BuildRequestResponseItemModel
  */
 
-
-
 public class V0BuildRequestResponseItemModel {
-  @SerializedName("build_params")
-  private List<Integer> buildParams = null;
+    @SerializedName("build_params")
+    private List<Integer> buildParams = null;
 
-  @SerializedName("created_at")
-  private String createdAt = null;
+    @SerializedName("created_at")
+    private String createdAt = null;
 
-  @SerializedName("pull_request_url")
-  private String pullRequestUrl = null;
+    @SerializedName("pull_request_url")
+    private String pullRequestUrl = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+    @SerializedName("slug")
+    private String slug = null;
 
-  public V0BuildRequestResponseItemModel buildParams(List<Integer> buildParams) {
-    this.buildParams = buildParams;
-    return this;
-  }
-
-  public V0BuildRequestResponseItemModel addBuildParamsItem(Integer buildParamsItem) {
-    if (this.buildParams == null) {
-      this.buildParams = new ArrayList<Integer>();
+    public V0BuildRequestResponseItemModel buildParams(List<Integer> buildParams) {
+        this.buildParams = buildParams;
+        return this;
     }
-    this.buildParams.add(buildParamsItem);
-    return this;
-  }
 
-   /**
-   * Get buildParams
-   * @return buildParams
-  **/
-
-  public List<Integer> getBuildParams() {
-    return buildParams;
-  }
-
-  public void setBuildParams(List<Integer> buildParams) {
-    this.buildParams = buildParams;
-  }
-
-  public V0BuildRequestResponseItemModel createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public V0BuildRequestResponseItemModel pullRequestUrl(String pullRequestUrl) {
-    this.pullRequestUrl = pullRequestUrl;
-    return this;
-  }
-
-   /**
-   * Get pullRequestUrl
-   * @return pullRequestUrl
-  **/
-
-  public String getPullRequestUrl() {
-    return pullRequestUrl;
-  }
-
-  public void setPullRequestUrl(String pullRequestUrl) {
-    this.pullRequestUrl = pullRequestUrl;
-  }
-
-  public V0BuildRequestResponseItemModel slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Get slug
-   * @return slug
-  **/
-
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0BuildRequestResponseItemModel addBuildParamsItem(Integer buildParamsItem) {
+        if (this.buildParams == null) {
+            this.buildParams = new ArrayList<Integer>();
+        }
+        this.buildParams.add(buildParamsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get buildParams
+     *
+     * @return buildParams
+     **/
+
+    public List<Integer> getBuildParams() {
+        return buildParams;
     }
-    V0BuildRequestResponseItemModel v0BuildRequestResponseItemModel = (V0BuildRequestResponseItemModel) o;
-    return Objects.equals(this.buildParams, v0BuildRequestResponseItemModel.buildParams) &&
-        Objects.equals(this.createdAt, v0BuildRequestResponseItemModel.createdAt) &&
-        Objects.equals(this.pullRequestUrl, v0BuildRequestResponseItemModel.pullRequestUrl) &&
-        Objects.equals(this.slug, v0BuildRequestResponseItemModel.slug);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(buildParams, createdAt, pullRequestUrl, slug);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0BuildRequestResponseItemModel {\n");
-    
-    sb.append("    buildParams: ").append(toIndentedString(buildParams)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    pullRequestUrl: ").append(toIndentedString(pullRequestUrl)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setBuildParams(List<Integer> buildParams) {
+        this.buildParams = buildParams;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0BuildRequestResponseItemModel createdAt(String createdAt) {
+        this.createdAt = createdAt;
+        return this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return createdAt
+     **/
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public V0BuildRequestResponseItemModel pullRequestUrl(String pullRequestUrl) {
+        this.pullRequestUrl = pullRequestUrl;
+        return this;
+    }
+
+    /**
+     * Get pullRequestUrl
+     *
+     * @return pullRequestUrl
+     **/
+
+    public String getPullRequestUrl() {
+        return pullRequestUrl;
+    }
+
+    public void setPullRequestUrl(String pullRequestUrl) {
+        this.pullRequestUrl = pullRequestUrl;
+    }
+
+    public V0BuildRequestResponseItemModel slug(String slug) {
+        this.slug = slug;
+        return this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return slug
+     **/
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0BuildRequestResponseItemModel v0BuildRequestResponseItemModel = (V0BuildRequestResponseItemModel) o;
+        return Objects.equals(this.buildParams, v0BuildRequestResponseItemModel.buildParams) &&
+                Objects.equals(this.createdAt, v0BuildRequestResponseItemModel.createdAt) &&
+                Objects.equals(this.pullRequestUrl, v0BuildRequestResponseItemModel.pullRequestUrl) &&
+                Objects.equals(this.slug, v0BuildRequestResponseItemModel.slug);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(buildParams, createdAt, pullRequestUrl, slug);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0BuildRequestResponseItemModel {\n"
+                + "    buildParams: " + toIndentedString(buildParams) + "\n"
+                + "    createdAt: " + toIndentedString(createdAt) + "\n"
+                + "    pullRequestUrl: " + toIndentedString(pullRequestUrl) + "\n"
+                + "    slug: " + toIndentedString(slug) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

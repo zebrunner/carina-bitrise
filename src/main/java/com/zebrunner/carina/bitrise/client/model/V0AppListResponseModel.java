@@ -17,103 +17,101 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0AppListResponseModel
  */
 
-
-
 public class V0AppListResponseModel {
-  @SerializedName("data")
-  private List<V0AppResponseItemModel> data = null;
+    @SerializedName("data")
+    private List<V0AppResponseItemModel> data = null;
 
-  @SerializedName("paging")
-  private AllOfv0AppListResponseModelPaging paging = null;
+    @SerializedName("paging")
+    private AllOfv0AppListResponseModelPaging paging = null;
 
-  public V0AppListResponseModel data(List<V0AppResponseItemModel> data) {
-    this.data = data;
-    return this;
-  }
-
-  public V0AppListResponseModel addDataItem(V0AppResponseItemModel dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<V0AppResponseItemModel>();
+    public V0AppListResponseModel data(List<V0AppResponseItemModel> data) {
+        this.data = data;
+        return this;
     }
-    this.data.add(dataItem);
-    return this;
-  }
 
-   /**
-   * Get data
-   * @return data
-  **/
-  
-  public List<V0AppResponseItemModel> getData() {
-    return data;
-  }
-
-  public void setData(List<V0AppResponseItemModel> data) {
-    this.data = data;
-  }
-
-  public V0AppListResponseModel paging(AllOfv0AppListResponseModelPaging paging) {
-    this.paging = paging;
-    return this;
-  }
-
-   /**
-   * pagination
-   * @return paging
-  **/
-  
-  public AllOfv0AppListResponseModelPaging getPaging() {
-    return paging;
-  }
-
-  public void setPaging(AllOfv0AppListResponseModelPaging paging) {
-    this.paging = paging;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppListResponseModel addDataItem(V0AppResponseItemModel dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<V0AppResponseItemModel>();
+        }
+        this.data.add(dataItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+
+    public List<V0AppResponseItemModel> getData() {
+        return data;
     }
-    V0AppListResponseModel v0AppListResponseModel = (V0AppListResponseModel) o;
-    return Objects.equals(this.data, v0AppListResponseModel.data) &&
-        Objects.equals(this.paging, v0AppListResponseModel.paging);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, paging);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppListResponseModel {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    paging: ").append(toIndentedString(paging)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(List<V0AppResponseItemModel> data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0AppListResponseModel paging(AllOfv0AppListResponseModelPaging paging) {
+        this.paging = paging;
+        return this;
+    }
+
+    /**
+     * pagination
+     *
+     * @return paging
+     **/
+
+    public AllOfv0AppListResponseModelPaging getPaging() {
+        return paging;
+    }
+
+    public void setPaging(AllOfv0AppListResponseModelPaging paging) {
+        this.paging = paging;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppListResponseModel v0AppListResponseModel = (V0AppListResponseModel) o;
+        return Objects.equals(this.data, v0AppListResponseModel.data) &&
+                Objects.equals(this.paging, v0AppListResponseModel.paging);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, paging);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppListResponseModel {\n"
+                + "    data: " + toIndentedString(data) + "\n"
+                + "    paging: " + toIndentedString(paging) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

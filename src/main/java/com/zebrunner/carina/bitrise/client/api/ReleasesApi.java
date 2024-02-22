@@ -54,19 +54,22 @@ public class ReleasesApi {
 
     /**
      * Build call for releaseCreateAppStore
-     * @param body App Store release parameters (required)
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    App Store release parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call releaseCreateAppStoreCall(V0ReleaseCreateAppStoreParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call releaseCreateAppStoreCall(V0ReleaseCreateAppStoreParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/releases/app-store"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -76,35 +79,39 @@ public class ReleasesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call releaseCreateAppStoreValidateBeforeCall(V0ReleaseCreateAppStoreParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call releaseCreateAppStoreValidateBeforeCall(V0ReleaseCreateAppStoreParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling releaseCreateAppStore(Async)");
@@ -113,20 +120,17 @@ public class ReleasesApi {
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling releaseCreateAppStore(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = releaseCreateAppStoreCall(body, appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create a new Apple App Store release for the app.
      * Create a new iOS release for the specified app. If the release candidate parameters (&#x60;release_branch&#x60; and &#x60;workflow&#x60;) are specified then the latest successful build is automatically picked up as release candidate and if &#x60;automatic_testflight_upload&#x60; is also turned on, then an upload to TestFlight is started immediately. You can use this endpoint to set up a fully automated release flow.
-     * @param body App Store release parameters (required)
+     *
+     * @param body    App Store release parameters (required)
      * @param appSlug App slug (required)
      * @return V0ReleaseCreateAppStoreRespModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -139,27 +143,32 @@ public class ReleasesApi {
     /**
      * Create a new Apple App Store release for the app.
      * Create a new iOS release for the specified app. If the release candidate parameters (&#x60;release_branch&#x60; and &#x60;workflow&#x60;) are specified then the latest successful build is automatically picked up as release candidate and if &#x60;automatic_testflight_upload&#x60; is also turned on, then an upload to TestFlight is started immediately. You can use this endpoint to set up a fully automated release flow.
-     * @param body App Store release parameters (required)
+     *
+     * @param body    App Store release parameters (required)
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0ReleaseCreateAppStoreRespModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ReleaseCreateAppStoreRespModel> releaseCreateAppStoreWithHttpInfo(V0ReleaseCreateAppStoreParams body, String appSlug) throws ApiException {
+    public ApiResponse<V0ReleaseCreateAppStoreRespModel> releaseCreateAppStoreWithHttpInfo(V0ReleaseCreateAppStoreParams body, String appSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = releaseCreateAppStoreValidateBeforeCall(body, appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ReleaseCreateAppStoreRespModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ReleaseCreateAppStoreRespModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create a new Apple App Store release for the app. (asynchronously)
      * Create a new iOS release for the specified app. If the release candidate parameters (&#x60;release_branch&#x60; and &#x60;workflow&#x60;) are specified then the latest successful build is automatically picked up as release candidate and if &#x60;automatic_testflight_upload&#x60; is also turned on, then an upload to TestFlight is started immediately. You can use this endpoint to set up a fully automated release flow.
-     * @param body App Store release parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body     App Store release parameters (required)
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call releaseCreateAppStoreAsync(V0ReleaseCreateAppStoreParams body, String appSlug, final ApiCallback<V0ReleaseCreateAppStoreRespModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call releaseCreateAppStoreAsync(V0ReleaseCreateAppStoreParams body, String appSlug,
+            final ApiCallback<V0ReleaseCreateAppStoreRespModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -181,25 +190,30 @@ public class ReleasesApi {
         }
 
         com.squareup.okhttp.Call call = releaseCreateAppStoreValidateBeforeCall(body, appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ReleaseCreateAppStoreRespModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ReleaseCreateAppStoreRespModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for releaseCreateGooglePlay
-     * @param body Google Play release parameters (required)
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Google Play release parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call releaseCreateGooglePlayCall(V0ReleaseCreateGooglePlayParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call releaseCreateGooglePlayCall(V0ReleaseCreateGooglePlayParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/releases/google-play"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -209,35 +223,39 @@ public class ReleasesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call releaseCreateGooglePlayValidateBeforeCall(V0ReleaseCreateGooglePlayParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call releaseCreateGooglePlayValidateBeforeCall(V0ReleaseCreateGooglePlayParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling releaseCreateGooglePlay(Async)");
@@ -246,20 +264,17 @@ public class ReleasesApi {
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling releaseCreateGooglePlay(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = releaseCreateGooglePlayCall(body, appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create a new Google Play Store release for the app.
      * Create a new android release for the specified app. If the release candidate parameters (&#x60;release_branch&#x60; and &#x60;workflow&#x60;) are specified then the latest successful build is automatically picked up as release candidate and if &#x60;automatic_play_console_upload&#x60; is also turned on, then an upload to Google Play Console is started immediately. You can use this endpoint to set up a fully automated release flow.
-     * @param body Google Play release parameters (required)
+     *
+     * @param body    Google Play release parameters (required)
      * @param appSlug App slug (required)
      * @return V0ReleaseCreateGooglePlayRespModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -272,27 +287,32 @@ public class ReleasesApi {
     /**
      * Create a new Google Play Store release for the app.
      * Create a new android release for the specified app. If the release candidate parameters (&#x60;release_branch&#x60; and &#x60;workflow&#x60;) are specified then the latest successful build is automatically picked up as release candidate and if &#x60;automatic_play_console_upload&#x60; is also turned on, then an upload to Google Play Console is started immediately. You can use this endpoint to set up a fully automated release flow.
-     * @param body Google Play release parameters (required)
+     *
+     * @param body    Google Play release parameters (required)
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0ReleaseCreateGooglePlayRespModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ReleaseCreateGooglePlayRespModel> releaseCreateGooglePlayWithHttpInfo(V0ReleaseCreateGooglePlayParams body, String appSlug) throws ApiException {
+    public ApiResponse<V0ReleaseCreateGooglePlayRespModel> releaseCreateGooglePlayWithHttpInfo(V0ReleaseCreateGooglePlayParams body, String appSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = releaseCreateGooglePlayValidateBeforeCall(body, appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ReleaseCreateGooglePlayRespModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ReleaseCreateGooglePlayRespModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create a new Google Play Store release for the app. (asynchronously)
      * Create a new android release for the specified app. If the release candidate parameters (&#x60;release_branch&#x60; and &#x60;workflow&#x60;) are specified then the latest successful build is automatically picked up as release candidate and if &#x60;automatic_play_console_upload&#x60; is also turned on, then an upload to Google Play Console is started immediately. You can use this endpoint to set up a fully automated release flow.
-     * @param body Google Play release parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body     Google Play release parameters (required)
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call releaseCreateGooglePlayAsync(V0ReleaseCreateGooglePlayParams body, String appSlug, final ApiCallback<V0ReleaseCreateGooglePlayRespModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call releaseCreateGooglePlayAsync(V0ReleaseCreateGooglePlayParams body, String appSlug,
+            final ApiCallback<V0ReleaseCreateGooglePlayRespModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -314,7 +334,8 @@ public class ReleasesApi {
         }
 
         com.squareup.okhttp.Call call = releaseCreateGooglePlayValidateBeforeCall(body, appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ReleaseCreateGooglePlayRespModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ReleaseCreateGooglePlayRespModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -16,73 +16,68 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * ServiceProxyErrorRespModel
  */
 
-
-
 public class ServiceProxyErrorRespModel {
-  @SerializedName("error_msg")
-  private String errorMsg = null;
+    @SerializedName("error_msg")
+    private String errorMsg = null;
 
-  public ServiceProxyErrorRespModel errorMsg(String errorMsg) {
-    this.errorMsg = errorMsg;
-    return this;
-  }
-
-   /**
-   * Get errorMsg
-   * @return errorMsg
-  **/
-  
-  public String getErrorMsg() {
-    return errorMsg;
-  }
-
-  public void setErrorMsg(String errorMsg) {
-    this.errorMsg = errorMsg;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public ServiceProxyErrorRespModel errorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get errorMsg
+     *
+     * @return errorMsg
+     **/
+
+    public String getErrorMsg() {
+        return errorMsg;
     }
-    ServiceProxyErrorRespModel serviceProxyErrorRespModel = (ServiceProxyErrorRespModel) o;
-    return Objects.equals(this.errorMsg, serviceProxyErrorRespModel.errorMsg);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(errorMsg);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceProxyErrorRespModel {\n");
-    
-    sb.append("    errorMsg: ").append(toIndentedString(errorMsg)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ServiceProxyErrorRespModel serviceProxyErrorRespModel = (ServiceProxyErrorRespModel) o;
+        return Objects.equals(this.errorMsg, serviceProxyErrorRespModel.errorMsg);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(errorMsg);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class ServiceProxyErrorRespModel {\n"
+                + "    errorMsg: " + toIndentedString(errorMsg) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

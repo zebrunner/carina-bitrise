@@ -25,45 +25,45 @@ import java.io.IOException;
  */
 @JsonAdapter(WebsiteBitriseYMLLocation.Adapter.class)
 public enum WebsiteBitriseYMLLocation {
-  @SerializedName("bitrise.io")
-  BITRISE_IO("bitrise.io"),
-  @SerializedName("repository")
-  REPOSITORY("repository");
+    @SerializedName("bitrise.io")
+    BITRISE_IO("bitrise.io"),
+    @SerializedName("repository")
+    REPOSITORY("repository");
 
-  private String value;
+    private final String value;
 
-  WebsiteBitriseYMLLocation(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return value;
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  public static WebsiteBitriseYMLLocation fromValue(String input) {
-    for (WebsiteBitriseYMLLocation b : WebsiteBitriseYMLLocation.values()) {
-      if (b.value.equals(input)) {
-        return b;
-      }
+    WebsiteBitriseYMLLocation(String value) {
+        this.value = value;
     }
-    return null;
-  }
 
-  public static class Adapter extends TypeAdapter<WebsiteBitriseYMLLocation> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final WebsiteBitriseYMLLocation enumeration) throws IOException {
-      jsonWriter.value(String.valueOf(enumeration.getValue()));
+    public String getValue() {
+        return value;
     }
 
     @Override
-    public WebsiteBitriseYMLLocation read(final JsonReader jsonReader) throws IOException {
-      Object value = jsonReader.nextString();
-      return WebsiteBitriseYMLLocation.fromValue((String)(value));
+    public String toString() {
+        return String.valueOf(value);
     }
-  }
+
+    public static WebsiteBitriseYMLLocation fromValue(String input) {
+        for (WebsiteBitriseYMLLocation b : WebsiteBitriseYMLLocation.values()) {
+            if (b.value.equals(input)) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<WebsiteBitriseYMLLocation> {
+        @Override
+        public void write(final JsonWriter jsonWriter, final WebsiteBitriseYMLLocation enumeration) throws IOException {
+            jsonWriter.value(String.valueOf(enumeration.getValue()));
+        }
+
+        @Override
+        public WebsiteBitriseYMLLocation read(final JsonReader jsonReader) throws IOException {
+            Object value = jsonReader.nextString();
+            return WebsiteBitriseYMLLocation.fromValue((String) (value));
+        }
+    }
 }

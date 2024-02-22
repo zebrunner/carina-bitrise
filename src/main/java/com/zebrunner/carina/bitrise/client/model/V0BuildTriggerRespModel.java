@@ -16,234 +16,236 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0BuildTriggerRespModel
  */
 
-
-
 public class V0BuildTriggerRespModel {
-  @SerializedName("build_number")
-  private Integer buildNumber = null;
+    @SerializedName("build_number")
+    private Integer buildNumber = null;
 
-  @SerializedName("build_slug")
-  private String buildSlug = null;
+    @SerializedName("build_slug")
+    private String buildSlug = null;
 
-  @SerializedName("build_url")
-  private String buildUrl = null;
+    @SerializedName("build_url")
+    private String buildUrl = null;
 
-  @SerializedName("message")
-  private String message = null;
+    @SerializedName("message")
+    private String message = null;
 
-  @SerializedName("service")
-  private String service = null;
+    @SerializedName("service")
+    private String service = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+    @SerializedName("slug")
+    private String slug = null;
 
-  @SerializedName("status")
-  private String status = null;
+    @SerializedName("status")
+    private String status = null;
 
-  @SerializedName("triggered_workflow")
-  private String triggeredWorkflow = null;
+    @SerializedName("triggered_workflow")
+    private String triggeredWorkflow = null;
 
-  public V0BuildTriggerRespModel buildNumber(Integer buildNumber) {
-    this.buildNumber = buildNumber;
-    return this;
-  }
-
-   /**
-   * Get buildNumber
-   * @return buildNumber
-  **/
-  
-  public Integer getBuildNumber() {
-    return buildNumber;
-  }
-
-  public void setBuildNumber(Integer buildNumber) {
-    this.buildNumber = buildNumber;
-  }
-
-  public V0BuildTriggerRespModel buildSlug(String buildSlug) {
-    this.buildSlug = buildSlug;
-    return this;
-  }
-
-   /**
-   * Get buildSlug
-   * @return buildSlug
-  **/
-  
-  public String getBuildSlug() {
-    return buildSlug;
-  }
-
-  public void setBuildSlug(String buildSlug) {
-    this.buildSlug = buildSlug;
-  }
-
-  public V0BuildTriggerRespModel buildUrl(String buildUrl) {
-    this.buildUrl = buildUrl;
-    return this;
-  }
-
-   /**
-   * Get buildUrl
-   * @return buildUrl
-  **/
-  
-  public String getBuildUrl() {
-    return buildUrl;
-  }
-
-  public void setBuildUrl(String buildUrl) {
-    this.buildUrl = buildUrl;
-  }
-
-  public V0BuildTriggerRespModel message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  public V0BuildTriggerRespModel service(String service) {
-    this.service = service;
-    return this;
-  }
-
-   /**
-   * Get service
-   * @return service
-  **/
-  
-  public String getService() {
-    return service;
-  }
-
-  public void setService(String service) {
-    this.service = service;
-  }
-
-  public V0BuildTriggerRespModel slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Get slug
-   * @return slug
-  **/
-  
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public V0BuildTriggerRespModel status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public V0BuildTriggerRespModel triggeredWorkflow(String triggeredWorkflow) {
-    this.triggeredWorkflow = triggeredWorkflow;
-    return this;
-  }
-
-   /**
-   * Get triggeredWorkflow
-   * @return triggeredWorkflow
-  **/
-  
-  public String getTriggeredWorkflow() {
-    return triggeredWorkflow;
-  }
-
-  public void setTriggeredWorkflow(String triggeredWorkflow) {
-    this.triggeredWorkflow = triggeredWorkflow;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0BuildTriggerRespModel buildNumber(Integer buildNumber) {
+        this.buildNumber = buildNumber;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get buildNumber
+     *
+     * @return buildNumber
+     **/
+
+    public Integer getBuildNumber() {
+        return buildNumber;
     }
-    V0BuildTriggerRespModel v0BuildTriggerRespModel = (V0BuildTriggerRespModel) o;
-    return Objects.equals(this.buildNumber, v0BuildTriggerRespModel.buildNumber) &&
-        Objects.equals(this.buildSlug, v0BuildTriggerRespModel.buildSlug) &&
-        Objects.equals(this.buildUrl, v0BuildTriggerRespModel.buildUrl) &&
-        Objects.equals(this.message, v0BuildTriggerRespModel.message) &&
-        Objects.equals(this.service, v0BuildTriggerRespModel.service) &&
-        Objects.equals(this.slug, v0BuildTriggerRespModel.slug) &&
-        Objects.equals(this.status, v0BuildTriggerRespModel.status) &&
-        Objects.equals(this.triggeredWorkflow, v0BuildTriggerRespModel.triggeredWorkflow);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(buildNumber, buildSlug, buildUrl, message, service, slug, status, triggeredWorkflow);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0BuildTriggerRespModel {\n");
-    
-    sb.append("    buildNumber: ").append(toIndentedString(buildNumber)).append("\n");
-    sb.append("    buildSlug: ").append(toIndentedString(buildSlug)).append("\n");
-    sb.append("    buildUrl: ").append(toIndentedString(buildUrl)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    service: ").append(toIndentedString(service)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    triggeredWorkflow: ").append(toIndentedString(triggeredWorkflow)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setBuildNumber(Integer buildNumber) {
+        this.buildNumber = buildNumber;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0BuildTriggerRespModel buildSlug(String buildSlug) {
+        this.buildSlug = buildSlug;
+        return this;
+    }
+
+    /**
+     * Get buildSlug
+     *
+     * @return buildSlug
+     **/
+
+    public String getBuildSlug() {
+        return buildSlug;
+    }
+
+    public void setBuildSlug(String buildSlug) {
+        this.buildSlug = buildSlug;
+    }
+
+    public V0BuildTriggerRespModel buildUrl(String buildUrl) {
+        this.buildUrl = buildUrl;
+        return this;
+    }
+
+    /**
+     * Get buildUrl
+     *
+     * @return buildUrl
+     **/
+
+    public String getBuildUrl() {
+        return buildUrl;
+    }
+
+    public void setBuildUrl(String buildUrl) {
+        this.buildUrl = buildUrl;
+    }
+
+    public V0BuildTriggerRespModel message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return message
+     **/
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public V0BuildTriggerRespModel service(String service) {
+        this.service = service;
+        return this;
+    }
+
+    /**
+     * Get service
+     *
+     * @return service
+     **/
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    public V0BuildTriggerRespModel slug(String slug) {
+        this.slug = slug;
+        return this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return slug
+     **/
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public V0BuildTriggerRespModel status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return status
+     **/
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public V0BuildTriggerRespModel triggeredWorkflow(String triggeredWorkflow) {
+        this.triggeredWorkflow = triggeredWorkflow;
+        return this;
+    }
+
+    /**
+     * Get triggeredWorkflow
+     *
+     * @return triggeredWorkflow
+     **/
+
+    public String getTriggeredWorkflow() {
+        return triggeredWorkflow;
+    }
+
+    public void setTriggeredWorkflow(String triggeredWorkflow) {
+        this.triggeredWorkflow = triggeredWorkflow;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0BuildTriggerRespModel v0BuildTriggerRespModel = (V0BuildTriggerRespModel) o;
+        return Objects.equals(this.buildNumber, v0BuildTriggerRespModel.buildNumber) &&
+                Objects.equals(this.buildSlug, v0BuildTriggerRespModel.buildSlug) &&
+                Objects.equals(this.buildUrl, v0BuildTriggerRespModel.buildUrl) &&
+                Objects.equals(this.message, v0BuildTriggerRespModel.message) &&
+                Objects.equals(this.service, v0BuildTriggerRespModel.service) &&
+                Objects.equals(this.slug, v0BuildTriggerRespModel.slug) &&
+                Objects.equals(this.status, v0BuildTriggerRespModel.status) &&
+                Objects.equals(this.triggeredWorkflow, v0BuildTriggerRespModel.triggeredWorkflow);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(buildNumber, buildSlug, buildUrl, message, service, slug, status, triggeredWorkflow);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0BuildTriggerRespModel {\n"
+                + "    buildNumber: " + toIndentedString(buildNumber) + "\n"
+                + "    buildSlug: " + toIndentedString(buildSlug) + "\n"
+                + "    buildUrl: " + toIndentedString(buildUrl) + "\n"
+                + "    message: " + toIndentedString(message) + "\n"
+                + "    service: " + toIndentedString(service) + "\n"
+                + "    slug: " + toIndentedString(slug) + "\n"
+                + "    status: " + toIndentedString(status) + "\n"
+                + "    triggeredWorkflow: " + toIndentedString(triggeredWorkflow) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

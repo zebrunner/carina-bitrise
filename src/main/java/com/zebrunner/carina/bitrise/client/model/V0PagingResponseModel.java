@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0PagingResponseModel
  */
 
-
-
 public class V0PagingResponseModel {
-  @SerializedName("next")
-  private String next = null;
+    @SerializedName("next")
+    private String next = null;
 
-  @SerializedName("page_item_limit")
-  private Integer pageItemLimit = null;
+    @SerializedName("page_item_limit")
+    private Integer pageItemLimit = null;
 
-  @SerializedName("total_item_count")
-  private Integer totalItemCount = null;
+    @SerializedName("total_item_count")
+    private Integer totalItemCount = null;
 
-  public V0PagingResponseModel next(String next) {
-    this.next = next;
-    return this;
-  }
-
-   /**
-   * Next is the \&quot;anchor\&quot; for pagination. This value should be passed to the same endpoint to get the next page. Empty/not included if there&#x27;s no \&quot;next\&quot; page. Stop paging when there&#x27;s no \&quot;Next\&quot; item in the response!
-   * @return next
-  **/
-
-  public String getNext() {
-    return next;
-  }
-
-  public void setNext(String next) {
-    this.next = next;
-  }
-
-  public V0PagingResponseModel pageItemLimit(Integer pageItemLimit) {
-    this.pageItemLimit = pageItemLimit;
-    return this;
-  }
-
-   /**
-   * PageItemLimit - per-page item count. A given page might include less items if there&#x27;s not enough items. This value is the \&quot;max item count per page\&quot;.
-   * @return pageItemLimit
-  **/
-
-  public Integer getPageItemLimit() {
-    return pageItemLimit;
-  }
-
-  public void setPageItemLimit(Integer pageItemLimit) {
-    this.pageItemLimit = pageItemLimit;
-  }
-
-  public V0PagingResponseModel totalItemCount(Integer totalItemCount) {
-    this.totalItemCount = totalItemCount;
-    return this;
-  }
-
-   /**
-   * TotalItemCount - total item count, through \&quot;all pages\&quot;
-   * @return totalItemCount
-  **/
-
-  public Integer getTotalItemCount() {
-    return totalItemCount;
-  }
-
-  public void setTotalItemCount(Integer totalItemCount) {
-    this.totalItemCount = totalItemCount;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0PagingResponseModel next(String next) {
+        this.next = next;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Next is the \&quot;anchor\&quot; for pagination. This value should be passed to the same endpoint to get the next page. Empty/not included if there&#x27;s no \&quot;next\&quot; page. Stop paging when there&#x27;s no \&quot;Next\&quot; item in the response!
+     *
+     * @return next
+     **/
+
+    public String getNext() {
+        return next;
     }
-    V0PagingResponseModel v0PagingResponseModel = (V0PagingResponseModel) o;
-    return Objects.equals(this.next, v0PagingResponseModel.next) &&
-        Objects.equals(this.pageItemLimit, v0PagingResponseModel.pageItemLimit) &&
-        Objects.equals(this.totalItemCount, v0PagingResponseModel.totalItemCount);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(next, pageItemLimit, totalItemCount);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0PagingResponseModel {\n");
-    
-    sb.append("    next: ").append(toIndentedString(next)).append("\n");
-    sb.append("    pageItemLimit: ").append(toIndentedString(pageItemLimit)).append("\n");
-    sb.append("    totalItemCount: ").append(toIndentedString(totalItemCount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setNext(String next) {
+        this.next = next;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0PagingResponseModel pageItemLimit(Integer pageItemLimit) {
+        this.pageItemLimit = pageItemLimit;
+        return this;
+    }
+
+    /**
+     * PageItemLimit - per-page item count. A given page might include less items if there&#x27;s not enough items. This value is the \&quot;max item count per page\&quot;.
+     *
+     * @return pageItemLimit
+     **/
+
+    public Integer getPageItemLimit() {
+        return pageItemLimit;
+    }
+
+    public void setPageItemLimit(Integer pageItemLimit) {
+        this.pageItemLimit = pageItemLimit;
+    }
+
+    public V0PagingResponseModel totalItemCount(Integer totalItemCount) {
+        this.totalItemCount = totalItemCount;
+        return this;
+    }
+
+    /**
+     * TotalItemCount - total item count, through \&quot;all pages\&quot;
+     *
+     * @return totalItemCount
+     **/
+
+    public Integer getTotalItemCount() {
+        return totalItemCount;
+    }
+
+    public void setTotalItemCount(Integer totalItemCount) {
+        this.totalItemCount = totalItemCount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0PagingResponseModel v0PagingResponseModel = (V0PagingResponseModel) o;
+        return Objects.equals(this.next, v0PagingResponseModel.next) &&
+                Objects.equals(this.pageItemLimit, v0PagingResponseModel.pageItemLimit) &&
+                Objects.equals(this.totalItemCount, v0PagingResponseModel.totalItemCount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(next, pageItemLimit, totalItemCount);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0PagingResponseModel {\n"
+                + "    next: " + toIndentedString(next) + "\n"
+                + "    pageItemLimit: " + toIndentedString(pageItemLimit) + "\n"
+                + "    totalItemCount: " + toIndentedString(totalItemCount) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

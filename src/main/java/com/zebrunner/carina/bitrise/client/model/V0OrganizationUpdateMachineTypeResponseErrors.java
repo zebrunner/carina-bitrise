@@ -16,96 +16,92 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0OrganizationUpdateMachineTypeResponseErrors
  */
 
-
-
 public class V0OrganizationUpdateMachineTypeResponseErrors {
-  @SerializedName("app")
-  private String app = null;
+    @SerializedName("app")
+    private String app = null;
 
-  @SerializedName("error")
-  private String error = null;
+    @SerializedName("error")
+    private String error = null;
 
-  public V0OrganizationUpdateMachineTypeResponseErrors app(String app) {
-    this.app = app;
-    return this;
-  }
-
-   /**
-   * The apps which had an error&#x27;s identifiers in the following format \&quot;#{app.title} (#{app.slug})\&quot;
-   * @return app
-  **/
-  
-  public String getApp() {
-    return app;
-  }
-
-  public void setApp(String app) {
-    this.app = app;
-  }
-
-  public V0OrganizationUpdateMachineTypeResponseErrors error(String error) {
-    this.error = error;
-    return this;
-  }
-
-   /**
-   * Get error
-   * @return error
-  **/
-  
-  public String getError() {
-    return error;
-  }
-
-  public void setError(String error) {
-    this.error = error;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0OrganizationUpdateMachineTypeResponseErrors app(String app) {
+        this.app = app;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The apps which had an error&#x27;s identifiers in the following format \&quot;#{app.title} (#{app.slug})\&quot;
+     *
+     * @return app
+     **/
+
+    public String getApp() {
+        return app;
     }
-    V0OrganizationUpdateMachineTypeResponseErrors v0OrganizationUpdateMachineTypeResponseErrors = (V0OrganizationUpdateMachineTypeResponseErrors) o;
-    return Objects.equals(this.app, v0OrganizationUpdateMachineTypeResponseErrors.app) &&
-        Objects.equals(this.error, v0OrganizationUpdateMachineTypeResponseErrors.error);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(app, error);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0OrganizationUpdateMachineTypeResponseErrors {\n");
-    
-    sb.append("    app: ").append(toIndentedString(app)).append("\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setApp(String app) {
+        this.app = app;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0OrganizationUpdateMachineTypeResponseErrors error(String error) {
+        this.error = error;
+        return this;
+    }
+
+    /**
+     * Get error
+     *
+     * @return error
+     **/
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0OrganizationUpdateMachineTypeResponseErrors v0OrganizationUpdateMachineTypeResponseErrors = (V0OrganizationUpdateMachineTypeResponseErrors) o;
+        return Objects.equals(this.app, v0OrganizationUpdateMachineTypeResponseErrors.app) &&
+                Objects.equals(this.error, v0OrganizationUpdateMachineTypeResponseErrors.error);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(app, error);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0OrganizationUpdateMachineTypeResponseErrors {\n"
+                + "    app: " + toIndentedString(app) + "\n"
+                + "    error: " + toIndentedString(error) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

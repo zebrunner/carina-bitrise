@@ -54,20 +54,23 @@ public class GenericProjectFileApi {
 
     /**
      * Build call for genericProjectFileConfirm
-     * @param appSlug App slug (required)
-     * @param genericProjectFileSlug Generic project file slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param genericProjectFileSlug  Generic project file slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileConfirmCall(String appSlug, String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileConfirmCall(String appSlug, String genericProjectFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/generic-project-files/{generic-project-file-slug}/uploaded"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "generic-project-file-slug" + "\\}", apiClient.escapeString(genericProjectFileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "generic-project-file-slug" + "\\}", apiClient.escapeString(genericProjectFileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -77,35 +80,39 @@ public class GenericProjectFileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call genericProjectFileConfirmValidateBeforeCall(String appSlug, String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call genericProjectFileConfirmValidateBeforeCall(String appSlug, String genericProjectFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling genericProjectFileConfirm(Async)");
@@ -114,20 +121,17 @@ public class GenericProjectFileApi {
         if (genericProjectFileSlug == null) {
             throw new ApiException("Missing the required parameter 'genericProjectFileSlug' when calling genericProjectFileConfirm(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = genericProjectFileConfirmCall(appSlug, genericProjectFileSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Confirm a generic project file upload
      * This is the last step of uploading a generic project file to Bitrise. Confirm the generic project file upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the upload](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#confirming-the-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
      * @return V0ProjectFileStorageResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -140,27 +144,32 @@ public class GenericProjectFileApi {
     /**
      * Confirm a generic project file upload
      * This is the last step of uploading a generic project file to Bitrise. Confirm the generic project file upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the upload](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#confirming-the-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
      * @return ApiResponse&lt;V0ProjectFileStorageResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFileConfirmWithHttpInfo(String appSlug, String genericProjectFileSlug) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFileConfirmWithHttpInfo(String appSlug, String genericProjectFileSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = genericProjectFileConfirmValidateBeforeCall(appSlug, genericProjectFileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Confirm a generic project file upload (asynchronously)
      * This is the last step of uploading a generic project file to Bitrise. Confirm the generic project file upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the upload](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#confirming-the-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback               The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileConfirmAsync(String appSlug, String genericProjectFileSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileConfirmAsync(String appSlug, String genericProjectFileSlug,
+            final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -181,27 +190,33 @@ public class GenericProjectFileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = genericProjectFileConfirmValidateBeforeCall(appSlug, genericProjectFileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = genericProjectFileConfirmValidateBeforeCall(appSlug, genericProjectFileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for genericProjectFileDelete
-     * @param appSlug App slug (required)
-     * @param genericProjectFileSlug Generic project file slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param genericProjectFileSlug  Generic project file slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileDeleteCall(String appSlug, String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileDeleteCall(String appSlug, String genericProjectFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/generic-project-files/{generic-project-file-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "generic-project-file-slug" + "\\}", apiClient.escapeString(genericProjectFileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "generic-project-file-slug" + "\\}", apiClient.escapeString(genericProjectFileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -211,35 +226,39 @@ public class GenericProjectFileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call genericProjectFileDeleteValidateBeforeCall(String appSlug, String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call genericProjectFileDeleteValidateBeforeCall(String appSlug, String genericProjectFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling genericProjectFileDelete(Async)");
@@ -248,20 +267,17 @@ public class GenericProjectFileApi {
         if (genericProjectFileSlug == null) {
             throw new ApiException("Missing the required parameter 'genericProjectFileSlug' when calling genericProjectFileDelete(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = genericProjectFileDeleteCall(appSlug, genericProjectFileSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete a generic project file
      * Delete an app&#x27;s generic project file. You can fetch an app&#x27;s generic project file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/generic-project-files](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-list) endpoint. Read more in our [Deleting a file](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#deleting-a-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
      * @return V0ProjectFileStorageResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -274,27 +290,32 @@ public class GenericProjectFileApi {
     /**
      * Delete a generic project file
      * Delete an app&#x27;s generic project file. You can fetch an app&#x27;s generic project file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/generic-project-files](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-list) endpoint. Read more in our [Deleting a file](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#deleting-a-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
      * @return ApiResponse&lt;V0ProjectFileStorageResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFileDeleteWithHttpInfo(String appSlug, String genericProjectFileSlug) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFileDeleteWithHttpInfo(String appSlug, String genericProjectFileSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = genericProjectFileDeleteValidateBeforeCall(appSlug, genericProjectFileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Delete a generic project file (asynchronously)
      * Delete an app&#x27;s generic project file. You can fetch an app&#x27;s generic project file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/generic-project-files](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-list) endpoint. Read more in our [Deleting a file](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#deleting-a-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback               The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileDeleteAsync(String appSlug, String genericProjectFileSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileDeleteAsync(String appSlug, String genericProjectFileSlug,
+            final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -315,89 +336,96 @@ public class GenericProjectFileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = genericProjectFileDeleteValidateBeforeCall(appSlug, genericProjectFileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = genericProjectFileDeleteValidateBeforeCall(appSlug, genericProjectFileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for genericProjectFileList
-     * @param appSlug App slug (required)
-     * @param next Slug of the first generic project file in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param next                    Slug of the first generic project file in the response (optional)
+     * @param limit                   Max number of build certificates per page is 50. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileListCall(String appSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileListCall(String appSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/generic-project-files"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (next != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
+            localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call genericProjectFileListValidateBeforeCall(String appSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call genericProjectFileListValidateBeforeCall(String appSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling genericProjectFileList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = genericProjectFileListCall(appSlug, next, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a list of the generic project files
      * List all the generic project files that have been uploaded to a specific app. Read more in our [Listing the uploaded files of an app](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#listing-the-uploaded-files-of-an-app) guide.
+     *
      * @param appSlug App slug (required)
-     * @param next Slug of the first generic project file in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     * @param next    Slug of the first generic project file in the response (optional)
+     * @param limit   Max number of build certificates per page is 50. (optional)
      * @return V0ProjectFileStorageListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -409,29 +437,34 @@ public class GenericProjectFileApi {
     /**
      * Get a list of the generic project files
      * List all the generic project files that have been uploaded to a specific app. Read more in our [Listing the uploaded files of an app](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#listing-the-uploaded-files-of-an-app) guide.
+     *
      * @param appSlug App slug (required)
-     * @param next Slug of the first generic project file in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     * @param next    Slug of the first generic project file in the response (optional)
+     * @param limit   Max number of build certificates per page is 50. (optional)
      * @return ApiResponse&lt;V0ProjectFileStorageListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageListResponseModel> genericProjectFileListWithHttpInfo(String appSlug, String next, Integer limit) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageListResponseModel> genericProjectFileListWithHttpInfo(String appSlug, String next, Integer limit)
+            throws ApiException {
         com.squareup.okhttp.Call call = genericProjectFileListValidateBeforeCall(appSlug, next, limit, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a list of the generic project files (asynchronously)
      * List all the generic project files that have been uploaded to a specific app. Read more in our [Listing the uploaded files of an app](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#listing-the-uploaded-files-of-an-app) guide.
-     * @param appSlug App slug (required)
-     * @param next Slug of the first generic project file in the response (optional)
-     * @param limit Max number of build certificates per page is 50. (optional)
+     *
+     * @param appSlug  App slug (required)
+     * @param next     Slug of the first generic project file in the response (optional)
+     * @param limit    Max number of build certificates per page is 50. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileListAsync(String appSlug, String next, Integer limit, final ApiCallback<V0ProjectFileStorageListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileListAsync(String appSlug, String next, Integer limit,
+            final ApiCallback<V0ProjectFileStorageListResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -453,26 +486,31 @@ public class GenericProjectFileApi {
         }
 
         com.squareup.okhttp.Call call = genericProjectFileListValidateBeforeCall(appSlug, next, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for genericProjectFileShow
-     * @param appSlug App slug (required)
-     * @param genericProjectFileSlug Generic project file slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param genericProjectFileSlug  Generic project file slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileShowCall(String appSlug, String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileShowCall(String appSlug, String genericProjectFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/generic-project-files/{generic-project-file-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "generic-project-file-slug" + "\\}", apiClient.escapeString(genericProjectFileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "generic-project-file-slug" + "\\}", apiClient.escapeString(genericProjectFileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -482,35 +520,39 @@ public class GenericProjectFileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call genericProjectFileShowValidateBeforeCall(String appSlug, String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call genericProjectFileShowValidateBeforeCall(String appSlug, String genericProjectFileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling genericProjectFileShow(Async)");
@@ -519,20 +561,17 @@ public class GenericProjectFileApi {
         if (genericProjectFileSlug == null) {
             throw new ApiException("Missing the required parameter 'genericProjectFileSlug' when calling genericProjectFileShow(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = genericProjectFileShowCall(appSlug, genericProjectFileSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a specific generic project file
      * Retrieve data of a specific generic project file to check its attributes and optionally modify them with the [PATCH /apps/](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-update) endpoint. Read more in our [Retrieving a specific file&#x27;s data](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#retrieving-a-specific-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
      * @return V0ProjectFileStorageResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -545,27 +584,32 @@ public class GenericProjectFileApi {
     /**
      * Get a specific generic project file
      * Retrieve data of a specific generic project file to check its attributes and optionally modify them with the [PATCH /apps/](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-update) endpoint. Read more in our [Retrieving a specific file&#x27;s data](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#retrieving-a-specific-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
      * @return ApiResponse&lt;V0ProjectFileStorageResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFileShowWithHttpInfo(String appSlug, String genericProjectFileSlug) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFileShowWithHttpInfo(String appSlug, String genericProjectFileSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = genericProjectFileShowValidateBeforeCall(appSlug, genericProjectFileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a specific generic project file (asynchronously)
      * Retrieve data of a specific generic project file to check its attributes and optionally modify them with the [PATCH /apps/](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-update) endpoint. Read more in our [Retrieving a specific file&#x27;s data](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#retrieving-a-specific-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback               The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileShowAsync(String appSlug, String genericProjectFileSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileShowAsync(String appSlug, String genericProjectFileSlug,
+            final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -586,28 +630,34 @@ public class GenericProjectFileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = genericProjectFileShowValidateBeforeCall(appSlug, genericProjectFileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = genericProjectFileShowValidateBeforeCall(appSlug, genericProjectFileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for genericProjectFileUpdate
-     * @param body Generic project file parameters (required)
-     * @param appSlug App slug (required)
-     * @param genericProjectFileSlug Generic project file slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Generic project file parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param genericProjectFileSlug  Generic project file slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileUpdateCall(V0ProjectFileStorageDocumentUpdateParams body, String appSlug, String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileUpdateCall(V0ProjectFileStorageDocumentUpdateParams body, String appSlug,
+            String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/generic-project-files/{generic-project-file-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "generic-project-file-slug" + "\\}", apiClient.escapeString(genericProjectFileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "generic-project-file-slug" + "\\}", apiClient.escapeString(genericProjectFileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -617,35 +667,39 @@ public class GenericProjectFileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call genericProjectFileUpdateValidateBeforeCall(V0ProjectFileStorageDocumentUpdateParams body, String appSlug, String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call genericProjectFileUpdateValidateBeforeCall(V0ProjectFileStorageDocumentUpdateParams body, String appSlug,
+            String genericProjectFileSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling genericProjectFileUpdate(Async)");
@@ -658,26 +712,25 @@ public class GenericProjectFileApi {
         if (genericProjectFileSlug == null) {
             throw new ApiException("Missing the required parameter 'genericProjectFileSlug' when calling genericProjectFileUpdate(Async)");
         }
-        
-        com.squareup.okhttp.Call call = genericProjectFileUpdateCall(body, appSlug, genericProjectFileSlug, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = genericProjectFileUpdateCall(body, appSlug, genericProjectFileSlug, progressListener,
+                progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update a generic project file
      * Update a generic project file&#x27;s attributes. You can fetch an app&#x27;s generic project file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/generic-project-files](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-list) endpoint. Read more in our [Updating an uploaded file](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#updating-an-uploaded-file) guide.
-     * @param body Generic project file parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                   Generic project file parameters (required)
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
      * @return V0ProjectFileStorageResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V0ProjectFileStorageResponseModel genericProjectFileUpdate(V0ProjectFileStorageDocumentUpdateParams body, String appSlug, String genericProjectFileSlug) throws ApiException {
+    public V0ProjectFileStorageResponseModel genericProjectFileUpdate(V0ProjectFileStorageDocumentUpdateParams body, String appSlug,
+            String genericProjectFileSlug) throws ApiException {
         ApiResponse<V0ProjectFileStorageResponseModel> resp = genericProjectFileUpdateWithHttpInfo(body, appSlug, genericProjectFileSlug);
         return resp.getData();
     }
@@ -685,29 +738,34 @@ public class GenericProjectFileApi {
     /**
      * Update a generic project file
      * Update a generic project file&#x27;s attributes. You can fetch an app&#x27;s generic project file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/generic-project-files](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-list) endpoint. Read more in our [Updating an uploaded file](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#updating-an-uploaded-file) guide.
-     * @param body Generic project file parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                   Generic project file parameters (required)
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
      * @return ApiResponse&lt;V0ProjectFileStorageResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFileUpdateWithHttpInfo(V0ProjectFileStorageDocumentUpdateParams body, String appSlug, String genericProjectFileSlug) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFileUpdateWithHttpInfo(V0ProjectFileStorageDocumentUpdateParams body,
+            String appSlug, String genericProjectFileSlug) throws ApiException {
         com.squareup.okhttp.Call call = genericProjectFileUpdateValidateBeforeCall(body, appSlug, genericProjectFileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Update a generic project file (asynchronously)
      * Update a generic project file&#x27;s attributes. You can fetch an app&#x27;s generic project file slug if you first list all the uploaded files with the [GET /apps/{app-slug}/generic-project-files](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-list) endpoint. Read more in our [Updating an uploaded file](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#updating-an-uploaded-file) guide.
-     * @param body Generic project file parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                   Generic project file parameters (required)
+     * @param appSlug                App slug (required)
      * @param genericProjectFileSlug Generic project file slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback               The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFileUpdateAsync(V0ProjectFileStorageDocumentUpdateParams body, String appSlug, String genericProjectFileSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFileUpdateAsync(V0ProjectFileStorageDocumentUpdateParams body, String appSlug,
+            String genericProjectFileSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -728,26 +786,32 @@ public class GenericProjectFileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = genericProjectFileUpdateValidateBeforeCall(body, appSlug, genericProjectFileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = genericProjectFileUpdateValidateBeforeCall(body, appSlug, genericProjectFileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for genericProjectFilesCreate
-     * @param body Generic project file parameters (required)
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Generic project file parameters (required)
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFilesCreateCall(V0ProjectFileStorageUploadParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFilesCreateCall(V0ProjectFileStorageUploadParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/generic-project-files"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -757,35 +821,39 @@ public class GenericProjectFileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call genericProjectFilesCreateValidateBeforeCall(V0ProjectFileStorageUploadParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call genericProjectFilesCreateValidateBeforeCall(V0ProjectFileStorageUploadParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling genericProjectFilesCreate(Async)");
@@ -794,20 +862,17 @@ public class GenericProjectFileApi {
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling genericProjectFilesCreate(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = genericProjectFilesCreateCall(body, appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create a generic project file
      * Create a temporary pre-signed upload URL (expires in 10 minutes) for the generic project file and upload it to AWS with a simple &#x60;curl&#x60; request. To complete the uploading process and view your files on the Code Signing tab of your app, continue with the [POST /apps/{app-slug}/generic-project-files/{generic-project-file-slug}/uploaded](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-confirm) endpoint. Read more in our [Creating and uploading files to Generic File Storage](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#creating-and-uploading-files-to-generic-file-storage) guide.
-     * @param body Generic project file parameters (required)
+     *
+     * @param body    Generic project file parameters (required)
      * @param appSlug App slug (required)
      * @return V0ProjectFileStorageResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -820,27 +885,32 @@ public class GenericProjectFileApi {
     /**
      * Create a generic project file
      * Create a temporary pre-signed upload URL (expires in 10 minutes) for the generic project file and upload it to AWS with a simple &#x60;curl&#x60; request. To complete the uploading process and view your files on the Code Signing tab of your app, continue with the [POST /apps/{app-slug}/generic-project-files/{generic-project-file-slug}/uploaded](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-confirm) endpoint. Read more in our [Creating and uploading files to Generic File Storage](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#creating-and-uploading-files-to-generic-file-storage) guide.
-     * @param body Generic project file parameters (required)
+     *
+     * @param body    Generic project file parameters (required)
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0ProjectFileStorageResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFilesCreateWithHttpInfo(V0ProjectFileStorageUploadParams body, String appSlug) throws ApiException {
+    public ApiResponse<V0ProjectFileStorageResponseModel> genericProjectFilesCreateWithHttpInfo(V0ProjectFileStorageUploadParams body, String appSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = genericProjectFilesCreateValidateBeforeCall(body, appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create a generic project file (asynchronously)
      * Create a temporary pre-signed upload URL (expires in 10 minutes) for the generic project file and upload it to AWS with a simple &#x60;curl&#x60; request. To complete the uploading process and view your files on the Code Signing tab of your app, continue with the [POST /apps/{app-slug}/generic-project-files/{generic-project-file-slug}/uploaded](https://api-docs.bitrise.io/#/generic-project-file/generic-project-file-confirm) endpoint. Read more in our [Creating and uploading files to Generic File Storage](https://devcenter.bitrise.io/api/managing-files-in-generic-file-storage/#creating-and-uploading-files-to-generic-file-storage) guide.
-     * @param body Generic project file parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body     Generic project file parameters (required)
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call genericProjectFilesCreateAsync(V0ProjectFileStorageUploadParams body, String appSlug, final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call genericProjectFilesCreateAsync(V0ProjectFileStorageUploadParams body, String appSlug,
+            final ApiCallback<V0ProjectFileStorageResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -862,7 +932,8 @@ public class GenericProjectFileApi {
         }
 
         com.squareup.okhttp.Call call = genericProjectFilesCreateValidateBeforeCall(body, appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProjectFileStorageResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

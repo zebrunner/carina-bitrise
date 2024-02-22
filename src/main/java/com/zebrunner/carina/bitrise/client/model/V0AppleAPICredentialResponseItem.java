@@ -16,188 +16,188 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0AppleAPICredentialResponseItem
  */
 
-
-
 public class V0AppleAPICredentialResponseItem {
-  @SerializedName("created_at")
-  private String createdAt = null;
+    @SerializedName("created_at")
+    private String createdAt = null;
 
-  @SerializedName("issuer_id")
-  private String issuerId = null;
+    @SerializedName("issuer_id")
+    private String issuerId = null;
 
-  @SerializedName("key_id")
-  private String keyId = null;
+    @SerializedName("key_id")
+    private String keyId = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("slug")
-  private String slug = null;
+    @SerializedName("slug")
+    private String slug = null;
 
-  @SerializedName("updated_at")
-  private String updatedAt = null;
+    @SerializedName("updated_at")
+    private String updatedAt = null;
 
-  public V0AppleAPICredentialResponseItem createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-  
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public V0AppleAPICredentialResponseItem issuerId(String issuerId) {
-    this.issuerId = issuerId;
-    return this;
-  }
-
-   /**
-   * Get issuerId
-   * @return issuerId
-  **/
-  
-  public String getIssuerId() {
-    return issuerId;
-  }
-
-  public void setIssuerId(String issuerId) {
-    this.issuerId = issuerId;
-  }
-
-  public V0AppleAPICredentialResponseItem keyId(String keyId) {
-    this.keyId = keyId;
-    return this;
-  }
-
-   /**
-   * Get keyId
-   * @return keyId
-  **/
-  
-  public String getKeyId() {
-    return keyId;
-  }
-
-  public void setKeyId(String keyId) {
-    this.keyId = keyId;
-  }
-
-  public V0AppleAPICredentialResponseItem name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public V0AppleAPICredentialResponseItem slug(String slug) {
-    this.slug = slug;
-    return this;
-  }
-
-   /**
-   * Get slug
-   * @return slug
-  **/
-  
-  public String getSlug() {
-    return slug;
-  }
-
-  public void setSlug(String slug) {
-    this.slug = slug;
-  }
-
-  public V0AppleAPICredentialResponseItem updatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Get updatedAt
-   * @return updatedAt
-  **/
-  
-  public String getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppleAPICredentialResponseItem createdAt(String createdAt) {
+        this.createdAt = createdAt;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get createdAt
+     *
+     * @return createdAt
+     **/
+
+    public String getCreatedAt() {
+        return createdAt;
     }
-    V0AppleAPICredentialResponseItem v0AppleAPICredentialResponseItem = (V0AppleAPICredentialResponseItem) o;
-    return Objects.equals(this.createdAt, v0AppleAPICredentialResponseItem.createdAt) &&
-        Objects.equals(this.issuerId, v0AppleAPICredentialResponseItem.issuerId) &&
-        Objects.equals(this.keyId, v0AppleAPICredentialResponseItem.keyId) &&
-        Objects.equals(this.name, v0AppleAPICredentialResponseItem.name) &&
-        Objects.equals(this.slug, v0AppleAPICredentialResponseItem.slug) &&
-        Objects.equals(this.updatedAt, v0AppleAPICredentialResponseItem.updatedAt);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(createdAt, issuerId, keyId, name, slug, updatedAt);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppleAPICredentialResponseItem {\n");
-    
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    issuerId: ").append(toIndentedString(issuerId)).append("\n");
-    sb.append("    keyId: ").append(toIndentedString(keyId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0AppleAPICredentialResponseItem issuerId(String issuerId) {
+        this.issuerId = issuerId;
+        return this;
+    }
+
+    /**
+     * Get issuerId
+     *
+     * @return issuerId
+     **/
+
+    public String getIssuerId() {
+        return issuerId;
+    }
+
+    public void setIssuerId(String issuerId) {
+        this.issuerId = issuerId;
+    }
+
+    public V0AppleAPICredentialResponseItem keyId(String keyId) {
+        this.keyId = keyId;
+        return this;
+    }
+
+    /**
+     * Get keyId
+     *
+     * @return keyId
+     **/
+
+    public String getKeyId() {
+        return keyId;
+    }
+
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
+    public V0AppleAPICredentialResponseItem name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     **/
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public V0AppleAPICredentialResponseItem slug(String slug) {
+        this.slug = slug;
+        return this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return slug
+     **/
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public V0AppleAPICredentialResponseItem updatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+        return this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return updatedAt
+     **/
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppleAPICredentialResponseItem v0AppleAPICredentialResponseItem = (V0AppleAPICredentialResponseItem) o;
+        return Objects.equals(this.createdAt, v0AppleAPICredentialResponseItem.createdAt) &&
+                Objects.equals(this.issuerId, v0AppleAPICredentialResponseItem.issuerId) &&
+                Objects.equals(this.keyId, v0AppleAPICredentialResponseItem.keyId) &&
+                Objects.equals(this.name, v0AppleAPICredentialResponseItem.name) &&
+                Objects.equals(this.slug, v0AppleAPICredentialResponseItem.slug) &&
+                Objects.equals(this.updatedAt, v0AppleAPICredentialResponseItem.updatedAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(createdAt, issuerId, keyId, name, slug, updatedAt);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppleAPICredentialResponseItem {\n"
+                + "    createdAt: " + toIndentedString(createdAt) + "\n"
+                + "    issuerId: " + toIndentedString(issuerId) + "\n"
+                + "    keyId: " + toIndentedString(keyId) + "\n"
+                + "    name: " + toIndentedString(name) + "\n"
+                + "    slug: " + toIndentedString(slug) + "\n"
+                + "    updatedAt: " + toIndentedString(updatedAt) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

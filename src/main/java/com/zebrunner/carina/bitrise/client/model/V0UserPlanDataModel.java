@@ -16,119 +16,116 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0UserPlanDataModel
  */
 
-
-
 public class V0UserPlanDataModel {
-  @SerializedName("current_plan")
-  private V0PlanDataModel currentPlan = null;
+    @SerializedName("current_plan")
+    private V0PlanDataModel currentPlan = null;
 
-  @SerializedName("pending_plan")
-  private V0PlanDataModel pendingPlan = null;
+    @SerializedName("pending_plan")
+    private V0PlanDataModel pendingPlan = null;
 
-  @SerializedName("trial_expires_at")
-  private String trialExpiresAt = null;
+    @SerializedName("trial_expires_at")
+    private String trialExpiresAt = null;
 
-  public V0UserPlanDataModel currentPlan(V0PlanDataModel currentPlan) {
-    this.currentPlan = currentPlan;
-    return this;
-  }
-
-   /**
-   * Get currentPlan
-   * @return currentPlan
-  **/
-  
-  public V0PlanDataModel getCurrentPlan() {
-    return currentPlan;
-  }
-
-  public void setCurrentPlan(V0PlanDataModel currentPlan) {
-    this.currentPlan = currentPlan;
-  }
-
-  public V0UserPlanDataModel pendingPlan(V0PlanDataModel pendingPlan) {
-    this.pendingPlan = pendingPlan;
-    return this;
-  }
-
-   /**
-   * Get pendingPlan
-   * @return pendingPlan
-  **/
-  
-  public V0PlanDataModel getPendingPlan() {
-    return pendingPlan;
-  }
-
-  public void setPendingPlan(V0PlanDataModel pendingPlan) {
-    this.pendingPlan = pendingPlan;
-  }
-
-  public V0UserPlanDataModel trialExpiresAt(String trialExpiresAt) {
-    this.trialExpiresAt = trialExpiresAt;
-    return this;
-  }
-
-   /**
-   * Get trialExpiresAt
-   * @return trialExpiresAt
-  **/
-  
-  public String getTrialExpiresAt() {
-    return trialExpiresAt;
-  }
-
-  public void setTrialExpiresAt(String trialExpiresAt) {
-    this.trialExpiresAt = trialExpiresAt;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0UserPlanDataModel currentPlan(V0PlanDataModel currentPlan) {
+        this.currentPlan = currentPlan;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get currentPlan
+     *
+     * @return currentPlan
+     **/
+
+    public V0PlanDataModel getCurrentPlan() {
+        return currentPlan;
     }
-    V0UserPlanDataModel v0UserPlanDataModel = (V0UserPlanDataModel) o;
-    return Objects.equals(this.currentPlan, v0UserPlanDataModel.currentPlan) &&
-        Objects.equals(this.pendingPlan, v0UserPlanDataModel.pendingPlan) &&
-        Objects.equals(this.trialExpiresAt, v0UserPlanDataModel.trialExpiresAt);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(currentPlan, pendingPlan, trialExpiresAt);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0UserPlanDataModel {\n");
-    
-    sb.append("    currentPlan: ").append(toIndentedString(currentPlan)).append("\n");
-    sb.append("    pendingPlan: ").append(toIndentedString(pendingPlan)).append("\n");
-    sb.append("    trialExpiresAt: ").append(toIndentedString(trialExpiresAt)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCurrentPlan(V0PlanDataModel currentPlan) {
+        this.currentPlan = currentPlan;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0UserPlanDataModel pendingPlan(V0PlanDataModel pendingPlan) {
+        this.pendingPlan = pendingPlan;
+        return this;
+    }
+
+    /**
+     * Get pendingPlan
+     *
+     * @return pendingPlan
+     **/
+
+    public V0PlanDataModel getPendingPlan() {
+        return pendingPlan;
+    }
+
+    public void setPendingPlan(V0PlanDataModel pendingPlan) {
+        this.pendingPlan = pendingPlan;
+    }
+
+    public V0UserPlanDataModel trialExpiresAt(String trialExpiresAt) {
+        this.trialExpiresAt = trialExpiresAt;
+        return this;
+    }
+
+    /**
+     * Get trialExpiresAt
+     *
+     * @return trialExpiresAt
+     **/
+
+    public String getTrialExpiresAt() {
+        return trialExpiresAt;
+    }
+
+    public void setTrialExpiresAt(String trialExpiresAt) {
+        this.trialExpiresAt = trialExpiresAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0UserPlanDataModel v0UserPlanDataModel = (V0UserPlanDataModel) o;
+        return Objects.equals(this.currentPlan, v0UserPlanDataModel.currentPlan) &&
+                Objects.equals(this.pendingPlan, v0UserPlanDataModel.pendingPlan) &&
+                Objects.equals(this.trialExpiresAt, v0UserPlanDataModel.trialExpiresAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(currentPlan, pendingPlan, trialExpiresAt);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0UserPlanDataModel {\n"
+                + "    currentPlan: " + toIndentedString(currentPlan) + "\n"
+                + "    pendingPlan: " + toIndentedString(pendingPlan) + "\n"
+                + "    trialExpiresAt: " + toIndentedString(trialExpiresAt) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

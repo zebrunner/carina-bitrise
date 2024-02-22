@@ -17,142 +17,141 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
 /**
  * V0CommitPaths
  */
 
-
-
 public class V0CommitPaths {
-  @SerializedName("added")
-  private List<String> added = null;
+    @SerializedName("added")
+    private List<String> added = null;
 
-  @SerializedName("modified")
-  private List<String> modified = null;
+    @SerializedName("modified")
+    private List<String> modified = null;
 
-  @SerializedName("removed")
-  private List<String> removed = null;
+    @SerializedName("removed")
+    private List<String> removed = null;
 
-  public V0CommitPaths added(List<String> added) {
-    this.added = added;
-    return this;
-  }
-
-  public V0CommitPaths addAddedItem(String addedItem) {
-    if (this.added == null) {
-      this.added = new ArrayList<String>();
+    public V0CommitPaths added(List<String> added) {
+        this.added = added;
+        return this;
     }
-    this.added.add(addedItem);
-    return this;
-  }
 
-   /**
-   * Get added
-   * @return added
-  **/
-  
-  public List<String> getAdded() {
-    return added;
-  }
-
-  public void setAdded(List<String> added) {
-    this.added = added;
-  }
-
-  public V0CommitPaths modified(List<String> modified) {
-    this.modified = modified;
-    return this;
-  }
-
-  public V0CommitPaths addModifiedItem(String modifiedItem) {
-    if (this.modified == null) {
-      this.modified = new ArrayList<String>();
+    public V0CommitPaths addAddedItem(String addedItem) {
+        if (this.added == null) {
+            this.added = new ArrayList<String>();
+        }
+        this.added.add(addedItem);
+        return this;
     }
-    this.modified.add(modifiedItem);
-    return this;
-  }
 
-   /**
-   * Get modified
-   * @return modified
-  **/
-  
-  public List<String> getModified() {
-    return modified;
-  }
+    /**
+     * Get added
+     *
+     * @return added
+     **/
 
-  public void setModified(List<String> modified) {
-    this.modified = modified;
-  }
-
-  public V0CommitPaths removed(List<String> removed) {
-    this.removed = removed;
-    return this;
-  }
-
-  public V0CommitPaths addRemovedItem(String removedItem) {
-    if (this.removed == null) {
-      this.removed = new ArrayList<String>();
+    public List<String> getAdded() {
+        return added;
     }
-    this.removed.add(removedItem);
-    return this;
-  }
 
-   /**
-   * Get removed
-   * @return removed
-  **/
-  
-  public List<String> getRemoved() {
-    return removed;
-  }
-
-  public void setRemoved(List<String> removed) {
-    this.removed = removed;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public void setAdded(List<String> added) {
+        this.added = added;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public V0CommitPaths modified(List<String> modified) {
+        this.modified = modified;
+        return this;
     }
-    V0CommitPaths v0CommitPaths = (V0CommitPaths) o;
-    return Objects.equals(this.added, v0CommitPaths.added) &&
-        Objects.equals(this.modified, v0CommitPaths.modified) &&
-        Objects.equals(this.removed, v0CommitPaths.removed);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(added, modified, removed);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0CommitPaths {\n");
-    
-    sb.append("    added: ").append(toIndentedString(added)).append("\n");
-    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
-    sb.append("    removed: ").append(toIndentedString(removed)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public V0CommitPaths addModifiedItem(String modifiedItem) {
+        if (this.modified == null) {
+            this.modified = new ArrayList<String>();
+        }
+        this.modified.add(modifiedItem);
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get modified
+     *
+     * @return modified
+     **/
+
+    public List<String> getModified() {
+        return modified;
+    }
+
+    public void setModified(List<String> modified) {
+        this.modified = modified;
+    }
+
+    public V0CommitPaths removed(List<String> removed) {
+        this.removed = removed;
+        return this;
+    }
+
+    public V0CommitPaths addRemovedItem(String removedItem) {
+        if (this.removed == null) {
+            this.removed = new ArrayList<String>();
+        }
+        this.removed.add(removedItem);
+        return this;
+    }
+
+    /**
+     * Get removed
+     *
+     * @return removed
+     **/
+
+    public List<String> getRemoved() {
+        return removed;
+    }
+
+    public void setRemoved(List<String> removed) {
+        this.removed = removed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0CommitPaths v0CommitPaths = (V0CommitPaths) o;
+        return Objects.equals(this.added, v0CommitPaths.added) &&
+                Objects.equals(this.modified, v0CommitPaths.modified) &&
+                Objects.equals(this.removed, v0CommitPaths.removed);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(added, modified, removed);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0CommitPaths {\n"
+                + "    added: " + toIndentedString(added) + "\n"
+                + "    modified: " + toIndentedString(modified) + "\n"
+                + "    removed: " + toIndentedString(removed) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

@@ -16,73 +16,68 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0AppShowResponseModel
  */
 
-
-
 public class V0AppShowResponseModel {
-  @SerializedName("data")
-  private V0AppResponseItemModel data = null;
+    @SerializedName("data")
+    private V0AppResponseItemModel data = null;
 
-  public V0AppShowResponseModel data(V0AppResponseItemModel data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  
-  public V0AppResponseItemModel getData() {
-    return data;
-  }
-
-  public void setData(V0AppResponseItemModel data) {
-    this.data = data;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0AppShowResponseModel data(V0AppResponseItemModel data) {
+        this.data = data;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+
+    public V0AppResponseItemModel getData() {
+        return data;
     }
-    V0AppShowResponseModel v0AppShowResponseModel = (V0AppShowResponseModel) o;
-    return Objects.equals(this.data, v0AppShowResponseModel.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0AppShowResponseModel {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(V0AppResponseItemModel data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0AppShowResponseModel v0AppShowResponseModel = (V0AppShowResponseModel) o;
+        return Objects.equals(this.data, v0AppShowResponseModel.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0AppShowResponseModel {\n"
+                + "    data: " + toIndentedString(data) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

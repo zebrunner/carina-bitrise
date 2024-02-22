@@ -226,7 +226,7 @@ public class BitriseManager implements IArtifactManager {
                 }
                 EXCEPTION_TIMEOUTS.put(url, Duration.ofMillis(System.currentTimeMillis()).plus(Duration.ofMinutes(5)));
 
-                V0ArtifactResponseItemModel artifactInfo  = artifactResponse.getData()
+                V0ArtifactResponseItemModel artifactInfo = artifactResponse.getData()
                         .getData();
                 BitriseApp bitriseApp = new BitriseApp();
                 bitriseApp.setBuild(String.valueOf(build.getBuildNumber()));

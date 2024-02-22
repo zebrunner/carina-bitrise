@@ -16,96 +16,92 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-
 /**
  * V0BuildTriggerParams
  */
 
-
-
 public class V0BuildTriggerParams {
-  @SerializedName("build_params")
-  private AllOfv0BuildTriggerParamsBuildParams buildParams = null;
+    @SerializedName("build_params")
+    private AllOfv0BuildTriggerParamsBuildParams buildParams = null;
 
-  @SerializedName("hook_info")
-  private V0BuildTriggerParamsHookInfo hookInfo = null;
+    @SerializedName("hook_info")
+    private V0BuildTriggerParamsHookInfo hookInfo = null;
 
-  public V0BuildTriggerParams buildParams(AllOfv0BuildTriggerParamsBuildParams buildParams) {
-    this.buildParams = buildParams;
-    return this;
-  }
-
-   /**
-   * The public part of the SSH key you would like to use
-   * @return buildParams
-  **/
-
-  public AllOfv0BuildTriggerParamsBuildParams getBuildParams() {
-    return buildParams;
-  }
-
-  public void setBuildParams(AllOfv0BuildTriggerParamsBuildParams buildParams) {
-    this.buildParams = buildParams;
-  }
-
-  public V0BuildTriggerParams hookInfo(V0BuildTriggerParamsHookInfo hookInfo) {
-    this.hookInfo = hookInfo;
-    return this;
-  }
-
-   /**
-   * Get hookInfo
-   * @return hookInfo
-  **/
-
-  public V0BuildTriggerParamsHookInfo getHookInfo() {
-    return hookInfo;
-  }
-
-  public void setHookInfo(V0BuildTriggerParamsHookInfo hookInfo) {
-    this.hookInfo = hookInfo;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public V0BuildTriggerParams buildParams(AllOfv0BuildTriggerParamsBuildParams buildParams) {
+        this.buildParams = buildParams;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The public part of the SSH key you would like to use
+     *
+     * @return buildParams
+     **/
+
+    public AllOfv0BuildTriggerParamsBuildParams getBuildParams() {
+        return buildParams;
     }
-    V0BuildTriggerParams v0BuildTriggerParams = (V0BuildTriggerParams) o;
-    return Objects.equals(this.buildParams, v0BuildTriggerParams.buildParams) &&
-        Objects.equals(this.hookInfo, v0BuildTriggerParams.hookInfo);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(buildParams, hookInfo);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class V0BuildTriggerParams {\n");
-    
-    sb.append("    buildParams: ").append(toIndentedString(buildParams)).append("\n");
-    sb.append("    hookInfo: ").append(toIndentedString(hookInfo)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setBuildParams(AllOfv0BuildTriggerParamsBuildParams buildParams) {
+        this.buildParams = buildParams;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public V0BuildTriggerParams hookInfo(V0BuildTriggerParamsHookInfo hookInfo) {
+        this.hookInfo = hookInfo;
+        return this;
+    }
+
+    /**
+     * Get hookInfo
+     *
+     * @return hookInfo
+     **/
+
+    public V0BuildTriggerParamsHookInfo getHookInfo() {
+        return hookInfo;
+    }
+
+    public void setHookInfo(V0BuildTriggerParamsHookInfo hookInfo) {
+        this.hookInfo = hookInfo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        V0BuildTriggerParams v0BuildTriggerParams = (V0BuildTriggerParams) o;
+        return Objects.equals(this.buildParams, v0BuildTriggerParams.buildParams) &&
+                Objects.equals(this.hookInfo, v0BuildTriggerParams.hookInfo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(buildParams, hookInfo);
+    }
+
+    @Override
+    public String toString() {
+
+        String sb = "class V0BuildTriggerParams {\n"
+                + "    buildParams: " + toIndentedString(buildParams) + "\n"
+                + "    hookInfo: " + toIndentedString(hookInfo) + "\n"
+                + "}";
+        return sb;
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }

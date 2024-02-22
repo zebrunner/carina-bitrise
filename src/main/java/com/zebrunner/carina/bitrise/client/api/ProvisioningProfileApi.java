@@ -54,20 +54,23 @@ public class ProvisioningProfileApi {
 
     /**
      * Build call for provisioningProfileConfirm
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileConfirmCall(String appSlug, String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileConfirmCall(String appSlug, String provisioningProfileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/provisioning-profiles/{provisioning-profile-slug}/uploaded"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "provisioning-profile-slug" + "\\}", apiClient.escapeString(provisioningProfileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "provisioning-profile-slug" + "\\}", apiClient.escapeString(provisioningProfileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -77,35 +80,39 @@ public class ProvisioningProfileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call provisioningProfileConfirmValidateBeforeCall(String appSlug, String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call provisioningProfileConfirmValidateBeforeCall(String appSlug, String provisioningProfileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling provisioningProfileConfirm(Async)");
@@ -114,20 +121,17 @@ public class ProvisioningProfileApi {
         if (provisioningProfileSlug == null) {
             throw new ApiException("Missing the required parameter 'provisioningProfileSlug' when calling provisioningProfileConfirm(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = provisioningProfileConfirmCall(appSlug, provisioningProfileSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Confirm a provisioning profile upload
      * This is the last step of the upload process. Confirm the provisioning profile upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the iOS code signing file upload](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
      * @return V0ProvisionProfileResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -140,27 +144,32 @@ public class ProvisioningProfileApi {
     /**
      * Confirm a provisioning profile upload
      * This is the last step of the upload process. Confirm the provisioning profile upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the iOS code signing file upload](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
      * @return ApiResponse&lt;V0ProvisionProfileResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileConfirmWithHttpInfo(String appSlug, String provisioningProfileSlug) throws ApiException {
+    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileConfirmWithHttpInfo(String appSlug, String provisioningProfileSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = provisioningProfileConfirmValidateBeforeCall(appSlug, provisioningProfileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Confirm a provisioning profile upload (asynchronously)
      * This is the last step of the upload process. Confirm the provisioning profile upload and view the file on the Code Signing tab of a specific app. Read more in our [Confirming the iOS code signing file upload](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileConfirmAsync(String appSlug, String provisioningProfileSlug, final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileConfirmAsync(String appSlug, String provisioningProfileSlug,
+            final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -181,26 +190,32 @@ public class ProvisioningProfileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = provisioningProfileConfirmValidateBeforeCall(appSlug, provisioningProfileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = provisioningProfileConfirmValidateBeforeCall(appSlug, provisioningProfileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for provisioningProfileCreate
-     * @param body Provisioning profile parameters such as file name and file size (required)
-     * @param appSlug App slug (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    Provisioning profile parameters such as file name and file size (required)
+     * @param appSlug                 App slug (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileCreateCall(V0ProvisionProfileUploadParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileCreateCall(V0ProvisionProfileUploadParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/provisioning-profiles"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -210,35 +225,39 @@ public class ProvisioningProfileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call provisioningProfileCreateValidateBeforeCall(V0ProvisionProfileUploadParams body, String appSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call provisioningProfileCreateValidateBeforeCall(V0ProvisionProfileUploadParams body, String appSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling provisioningProfileCreate(Async)");
@@ -247,20 +266,17 @@ public class ProvisioningProfileApi {
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling provisioningProfileCreate(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = provisioningProfileCreateCall(body, appSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create a provisioning profile
      * Create a temporary pre-signed upload URL (expires in 10 minutes) for the provisioning profile and upload it to AWS with a simple &#x60;curl&#x60; request. To complete the upload process, continue with the [POST /apps/{app-slug}/provisioning-profiles/{provisioning-profile-slug}/uploaded](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-confirm) endpoint. Read more in our [Creating and uploading an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#creating--uploading-an-ios-code-signing-file) guide.
-     * @param body Provisioning profile parameters such as file name and file size (required)
+     *
+     * @param body    Provisioning profile parameters such as file name and file size (required)
      * @param appSlug App slug (required)
      * @return V0ProvisionProfileResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -273,27 +289,32 @@ public class ProvisioningProfileApi {
     /**
      * Create a provisioning profile
      * Create a temporary pre-signed upload URL (expires in 10 minutes) for the provisioning profile and upload it to AWS with a simple &#x60;curl&#x60; request. To complete the upload process, continue with the [POST /apps/{app-slug}/provisioning-profiles/{provisioning-profile-slug}/uploaded](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-confirm) endpoint. Read more in our [Creating and uploading an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#creating--uploading-an-ios-code-signing-file) guide.
-     * @param body Provisioning profile parameters such as file name and file size (required)
+     *
+     * @param body    Provisioning profile parameters such as file name and file size (required)
      * @param appSlug App slug (required)
      * @return ApiResponse&lt;V0ProvisionProfileResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileCreateWithHttpInfo(V0ProvisionProfileUploadParams body, String appSlug) throws ApiException {
+    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileCreateWithHttpInfo(V0ProvisionProfileUploadParams body, String appSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = provisioningProfileCreateValidateBeforeCall(body, appSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create a provisioning profile (asynchronously)
      * Create a temporary pre-signed upload URL (expires in 10 minutes) for the provisioning profile and upload it to AWS with a simple &#x60;curl&#x60; request. To complete the upload process, continue with the [POST /apps/{app-slug}/provisioning-profiles/{provisioning-profile-slug}/uploaded](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-confirm) endpoint. Read more in our [Creating and uploading an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#creating--uploading-an-ios-code-signing-file) guide.
-     * @param body Provisioning profile parameters such as file name and file size (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body     Provisioning profile parameters such as file name and file size (required)
+     * @param appSlug  App slug (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileCreateAsync(V0ProvisionProfileUploadParams body, String appSlug, final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileCreateAsync(V0ProvisionProfileUploadParams body, String appSlug,
+            final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -315,26 +336,31 @@ public class ProvisioningProfileApi {
         }
 
         com.squareup.okhttp.Call call = provisioningProfileCreateValidateBeforeCall(body, appSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for provisioningProfileDelete
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileDeleteCall(String appSlug, String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileDeleteCall(String appSlug, String provisioningProfileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/provisioning-profiles/{provisioning-profile-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "provisioning-profile-slug" + "\\}", apiClient.escapeString(provisioningProfileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "provisioning-profile-slug" + "\\}", apiClient.escapeString(provisioningProfileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -344,35 +370,39 @@ public class ProvisioningProfileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call provisioningProfileDeleteValidateBeforeCall(String appSlug, String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call provisioningProfileDeleteValidateBeforeCall(String appSlug, String provisioningProfileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling provisioningProfileDelete(Async)");
@@ -381,20 +411,17 @@ public class ProvisioningProfileApi {
         if (provisioningProfileSlug == null) {
             throw new ApiException("Missing the required parameter 'provisioningProfileSlug' when calling provisioningProfileDelete(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = provisioningProfileDeleteCall(appSlug, provisioningProfileSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Delete a provisioning profile
      * Delete an app&#x27;s provisioning profile. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Deleting an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#deleting-an-ios-code-signing-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
      * @return V0ProvisionProfileResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -407,27 +434,32 @@ public class ProvisioningProfileApi {
     /**
      * Delete a provisioning profile
      * Delete an app&#x27;s provisioning profile. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Deleting an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#deleting-an-ios-code-signing-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
      * @return ApiResponse&lt;V0ProvisionProfileResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileDeleteWithHttpInfo(String appSlug, String provisioningProfileSlug) throws ApiException {
+    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileDeleteWithHttpInfo(String appSlug, String provisioningProfileSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = provisioningProfileDeleteValidateBeforeCall(appSlug, provisioningProfileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Delete a provisioning profile (asynchronously)
      * Delete an app&#x27;s provisioning profile. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Deleting an iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#deleting-an-ios-code-signing-file) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileDeleteAsync(String appSlug, String provisioningProfileSlug, final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileDeleteAsync(String appSlug, String provisioningProfileSlug,
+            final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -448,89 +480,96 @@ public class ProvisioningProfileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = provisioningProfileDeleteValidateBeforeCall(appSlug, provisioningProfileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = provisioningProfileDeleteValidateBeforeCall(appSlug, provisioningProfileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for provisioningProfileList
-     * @param appSlug App slug (required)
-     * @param next Slug of the first provisioning profile in the response (optional)
-     * @param limit Max number of elements per page (default: 50) (optional)
-     * @param progressListener Progress listener
+     *
+     * @param appSlug                 App slug (required)
+     * @param next                    Slug of the first provisioning profile in the response (optional)
+     * @param limit                   Max number of elements per page (default: 50) (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileListCall(String appSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileListCall(String appSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/provisioning-profiles"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (next != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
+            localVarQueryParams.addAll(apiClient.parameterToPair("next", next));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "AddonAuthToken", "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call provisioningProfileListValidateBeforeCall(String appSlug, String next, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call provisioningProfileListValidateBeforeCall(String appSlug, String next, Integer limit,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling provisioningProfileList(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = provisioningProfileListCall(appSlug, next, limit, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a list of the provisioning profiles
      * List all the provisioning profiles that have been uploaded to a specific app. Read more in our [Listing the uploaded iOS code signing files of an app](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#listing-the-uploaded-ios-code-signing-files-of-an-app) guide.
+     *
      * @param appSlug App slug (required)
-     * @param next Slug of the first provisioning profile in the response (optional)
-     * @param limit Max number of elements per page (default: 50) (optional)
+     * @param next    Slug of the first provisioning profile in the response (optional)
+     * @param limit   Max number of elements per page (default: 50) (optional)
      * @return V0ProvisionProfileListResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -542,29 +581,34 @@ public class ProvisioningProfileApi {
     /**
      * Get a list of the provisioning profiles
      * List all the provisioning profiles that have been uploaded to a specific app. Read more in our [Listing the uploaded iOS code signing files of an app](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#listing-the-uploaded-ios-code-signing-files-of-an-app) guide.
+     *
      * @param appSlug App slug (required)
-     * @param next Slug of the first provisioning profile in the response (optional)
-     * @param limit Max number of elements per page (default: 50) (optional)
+     * @param next    Slug of the first provisioning profile in the response (optional)
+     * @param limit   Max number of elements per page (default: 50) (optional)
      * @return ApiResponse&lt;V0ProvisionProfileListResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProvisionProfileListResponseModel> provisioningProfileListWithHttpInfo(String appSlug, String next, Integer limit) throws ApiException {
+    public ApiResponse<V0ProvisionProfileListResponseModel> provisioningProfileListWithHttpInfo(String appSlug, String next, Integer limit)
+            throws ApiException {
         com.squareup.okhttp.Call call = provisioningProfileListValidateBeforeCall(appSlug, next, limit, null, null);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileListResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a list of the provisioning profiles (asynchronously)
      * List all the provisioning profiles that have been uploaded to a specific app. Read more in our [Listing the uploaded iOS code signing files of an app](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#listing-the-uploaded-ios-code-signing-files-of-an-app) guide.
-     * @param appSlug App slug (required)
-     * @param next Slug of the first provisioning profile in the response (optional)
-     * @param limit Max number of elements per page (default: 50) (optional)
+     *
+     * @param appSlug  App slug (required)
+     * @param next     Slug of the first provisioning profile in the response (optional)
+     * @param limit    Max number of elements per page (default: 50) (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileListAsync(String appSlug, String next, Integer limit, final ApiCallback<V0ProvisionProfileListResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileListAsync(String appSlug, String next, Integer limit,
+            final ApiCallback<V0ProvisionProfileListResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -586,26 +630,31 @@ public class ProvisioningProfileApi {
         }
 
         com.squareup.okhttp.Call call = provisioningProfileListValidateBeforeCall(appSlug, next, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileListResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileListResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for provisioningProfileShow
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileShowCall(String appSlug, String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileShowCall(String appSlug, String provisioningProfileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/provisioning-profiles/{provisioning-profile-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "provisioning-profile-slug" + "\\}", apiClient.escapeString(provisioningProfileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "provisioning-profile-slug" + "\\}", apiClient.escapeString(provisioningProfileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -615,35 +664,39 @@ public class ProvisioningProfileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call provisioningProfileShowValidateBeforeCall(String appSlug, String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call provisioningProfileShowValidateBeforeCall(String appSlug, String provisioningProfileSlug,
+            final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener)
+            throws ApiException {
         // verify the required parameter 'appSlug' is set
         if (appSlug == null) {
             throw new ApiException("Missing the required parameter 'appSlug' when calling provisioningProfileShow(Async)");
@@ -652,20 +705,17 @@ public class ProvisioningProfileApi {
         if (provisioningProfileSlug == null) {
             throw new ApiException("Missing the required parameter 'provisioningProfileSlug' when calling provisioningProfileShow(Async)");
         }
-        
+
         com.squareup.okhttp.Call call = provisioningProfileShowCall(appSlug, provisioningProfileSlug, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get a specific provisioning profile
      * Retrieve data of a specific provisioning profile. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Getting a specific iOS code signing file&#x27;s data](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#getting-a-specific-ios-code-signing-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
      * @return V0ProvisionProfileResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -678,27 +728,32 @@ public class ProvisioningProfileApi {
     /**
      * Get a specific provisioning profile
      * Retrieve data of a specific provisioning profile. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Getting a specific iOS code signing file&#x27;s data](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#getting-a-specific-ios-code-signing-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
      * @return ApiResponse&lt;V0ProvisionProfileResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileShowWithHttpInfo(String appSlug, String provisioningProfileSlug) throws ApiException {
+    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileShowWithHttpInfo(String appSlug, String provisioningProfileSlug)
+            throws ApiException {
         com.squareup.okhttp.Call call = provisioningProfileShowValidateBeforeCall(appSlug, provisioningProfileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get a specific provisioning profile (asynchronously)
      * Retrieve data of a specific provisioning profile. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Getting a specific iOS code signing file&#x27;s data](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#getting-a-specific-ios-code-signing-files-data) guide.
-     * @param appSlug App slug (required)
+     *
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileShowAsync(String appSlug, String provisioningProfileSlug, final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileShowAsync(String appSlug, String provisioningProfileSlug,
+            final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -719,28 +774,34 @@ public class ProvisioningProfileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = provisioningProfileShowValidateBeforeCall(appSlug, provisioningProfileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = provisioningProfileShowValidateBeforeCall(appSlug, provisioningProfileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for provisioningProfileUpdate
-     * @param body Provisioning profile parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                    Provisioning profile parameters (required)
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileUpdateCall(V0ProvProfileDocumentUpdateParams body, String appSlug, String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileUpdateCall(V0ProvProfileDocumentUpdateParams body, String appSlug,
+            String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/apps/{app-slug}/provisioning-profiles/{provisioning-profile-slug}"
-            .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug.toString()))
-            .replaceAll("\\{" + "provisioning-profile-slug" + "\\}", apiClient.escapeString(provisioningProfileSlug.toString()));
+                .replaceAll("\\{" + "app-slug" + "\\}", apiClient.escapeString(appSlug))
+                .replaceAll("\\{" + "provisioning-profile-slug" + "\\}", apiClient.escapeString(provisioningProfileSlug));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -750,35 +811,39 @@ public class ProvisioningProfileApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        if (localVarAccept != null)
+            localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
         String[] localVarAuthNames = new String[] { "PersonalAccessToken" };
-        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams,
+                localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call provisioningProfileUpdateValidateBeforeCall(V0ProvProfileDocumentUpdateParams body, String appSlug, String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call provisioningProfileUpdateValidateBeforeCall(V0ProvProfileDocumentUpdateParams body, String appSlug,
+            String provisioningProfileSlug, final ProgressResponseBody.ProgressListener progressListener,
+            final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling provisioningProfileUpdate(Async)");
@@ -791,26 +856,25 @@ public class ProvisioningProfileApi {
         if (provisioningProfileSlug == null) {
             throw new ApiException("Missing the required parameter 'provisioningProfileSlug' when calling provisioningProfileUpdate(Async)");
         }
-        
-        com.squareup.okhttp.Call call = provisioningProfileUpdateCall(body, appSlug, provisioningProfileSlug, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = provisioningProfileUpdateCall(body, appSlug, provisioningProfileSlug, progressListener,
+                progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Update a provisioning profile
      * Update an uploaded provisioning profile&#x27;s attributes. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Updating an uploaded iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param body Provisioning profile parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                    Provisioning profile parameters (required)
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
      * @return V0ProvisionProfileResponseModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public V0ProvisionProfileResponseModel provisioningProfileUpdate(V0ProvProfileDocumentUpdateParams body, String appSlug, String provisioningProfileSlug) throws ApiException {
+    public V0ProvisionProfileResponseModel provisioningProfileUpdate(V0ProvProfileDocumentUpdateParams body, String appSlug,
+            String provisioningProfileSlug) throws ApiException {
         ApiResponse<V0ProvisionProfileResponseModel> resp = provisioningProfileUpdateWithHttpInfo(body, appSlug, provisioningProfileSlug);
         return resp.getData();
     }
@@ -818,29 +882,34 @@ public class ProvisioningProfileApi {
     /**
      * Update a provisioning profile
      * Update an uploaded provisioning profile&#x27;s attributes. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Updating an uploaded iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param body Provisioning profile parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                    Provisioning profile parameters (required)
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
      * @return ApiResponse&lt;V0ProvisionProfileResponseModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileUpdateWithHttpInfo(V0ProvProfileDocumentUpdateParams body, String appSlug, String provisioningProfileSlug) throws ApiException {
+    public ApiResponse<V0ProvisionProfileResponseModel> provisioningProfileUpdateWithHttpInfo(V0ProvProfileDocumentUpdateParams body, String appSlug,
+            String provisioningProfileSlug) throws ApiException {
         com.squareup.okhttp.Call call = provisioningProfileUpdateValidateBeforeCall(body, appSlug, provisioningProfileSlug, null, null);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Update a provisioning profile (asynchronously)
      * Update an uploaded provisioning profile&#x27;s attributes. You can fetch the provisioning profile&#x27;s slug if you call the [GET /apps/{app-slug}/provisioning-profiles](https://api-docs.bitrise.io/#/provisioning-profile/provisioning-profile-list) endpoint. Read more in our [Updating an uploaded iOS code signing file](https://devcenter.bitrise.io/api/managing-ios-code-signing-files/#confirming-the-ios-code-signing-file-upload) guide.
-     * @param body Provisioning profile parameters (required)
-     * @param appSlug App slug (required)
+     *
+     * @param body                    Provisioning profile parameters (required)
+     * @param appSlug                 App slug (required)
      * @param provisioningProfileSlug Provisioning profile slug (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call provisioningProfileUpdateAsync(V0ProvProfileDocumentUpdateParams body, String appSlug, String provisioningProfileSlug, final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
+    public com.squareup.okhttp.Call provisioningProfileUpdateAsync(V0ProvProfileDocumentUpdateParams body, String appSlug,
+            String provisioningProfileSlug, final ApiCallback<V0ProvisionProfileResponseModel> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -861,8 +930,10 @@ public class ProvisioningProfileApi {
             };
         }
 
-        com.squareup.okhttp.Call call = provisioningProfileUpdateValidateBeforeCall(body, appSlug, provisioningProfileSlug, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>(){}.getType();
+        com.squareup.okhttp.Call call = provisioningProfileUpdateValidateBeforeCall(body, appSlug, provisioningProfileSlug, progressListener,
+                progressRequestListener);
+        Type localVarReturnType = new TypeToken<V0ProvisionProfileResponseModel>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

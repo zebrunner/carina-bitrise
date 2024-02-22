@@ -12,7 +12,6 @@
 
 package com.zebrunner.carina.bitrise.client;
 
-
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 
